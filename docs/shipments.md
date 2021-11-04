@@ -1,5 +1,0 @@
----
-id: shipments
-title: Shipments
----
-

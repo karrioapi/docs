@@ -91,9 +91,9 @@ const sidebars = {
       label: 'REST API',
       collapsible: false,
       items: [
-        'reference/rest-api/clients',
-        'reference/rest-api/installing',
-        'reference/rest-api/initializing'
+        'reference/openapi/clients',
+        'reference/openapi/installing',
+        'reference/openapi/initializing'
       ],
     },
     {
