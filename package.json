@@ -23,7 +23,6 @@
     "@svgr/webpack": "^5.5.0",
     "bulma": "^0.9.3",
     "clsx": "^1.1.1",
-    "docusaurus-plugin-sass": "^0.2.1",
     "file-loader": "^6.2.0",
     "postcss": "^8.3.11",
     "postcss-import": "^14.0.2",

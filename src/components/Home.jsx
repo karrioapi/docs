@@ -18,17 +18,20 @@ function Home() {
 
   function Header() {
     return (
-      <header id="hero" className="relative uil-ph-16 uil-ta-center uil-pos-relative uil-pv-80 lg:uil-pv-120">
-        <div className="absolute inset-0 bg-no-repeat bg-center hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
-        <div className="uil-pos-relative uil-z-1 uil-maw-500 uil-m-auto md:uil-maw-1440">
-          <h1 className={`uil-fsz-36 uil-lsp-small uil-lh-small uil-fw-bold lg:uil-fsz-56 uil-ff-poppins ${isDarkTheme ? 'uil-color-white' : 'uil-color-grey-800'} uil-m-0 uil-maw-35ch uil-mr-auto uil-ml-auto`}>
+      <header id="hero" className="relative py-28">
+        <div className="absolute inset-0 bg-no-repeat bg-cover lg:bg-auto bg-top hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
+        <div className="relative max-w-lg m-auto">
+          <h1 className={`text-5xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
             The Open Source Shipping Platform
           </h1>
-          <div className="uil-mt-32 uil-mh-auto uil-d-flex uil-fxd-column uil-ai-center xs:uil-fxd-row xs:uil-jc-center lg:uil-mt-48">
-            <a href="/beta" className="ml-1 text-white font-bold px-6 py-3 rounded-full outline-none focus:outline-none mr-1 mb-1 text-sm shadow hover:shadow-lg" style={{ background: 'var(--ifm-color-primary)' }}>
+          <div className="mt-12 m-x-auto flex justify-center">
+            {/* <a href="/beta" className="ml-1 text-white font-bold px-6 py-4 rounded-full outline-none focus:outline-none mr-1 mb-1 text-sm shadow hover:shadow-lg no-underline" style={{ background: 'var(--ifm-color-primary)' }}>
               <span>Join Beta</span>
             </a>
-            <a href="/docs" className="ml-1 bg-white font-bold px-6 py-3 rounded-full outline-none focus:outline-none mr-1 mb-1 text-sm shadow hover:shadow-lg" style={{ color: 'var(--ifm-color-primary)' }}>
+            <a href="/docs" className="ml-1 bg-white font-bold px-6 py-4 rounded-full outline-none focus:outline-none mr-1 mb-1 text-sm shadow hover:shadow-lg no-underline" style={{ color: 'var(--ifm-color-primary)' }}>
+              <span>Get Started</span>
+            </a> */}
+            <a href="/docs" className="ml-1 text-white font-bold px-6 py-4 rounded-full outline-none focus:outline-none mr-1 mb-1 text-sm shadow hover:shadow-lg no-underline" style={{ background: 'var(--ifm-color-primary)' }}>
               <span>Get Started</span>
             </a>
           </div>
@@ -41,7 +44,7 @@ function Home() {
     return (
       <>
         {/* Showcase */}
-        <div className="py-16 overflow-hidden">
+        <div className="pt-6 pb-16 overflow-hidden">
           <div className="relative max-w-xl mx-auto px-4 md:px-6 lg:px-8 lg:max-w-screen-xl">
             <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto text-center">
@@ -101,12 +104,12 @@ function Home() {
                     href={href}
                     rel="noreferrer"
                     target="_blank"
-                    alt={`Discover DocSearch on the ${name} documentation`}
+                    alt={`Discover purplship on the ${name} documentation`}
                   >
                     <img
                       className="inline-block h-20 w-20"
                       src={withBaseUrl(image)}
-                      alt={`Discover DocSearch on the ${name} documentation`}
+                      alt={`Discover purplship on the ${name} documentation`}
                     />
                   </a>
                 </div>
@@ -279,16 +282,16 @@ function Home() {
         <div className="py-16 overflow-hidden lg:py-24">
           <div className="relative max-w-xl mx-auto px-4 md:px-6 lg:px-8 lg:max-w-screen-xl">
             <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-              <div className="relative">
+              <div className="relative lg:mr-20 md:mr-20">
                 <h4 className="text-2xl leading-8 font-extrabold tracking-tight md:text-3xl md:leading-9">
                   Made for developers
                 </h4>
-                <h6 className="text-xl leading-5 font-bold md:text-2xl md:leading-6">
+                <h6 className="text-xl leading-4 font-semibold">
                   The most advanced open source shipping platform.
                 </h6>
                 <p className="mt-3 mb-3 text-lg leading-7 text-description">
                   No more painful in-house carrier API integrations.
-                  No more dependence and 3rd party vendor lockin for
+                  No more dependence and 3rd party and vendor lockin for
                   your logistics and shipping integrations. We obsess
                   over the right abstractions so your teams don’t
                   have to, or spend months integrating shipping functionality.
@@ -296,16 +299,16 @@ function Home() {
                   extensions through Webhooks, REST and GraphQL API.
                 </p>
 
-                <a href="/docs" className="bg-white font-bold px-6 py-3 rounded-full outline-none focus:outline-none ml-1 mr-1 mb-1 mt-6 text-sm shadow hover:shadow-lg" style={{ color: 'var(--ifm-color-primary)' }}>
+                <a href="/docs" className="bg-white font-bold px-6 py-4 rounded-full outline-none focus:outline-none my-8 text-sm shadow hover:shadow-lg no-underline" style={{ color: 'var(--ifm-color-primary)' }}>
                   <span>Read Docs</span>
                 </a>
               </div>
 
-              <div className="mt-10 -mx-4 lg:mt-0 uil-ta-center">
+              <div className="mt-10 -mx-4 lg:mt-0">
                 <img
                   className="relative mx-auto"
                   src={withBaseUrl('img/illustrations/platform.svg')}
-                  alt="docsearch-modal"
+                  alt="purplship-modal"
                 />
               </div>
             </div>
@@ -414,7 +417,7 @@ function Home() {
                 shipping service.
               </p>
               <div className="pt-12 items-center justify-center flex">
-                <a href="/docs" className="ml-1 text-white font-bold px-6 py-3 rounded-full outline-none focus:outline-none mr-1 mb-1 text-sm shadow hover:shadow-lg" style={{ background: 'var(--ifm-color-primary)' }}>
+                <a href="/docs" className="ml-1 text-white font-bold px-6 py-4 rounded-full outline-none focus:outline-none mr-1 mb-1 text-sm shadow hover:shadow-lg no-underline" style={{ background: 'var(--ifm-color-primary)' }}>
                   <span>Get Started</span>
                 </a>
               </div>
