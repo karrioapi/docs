@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Canada Post",
+    "image": "img/carriers/canadapost_icon.svg",
+    "href": "/docs/carriers/canadapost"
+  },
+  {
+    "name": "USPS",
+    "image": "img/carriers/usps_icon.svg",
+    "href": "/docs/carriers/usps"
+  },
+  {
+    "name": "Australia Post",
+    "image": "img/carriers/australiapost_icon.svg",
+    "href": "/docs/carriers/australiapost"
+  },
+  {
+    "name": "FedEx",
+    "image": "img/carriers/fedex_icon.svg",
+    "href": "/docs/carriers/fedex"
+  },
+  {
+    "name": "DHL",
+    "image": "img/carriers/dhl_express_icon.svg",
+    "href": "/docs/carriers/dhl_express"
+  },
+  {
+    "name": "UPS",
+    "image": "img/carriers/ups_icon.svg",
+    "href": "/docs/carriers/ups"
+  },
+  {
+    "name": "Purolator",
+    "image": "img/carriers/purolator_icon.svg",
+    "href": "/docs/carriers/purolator"
+  },
+  {
+    "name": "Canpar",
+    "image": "img/carriers/canpar_icon.svg",
+    "href": "/docs/carriers/canpar"
+  },
+  {
+    "name": "Aramex",
+    "image": "img/carriers/aramex_icon.svg",
+    "href": "/docs/carriers/aramex"
+  },
+  {
+    "name": "Sendle",
+    "image": "img/carriers/sendle_icon.svg",
+    "href": "/docs/carriers/sendle"
+  }
+]

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build:clean": "rm -rf dist build .docusaurus node_modules",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -15,8 +16,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.8",
-    "@docusaurus/preset-classic": "2.0.0-beta.8",
+    "@docusaurus/core": "^2.0.0-beta.9",
+    "@docusaurus/preset-classic": "^2.0.0-beta.9",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
@@ -24,15 +25,20 @@
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.2.1",
     "file-loader": "^6.2.0",
+    "postcss": "^8.3.11",
+    "postcss-import": "^14.0.2",
+    "postcss-preset-env": "^6.7.0",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "sass": "^1.43.4",
+    "tailwind-loader": "file:plugins/tailwind-loader",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-beta.8",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.9",
+    "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
     "@tsconfig/docusaurus": "^1.0.4",
+    "tailwindcss": "^2.2.19",
     "typescript": "^4.3.5"
   },
   "browserslist": {

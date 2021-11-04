@@ -16,7 +16,7 @@ const config = {
   organizationName: 'purplship', // Usually your GitHub org/user name.
   projectName: 'purplship', // Usually your repo name.
 
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: ['tailwind-loader'],
 
   presets: [
     [
@@ -35,7 +35,7 @@ const config = {
             'https://github.com/purplship/about/edit/main/blog/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.scss'),
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
@@ -48,15 +48,15 @@ const config = {
         title: '',
         logo: {
           alt: 'purplship',
-          src: 'img/logo-docs.svg',
-          srcDark: 'img/logo-inverted-docs.svg',
+          src: 'img/logo.svg',
+          srcDark: 'img/logo-inverted.svg',
         },
         items: [
           {
             type: 'doc',
             docId: 'introduction',
             position: 'left',
-            label: 'Overview',
+            label: 'Docs',
           },
           {
             to: '/docs/guides',
@@ -73,9 +73,13 @@ const config = {
             position: 'left',
             label: 'Carriers',
           },
-          { to: '/blog', label: 'Blog', position: 'right' },
           {
-            href: 'https://github.com/purplship/about',
+            to: '/blog',
+            label: 'Blog',
+            position: 'right'
+          },
+          {
+            href: 'https://github.com/purplship/purplship',
             position: 'right',
             className: 'header-github-link',
           },
@@ -136,6 +140,10 @@ const config = {
             ],
           },
         ],
+        logo: {
+          alt: 'Purplship Logo',
+          src: 'img/logo-inverted.svg',
+        },
         copyright: `Copyright © ${new Date().getFullYear()} purplship`,
       },
       prism: {
