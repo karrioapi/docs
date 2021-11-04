@@ -10,7 +10,7 @@ const config = {
   tagline: 'Open Source, On-prem or Private cloud Shipping API',
   url: 'https://purplship.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'purplship', // Usually your GitHub org/user name.
