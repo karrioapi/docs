@@ -1,0 +1,102 @@
+---
+id: development
+title: Development
+---
+
+We recommend using Docker because it takes care of all of the necessary dependencies.
+
+
+## Prerequisites
+
+You will need to install:
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+
+## Installation using Docker Compose
+
+- Create `.env` file
+
+```conf
+DEBUG_MODE=True
+ALLOWED_HOSTS=*
+DATABASE_HOST=db
+DATABASE_PORT=5432
+DATABASE_NAME=db
+DATABASE_USERNAME=postgres
+DATABASE_PASSWORD=postgres
+DETACHED_WORKER=False
+```
+
+- Create a `docker-compose.yml` file
+
+```yaml
+version: '3'
+
+services:
+  pship:
+    container_name: pship
+    image: danh91.docker.scarf.sh/purplship/server:[VERSION-TAG]
+    restart: unless-stopped
+    ports:
+      - "5002:5002"
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+    networks:
+      - db_network
+      - web_network
+    volumes:
+      - pshipstatics:/pship/static
+
+  dashboard:
+    container_name: dashboard
+    image: danh91.docker.scarf.sh/purplship/dashboard:[VERSION-TAG]
+    ports:
+      - "3000:3000"
+    environment:
+      - 'NEXT_PUBLIC_PURPLSHIP_API_URL=http://[YOUR-LOCAL-IP-ADDRESS]:5002'
+      - 'NEXTAUTH_URL=http://[YOUR-LOCAL-IP-ADDRESS]:3000'
+      - JWT_SECRET="n*s-ex6@ex_r1i%bk=3jd)p+lsick5bi*90!mbk7rc3iy_op1r"
+    networks:
+      - web_network
+
+  db:
+    container_name: db
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      PGDATA: /var/lib/postgresql/data/sandbox
+    networks:
+      - db_network
+
+volumes:
+  redisdata:
+  pshipstatics:
+  purplship-db:
+
+networks:
+  db_network:
+  web_network:
+```
+
+- Run the application
+
+```terminal
+docker-compose up
+```
+
+The **purplship server** should be running at [http://0.0.0.0:5002](http://0.0.0.0:5002). <br/>
+The **purplship dashboard** should be running at [http://0.0.0.0:3000](http://0.0.0.0:3000).
+
+Log in with the default admin account `admin@example.com` | `demo`
+
+
+## Next steps
+
+- Got a question? [Ask here](https://github.com/purplship/purplship/discussions).

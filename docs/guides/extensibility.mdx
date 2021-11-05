@@ -1,0 +1,19 @@
+---
+id: extensibility
+title: Extensibility
+---
+
+The obvious way to extend the purplship server would be to download
+the source code and modify it directly. After all it's an open-source
+platform. We advise against this as experience teaches us that once
+your store diverges from the upstream purplship server, it becomes
+hard to keep it updated.
+
+Because of this we advice the use development of **Apps** that are
+external applications that talk to purplship server using its
+**GraphQL** and **REST APIs** additionally, they can subscribe to events
+using **webhooks**.
+
+<figure style={{ margin: "7rem" }}>
+  <img src="/img/assets/purplship-apps-architecture.svg" width="90%" />
+</figure>

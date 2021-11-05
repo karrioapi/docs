@@ -144,3 +144,18 @@ hero-illustration {
   padding-bottom: 55.27%;
   bottom: calc(-22.5vw + 100px);
 }
+
+/* Sidebar nav header  */
+.menu > .menu__list > .menu__list-item > .menu__link {
+  margin-bottom: 4px;
+  color: gray;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.menu__link {
+  font-size: 0.85rem;
+  font-weight: bold;
+}

@@ -32,46 +32,24 @@ const sidebars = {
       type: 'category',
       label: 'GUIDES',
       collapsible: false,
-      items: ['guides/overview'],
-    },
-    {
-      type: 'category',
-      label: 'CONNECTIONS',
-      collapsible: false,
       items: [
-        'guides/connections/carrier-connections',
-        'guides/connections/connection-mode'
+        'guides/overview',
+        'guides/architecture',
+        'guides/development',
+        'guides/openapi',
+        'guides/graphql',
+        'guides/extensibility',
       ],
     },
     {
       type: 'category',
-      label: 'SHIPPING',
+      label: 'SELF HOSTING',
       collapsible: false,
       items: [
-        'guides/shipping/live-rates',
-        'guides/shipping/buy-label',
-        'guides/shipping/print-label',
-        'guides/shipping/international',
-        'guides/shipping/void-label'
-      ],
-    },
-    {
-      type: 'category',
-      label: 'TRACKING',
-      collapsible: false,
-      items: [
-        'guides/tracking/shipment-tracking',
-        'guides/tracking/branded-page'
-      ],
-    },
-    {
-      type: 'category',
-      label: 'ADMIN',
-      collapsible: false,
-      items: [
-        'guides/admin/email-configuration',
-        'guides/admin/address-validation',
-        'guides/admin/price-addon'
+        'guides/self-hosting/overview',
+        'guides/self-hosting/configuration',
+        'guides/self-hosting/docker',
+        'guides/self-hosting/heroku',
       ],
     },
   ],
@@ -82,8 +60,6 @@ const sidebars = {
       collapsible: false,
       items: [
         'reference/reference',
-        'reference/apis/rest',
-        'reference/apis/graphql'
       ],
     },
     {
