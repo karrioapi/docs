@@ -14,7 +14,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'purplship', // Usually your GitHub org/user name.
-  projectName: 'purplship', // Usually your repo name.
+  projectName: 'Purplship', // Usually your repo name.
 
   plugins: ['tailwind-loader'],
 
@@ -44,6 +44,8 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      image: 'img/purplship.png',
+      metaImage: 'img/purplship.png',
       navbar: {
         title: '',
         logo: {

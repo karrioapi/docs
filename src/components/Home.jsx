@@ -19,7 +19,7 @@ function Home() {
   function Header() {
     return (
       <header id="hero" className="relative py-28">
-        <div className="absolute inset-0 bg-no-repeat bg-cover lg:bg-auto bg-top hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
+        <div className="absolute inset-0 bg-no-repeat bg-contain lg:bg-auto bg-top hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
         <div className="relative max-w-lg m-auto">
           <h1 className={`text-5xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
             The Open Source Shipping Platform
