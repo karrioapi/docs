@@ -89,7 +89,7 @@ function Home() {
                           OSS Downloads
                         </dt>
                         <dd className="order-1 text-5xl leading-none font-extrabold" style={{ color: 'var(--ifm-color-primary)' }}>
-                          +2000
+                          +10000
                         </dd>
                       </div>
                     </dl>
