@@ -138,11 +138,17 @@ html[data-theme="dark"] .header-github-link:before {
 
 /* Purplship */
 
-hero-illustration {
+.hero-illustration {
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
-  padding-bottom: 55.27%;
+  padding-bottom: 40%;
   bottom: calc(-22.5vw + 100px);
+}
+
+@media screen and (max-width: 768px) {
+  .hero-illustration {
+    display: none;
+  }
 }
 
 /* Sidebar nav header  */

@@ -19,7 +19,7 @@ function Home() {
   function Header() {
     return (
       <header id="hero" className="relative py-28">
-        <div className="absolute inset-0 bg-no-repeat bg-contain lg:bg-auto bg-top hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
+        <div className="absolute inset-x-0 top-0 hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
         <div className="relative max-w-lg m-auto">
           <h1 className={`text-4xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
             Shipping infrastructure for your enterprise
@@ -89,7 +89,7 @@ function Home() {
                           OSS Downloads
                         </dt>
                         <dd className="order-1 text-5xl leading-none font-extrabold" style={{ color: 'var(--ifm-color-primary)' }}>
-                          +10000
+                          +10K
                         </dd>
                       </div>
                     </dl>
@@ -292,7 +292,7 @@ function Home() {
                 <h6 className="text-xl leading-4 font-semibold">
                   The most advanced open source shipping platform.
                 </h6>
-                <p className="mt-3 mb-3 text-lg leading-7 text-description">
+                <p className="mt-3 mb-10 text-lg leading-7 text-description">
                   No more painful in-house carrier API integrations.
                   No more dependence and 3rd party and vendor lockin for
                   your logistics and shipping integrations. We obsess
@@ -307,7 +307,7 @@ function Home() {
                 </a>
               </div>
 
-              <div className="mt-10 -mx-4 lg:mt-0">
+              <div className="mt-10 mx-4 lg:mt-0">
                 <img
                   className="relative mx-auto"
                   src={withBaseUrl('img/illustrations/platform.svg')}
