@@ -24,7 +24,7 @@ function Home() {
           <h1 className={`text-4xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
             Shipping infrastructure for your enterprise
           </h1>
-          <h4 className={`text-xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-400'} m-2`}>
+          <h4 className={`text-xl text-center ${isDarkTheme ? 'text-gray-100' : 'text-gray-400'} m-2`}>
             purplship is a modern, open source shipping platform built for developers
           </h4>
           <div className="mt-12 m-x-auto flex justify-center">
@@ -86,7 +86,7 @@ function Home() {
                       </div>
                       <div className="flex flex-col border-t p-6 text-center lg:border-0 lg:border-l showcase-border">
                         <dt className="order-2 mt-2 text-lg leading-6 font-medium text-description">
-                          Purplship Downloads
+                          OSS Downloads
                         </dt>
                         <dd className="order-1 text-5xl leading-none font-extrabold" style={{ color: 'var(--ifm-color-primary)' }}>
                           +2000
