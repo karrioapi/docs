@@ -21,9 +21,12 @@ function Home() {
       <header id="hero" className="relative py-28">
         <div className="absolute inset-0 bg-no-repeat bg-contain lg:bg-auto bg-top hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
         <div className="relative max-w-lg m-auto">
-          <h1 className={`text-5xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
-            The Open Source Shipping Platform
+          <h1 className={`text-4xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
+            Shipping infrastructure for your enterprise
           </h1>
+          <h4 className={`text-xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-400'} m-2`}>
+            purplship is a modern, open source shipping platform built for developers
+          </h4>
           <div className="mt-12 m-x-auto flex justify-center">
             {/* <a href="/beta" className="ml-1 text-white font-bold px-6 py-4 rounded-full outline-none focus:outline-none mr-1 mb-1 text-sm shadow hover:shadow-lg no-underline" style={{ background: 'var(--ifm-color-primary)' }}>
               <span>Join Beta</span>
