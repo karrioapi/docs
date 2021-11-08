@@ -66,7 +66,8 @@ const sidebars = {
       type: 'category',
       label: 'SDK',
       items: [
-        'guides/sdk/overview',
+        'guides/sdk/introduction',
+        'guides/sdk/architecture',
         'guides/sdk/gateways',
         'guides/sdk/rating',
         'guides/sdk/shipping',
