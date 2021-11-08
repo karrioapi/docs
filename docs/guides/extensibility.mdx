@@ -6,14 +6,50 @@ title: Extensibility
 The obvious way to extend the purplship server would be to download
 the source code and modify it directly. After all it's an open-source
 platform. We advise against this as experience teaches us that once
-your store diverges from the upstream purplship server, it becomes
+your codebase diverges from the upstream purplship, it becomes
 hard to keep it updated.
 
 Because of this we advice the use development of **Apps** that are
-external applications that talk to purplship server using its
-**GraphQL** and **REST APIs** additionally, they can subscribe to events
-using **webhooks**.
+external applications that talk to purplship server using its **GraphQL** 
+and **REST APIs** additionally, they can subscribe to events using 
+**webhooks**.
 
 <figure style={{ margin: "7rem" }}>
   <img src="/img/assets/purplship-apps-architecture.svg" width="90%" />
 </figure>
+
+
+## Shipping API
+
+Purplship brings a set of APIs to interact with shipping provider services.
+You can use the purplship REST OpenAPI to get live rates, generate labels,
+track shipments, manage pickups and more.
+
+> Learn more about Purplship REST API [here](/docs/guides/api).
+
+
+## Shipping Data
+
+Purplship offer the possibility to store the shipping data related to your
+shipping operations in a **database**. The purplship GraphQL API allows you
+to access, query and visualize that data.
+
+> Learn more about Purplship GraphQL [here](/docs/guides/data).
+
+
+## Custom Carrier Integration
+
+In addition to being open source, purplship exposes its low level shipping 
+SDK that abstracts the shipping provider integration constructs. This allows
+you to add your custom shipping carrier integration to the purplship umbrella.
+
+> Learn more about Purplship SDK [here](/docs/guides/sdk).
+
+
+
+## Next steps
+
+- Got a question? [Ask here](https://github.com/purplship/purplship/discussions).
+- Discover the Purplship Shipping API [here](/docs/guides/api).
+- Disvover the Purplship Shipping Data [here](/docs/guides/data).
+- Disvover the Purplship Shipping SDK [here](/docs/guides/sdk).

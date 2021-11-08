@@ -165,3 +165,8 @@ html[data-theme="dark"] .header-github-link:before {
   font-size: 0.85rem;
   font-weight: bold;
 }
+
+#tabs code {
+  max-height: 40vh;
+  overflow: scroll;
+}
