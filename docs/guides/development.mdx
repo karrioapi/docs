@@ -37,14 +37,13 @@ version: '3'
 services:
   pship:
     container_name: pship
-    image: danh91.docker.scarf.sh/purplship/server:[VERSION-TAG]
+    image: danh91.docker.scarf.sh/purplship/server:2021.10
     restart: unless-stopped
     ports:
       - "5002:5002"
     env_file: .env
     depends_on:
       - db
-      - redis
     networks:
       - db_network
       - web_network
@@ -53,7 +52,7 @@ services:
 
   dashboard:
     container_name: dashboard
-    image: danh91.docker.scarf.sh/purplship/dashboard:[VERSION-TAG]
+    image: danh91.docker.scarf.sh/purplship/dashboard:2021.10
     ports:
       - "3000:3000"
     environment:
@@ -76,7 +75,6 @@ services:
       - db_network
 
 volumes:
-  redisdata:
   pshipstatics:
   purplship-db:
 
