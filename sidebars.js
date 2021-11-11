@@ -92,10 +92,10 @@ const sidebars = {
   reference: [
     {
       type: 'category',
-      label: 'APIs',
+      label: 'DEV TOOLS',
       collapsible: false,
       items: [
-        'reference/reference',
+        'reference/quickstart',
       ],
     },
     {
@@ -103,9 +103,6 @@ const sidebars = {
       label: 'REST API',
       collapsible: false,
       items: [
-        'reference/openapi/clients',
-        'reference/openapi/installing',
-        'reference/openapi/initializing'
       ],
     },
     {

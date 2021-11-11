@@ -1,0 +1,199 @@
+---
+id: quickstart
+title: Quickstart
+slug: /reference
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Development quickstart
+
+Get up and running with our client libraries and start developing your Purplship
+integration.
+
+Integrating Purplship into your app or website can begin as soon as you create
+a Purplship account, and requires three steps:
+
+1. [Intall a client library](#1-install-a-client-library) so your integration
+can interact with the Purplship API
+2. [Obtain your API keys](#2-obtain-your-api-key) so Purplship can authenticate
+your integration’s API requests
+3. [Make a test API request](#3-make-a-test-api-request) to confirm everything
+is up and running
+
+
+---
+
+
+## `1` Install a client library
+
+We provide official libraries for different programming languages.
+
+<div id="tabs">
+<Tabs>
+<TabItem value="node" label="Node">
+
+```shell
+# Install via npm
+npm install --save purplship
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```shell
+# Install through pip
+pip install --upgrade purplship-python
+```
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+```shell
+# Install the PHP library via Composer
+composer require purplship/purplship-php
+```
+
+</TabItem>
+<TabItem value="js" label="Javascript">
+
+```shell
+# Add script to an HTML page
+<script src="https://[api.purplship.com]/static/js/purplship.js"></script>
+```
+
+</TabItem>
+</Tabs>
+</div>
+
+
+## `2` Obtain your API keys
+
+Purplship authenticates your API requests using your account’s API keys.
+If you don’t include your key when making an API request, or use one
+that is incorrect or outdated, Purplship returns an error.
+
+Purplship accounts support two type of keys: an `API key` ideal for server
+applications and a `JWT key` ideal for client applications.
+
+You can generate new `JWT key` by API requests providing an account
+credentials (email, password). For convenience, your `API key` is
+always available in the Dashboard
+
+
+<img src="/img/assets/api-key.png" width="90%" />
+
+
+## `3` Make a test API request
+
+To check that your integration is working correctly, make a test API request
+using your `API key` to create an Address.
+
+<div id="tabs">
+<Tabs>
+<TabItem value="node" label="Node">
+
+```shell
+/ Set your API key.
+// See your keys here: https://cloud.purplship.com/developers/api
+const purplship = require('purplship')('key_...');
+
+const metadata = await purplship.addresses.create({
+	"address_line1": "125 Church St",
+	"person_name": "John Doe",
+	"city": "Moncton",
+	"country_code": "CA",
+	"postal_code": "E1C4Z8",
+	"state_code": "NB",
+});
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```shell
+
+# Set your secret key. Remember to switch to your live secret key in production.
+# See your keys here: https://dashboard.stripe.com/apikeys
+import purplship
+purplship.api_key = 'key_...'
+
+metadata = purplship.addresses.create({
+	"address_line1": "125 Church St",
+	"person_name": "John Doe",
+	"city": "Moncton",
+	"country_code": "CA",
+	"postal_code": "E1C4Z8",
+	"state_code": "NB",
+});
+```
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+```shell
+/ Set your API key.
+// See your keys here: https://cloud.purplship.com/developers/api
+$purplship = new \Purplship\Purplship('key_...');
+
+$metadata = $purplship->addresses->create([
+  "address_line1" => "125 Church St",
+  "person_name" => "Johm Doe",
+  "city" => "Moncton",
+  "country_code" => "CA",
+  "postal_code" => "E1C4Z8",
+  "state_code" => "NB",
+]);
+```
+
+</TabItem>
+<TabItem value="js" label="Javascript">
+
+```shell
+/ Set your API key.
+// See your keys here: https://cloud.purplship.com/developers/api
+const purplship = new purplship.Purplship({ apiKey: 'key_...' });
+
+(async () => {
+  const metadata = await purplship.addresses.create({
+    "address_line1": "125 Church St",
+    "person_name": "John Doe",
+    "city": "Moncton",
+    "country_code": "CA",
+    "postal_code": "E1C4Z8",
+    "state_code": "NB",
+  });
+})();
+```
+
+</TabItem>
+</Tabs>
+</div>
+
+Purplship returns an Address object in response to your API request.
+
+```json
+{
+  "id": "adr_7686aff180044495a83610713d47c38a",
+  "postal_code": "E1C4Z8",
+  "city": "Moncton",
+  "federal_tax_id": null,
+  "state_tax_id": null,
+  "person_name": "John Doe",
+  "company_name": null,
+  "country_code": "CA",
+  "email": null,
+  "phone_number": null,
+  "state_code": "NB",
+  "suburb": null,
+  "residential": false,
+  "address_line1": "125 Church St",
+  "address_line2": null,
+  "validate_location": false,
+  "validation": null
+}
+```
+
+## Next Steps
+
+After you successfully make an API request, pick a guide to continue your integration.

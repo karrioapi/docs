@@ -103,7 +103,7 @@ const config = {
               },
               {
                 label: 'Reference',
-                to: '/docs/introduction',
+                to: '/docs/reference',
               },
               {
                 label: 'Carriers',
@@ -147,6 +147,10 @@ const config = {
           src: 'img/logo-inverted.svg',
         },
         copyright: `Copyright © ${new Date().getFullYear()} purplship`,
+      },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
       },
       prism: {
         theme: lightCodeTheme,
