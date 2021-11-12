@@ -104,8 +104,7 @@ const sidebars = {
       label: 'Core Resources',
       collapsible: false,
       items: [
-        'reference/core-resources/auth',
-        'reference/core-resources/metadata',
+        'reference/core-resources/authentication',
         'reference/core-resources/carriers',
         'reference/core-resources/shipments',
         'reference/core-resources/trackers',

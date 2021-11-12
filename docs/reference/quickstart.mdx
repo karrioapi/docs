@@ -79,9 +79,9 @@ If you don’t include your key when making an API request, or use one
 that is incorrect or outdated, Purplship returns an error.
 
 Purplship accounts support two type of keys: an `API key` ideal for server
-applications and a `JWT key` ideal for client applications.
+applications and a `JSON Web Token` ideal for client applications.
 
-You can generate new `JWT key` by API requests providing an account
+You can generate new `JSON Web Token` by API requests providing an account
 credentials (email, password). For convenience, your `API key` is
 always available in the Dashboard
 
@@ -101,12 +101,12 @@ using your `API key` to create an Address.
 <Tabs>
 <TabItem value="node" label="Node">
 
-```shell
+```javascript
 // Set your API key.
 // See your keys here: https://cloud.purplship.com/developers/api
 const purplship = require('purplship')('key_...');
 
-const metadata = await purplship.addresses.create({
+const adddress = await purplship.addresses.create({
 	"address_line1": "125 Church St",
 	"person_name": "John Doe",
 	"city": "Moncton",
@@ -119,14 +119,14 @@ const metadata = await purplship.addresses.create({
 </TabItem>
 <TabItem value="python" label="Python">
 
-```shell
+```python
 
 # Set your secret key. Remember to switch to your live secret key in production.
 # See your keys here: https://dashboard.stripe.com/apikeys
 import purplship
 purplship.api_key = 'key_...'
 
-metadata = purplship.addresses.create({
+adddress = purplship.addresses.create({
 	"address_line1": "125 Church St",
 	"person_name": "John Doe",
 	"city": "Moncton",
@@ -139,12 +139,12 @@ metadata = purplship.addresses.create({
 </TabItem>
 <TabItem value="php" label="PHP">
 
-```shell
+```php
 // Set your API key.
 // See your keys here: https://cloud.purplship.com/developers/api
 $purplship = new \Purplship\Purplship('key_...');
 
-$metadata = $purplship->addresses->create([
+$adddress = $purplship->addresses->create([
   "address_line1" => "125 Church St",
   "person_name" => "Johm Doe",
   "city" => "Moncton",
@@ -157,13 +157,13 @@ $metadata = $purplship->addresses->create([
 </TabItem>
 <TabItem value="js" label="Javascript">
 
-```shell
+```javascript
 // Set your API key.
 // See your keys here: https://cloud.purplship.com/developers/api
-const purplship = new purplship.Purplship({ apiKey: 'key_...' });
+const purplship = Purplship('key_...');
 
 (async () => {
-  const metadata = await purplship.addresses.create({
+  const adddress = await purplship.addresses.create({
     "address_line1": "125 Church St",
     "person_name": "John Doe",
     "city": "Moncton",
