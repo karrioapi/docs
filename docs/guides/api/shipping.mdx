@@ -13,12 +13,12 @@ Purplship exposes API endpoints that forwards shipping requests to the carrier's
 
 From a technical perspective, the shipping process can visualized as follow
 
-> <img src="/img/assets/shipping-flow.svg" />
+<img src="/img/assets/shipping-flow.svg" />
 
 
 ## Proxy Request APIs
 
-The proxy APIs allow you to send shipping requests to carriers without creating 
+The proxy APIs allow you to send shipping requests to carriers without creating
 any objects in purplship.
 
 :::info
@@ -29,7 +29,7 @@ In that schenario, purplship is just a proxy that forward requests.
 
 > `POST` /v1/proxy/rates
 
-You can use the this endpoint to get shipping rates from a carrier. based off 
+You can use the this endpoint to get shipping rates from a carrier. based off
 the provided shipping details.
 
 <div id="tabs">
@@ -140,7 +140,7 @@ curl --request POST \
 You can use this endpoint to buy a shipping service from a carrier and get
 a label in return.
 
-To buy a shipping label, you need to provide the shipping details, the rates 
+To buy a shipping label, you need to provide the shipping details, the rates
 retrieved previously and the preferred rate' `selected_rate_id`.
 
 <div id="tabs">
@@ -420,8 +420,8 @@ curl --request POST \
 
 ## Shipments Management APIs
 
-The shipments management APIs offer a set of endpoints around the purplship unified 
-shipment object. 
+The shipments management APIs offer a set of endpoints around the purplship unified
+shipment object.
 
 
 **Create a shipment**
@@ -429,7 +429,7 @@ shipment object.
 > `POST` /v1/shipments
 
 You can use this endpoint to create a shipment object in the purplship system and
-retrieve shipping rates for it. 
+retrieve shipping rates for it.
 
 <div id="tabs">
 <Tabs>
@@ -641,7 +641,7 @@ curl --request POST \
 > `POST` /v1/shipments/{shipment_id}/purchase`
 
 Since the shipment object is stored on the purplship server, all you need is to
-provide the preferred shipping rate id to buy the label. 
+provide the preferred shipping rate id to buy the label.
 
 <div id="tabs">
 <Tabs>
