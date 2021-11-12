@@ -16,7 +16,7 @@ a Purplship account, and requires three steps:
 
 1. [Intall a client library](#1-install-a-client-library) so your integration
 can interact with the Purplship API
-2. [Obtain your API keys](#2-obtain-your-api-key) so Purplship can authenticate
+2. [Obtain your API keys](#2-obtain-your-api-keys) so Purplship can authenticate
 your integration’s API requests
 3. [Make a test API request](#3-make-a-test-api-request) to confirm everything
 is up and running
@@ -67,6 +67,9 @@ composer require purplship/purplship-php
 </div>
 
 
+---
+
+
 ## `2` Obtain your API keys
 
 Purplship authenticates your API requests using your account’s API keys.
@@ -84,6 +87,9 @@ always available in the Dashboard
 <img src="/img/assets/api-key.png" width="90%" />
 
 
+---
+
+
 ## `3` Make a test API request
 
 To check that your integration is working correctly, make a test API request
@@ -94,7 +100,7 @@ using your `API key` to create an Address.
 <TabItem value="node" label="Node">
 
 ```shell
-/ Set your API key.
+// Set your API key.
 // See your keys here: https://cloud.purplship.com/developers/api
 const purplship = require('purplship')('key_...');
 
@@ -132,7 +138,7 @@ metadata = purplship.addresses.create({
 <TabItem value="php" label="PHP">
 
 ```shell
-/ Set your API key.
+// Set your API key.
 // See your keys here: https://cloud.purplship.com/developers/api
 $purplship = new \Purplship\Purplship('key_...');
 
@@ -150,7 +156,7 @@ $metadata = $purplship->addresses->create([
 <TabItem value="js" label="Javascript">
 
 ```shell
-/ Set your API key.
+// Set your API key.
 // See your keys here: https://cloud.purplship.com/developers/api
 const purplship = new purplship.Purplship({ apiKey: 'key_...' });
 

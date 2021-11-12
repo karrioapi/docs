@@ -4,6 +4,37 @@ import React from 'react';
 
 import carriers from './carriers.json';
 
+const CODE_SNIPPET = `curl --request POST \\
+  --url https://cloud.purplship.com/v1/proxy/rates \\
+  --header 'Authorization: Token [API_KEY]' \\
+  --header 'Content-Type: application/json' \\
+  --data '{
+  "shipper": {
+    "postal_code": "V6M2V9",
+    "city": "Vancouver",
+    "country_code": "CA",
+    "state_code": "BC",
+    "residential": true,
+    "address_line1": "5840 Oak St"
+  },
+  "recipient": {
+    "postal_code": "E1C4Z8",
+    "city": "Moncton",
+    "country_code": "CA",
+    "state_code": "NB",
+    "residential": false,
+    "address_line1": "125 Church St"
+  },
+  "parcels": [{
+    "weight": 1,
+    "weight_unit": "KG",
+    "package_preset": "canadapost_corrugated_small_box"
+  }],
+  "carrier_ids": ["canadapost"]
+}'
+`;
+
+
 function Home() {
   const { withBaseUrl } = useBaseUrlUtils();
   const { isDarkTheme } = useThemeContext();
@@ -21,10 +52,10 @@ function Home() {
       <header id="hero" className="relative py-28">
         <div className="absolute inset-x-0 top-0 hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
         <div className="relative max-w-lg m-auto">
-          <h1 className={`text-4xl text-center ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
+          <h1 className={`text-4xl text-center`} style={{ color: 'var(--ifm-heading-color)' }}>
             Shipping infrastructure for your enterprise
           </h1>
-          <h4 className={`text-xl text-center ${isDarkTheme ? 'text-gray-100' : 'text-gray-400'} m-2`}>
+          <h4 className={`text-xl text-center m-2`} style={{ color: 'var(--ifm-heading-color)' }}>
             purplship is a modern, open source shipping platform built for developers
           </h4>
           <div className="mt-12 m-x-auto flex justify-center">
@@ -289,7 +320,7 @@ function Home() {
                 <h4 className="text-2xl leading-8 font-extrabold tracking-tight md:text-3xl md:leading-9">
                   Made for developers
                 </h4>
-                <h6 className="text-xl leading-4 font-semibold">
+                <h6 className="text-xl font-semibold">
                   The most advanced open source shipping platform.
                 </h6>
                 <p className="mt-3 mb-10 text-lg leading-7 text-description">
@@ -308,11 +339,7 @@ function Home() {
               </div>
 
               <div className="mt-10 mx-4 lg:mt-0">
-                <img
-                  className="relative mx-auto"
-                  src={withBaseUrl('img/illustrations/platform.svg')}
-                  alt="purplship-modal"
-                />
+                <pre><code className="language-bash">{CODE_SNIPPET}</code></pre>
               </div>
             </div>
           </div>
@@ -321,7 +348,7 @@ function Home() {
         {/* Shipping Product */}
         <div className="py-16 overflow-hidden lg:py-24" style={{ background: 'var(--ifm-color-primary)' }}>
           <div className="text-center">
-            <h3 className="mt-2 text-3xl leading-8 font-extrabold text-white tracking-tight md:text-4xl md:leading-10">
+            <h3 className="my-2 mx-2 text-3xl leading-8 font-extrabold text-white tracking-tight md:text-4xl md:leading-10">
               Build faster and focus on your products
             </h3>
           </div>
