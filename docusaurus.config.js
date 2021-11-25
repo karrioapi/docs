@@ -137,7 +137,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/purplship/about',
+                href: 'https://github.com/purplship/purplship',
               },
             ],
           },

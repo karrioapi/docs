@@ -11,7 +11,7 @@ Purplship exposes API endpoints that forwards tracking requests to the carrier's
 
 ## Proxy Request API
 
-The proxy APIs allow you to send tracking requests to carriers without creating any 
+The proxy APIs allow you to send tracking requests to carriers without creating any
 objects in purplship.
 
 :::info
@@ -229,8 +229,8 @@ curl --request GET \
 
 ## Trackers Management APIs
 
-The trackers management APIs offer a set of endpoints around the purplship unified 
-tracking details object. 
+The trackers management APIs offer a set of endpoints around the purplship unified
+tracking details object.
 
 
 **Create a tracker**
@@ -238,7 +238,7 @@ tracking details object.
 > `POST` /v1/trackers/{carrier_name}/{tracking_number}
 
 You can use this endpoint to create a tracker object in the purplship system and
-get the latest tracking details of the shipment. 
+get the latest tracking details of the shipment.
 
 :::tip
 The purplship tracker is periodically updated by the **purplship worker** staying
@@ -342,5 +342,5 @@ curl --request GET \
 
 ## Next steps
 
-- Got a question? [Ask here](https://github.com/purplship/purplship/discussions).
 - To start integrating, [Checkout the Tracking Reference](/docs/reference/openapi/tracking).
+- Got a question? [Ask here](https://github.com/purplship/purplship/discussions).

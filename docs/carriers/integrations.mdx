@@ -3,4 +3,42 @@ id: integrations
 title: Integrations
 slug: /carriers
 ---
+import integrations from './integrations.json';
 
+# Purplship Carriers
+
+Purplship allow you to access a network of shipping carriers and integrate with any
+additional logistics provider.
+
+
+## Connections
+
+You can connect and use services from several carriers.
+
+<div id="tailwind">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:mr-8">
+    {integrations.map((integration, key) => (
+      <a key={key} className="group rounded-lg border-2 p-3 hover:shadow no-underline"
+        href={integration.href} style={{ color: "var(--ifm-font-color-base)" }}>
+        <div className="flex justify-between">
+          <div className="text-base font-semibold ">{integration.name}</div>
+          <code className="text-sm font-light px-2">{integration.status}</code>
+        </div>
+        {integration.features.map((feature, index) => (
+          <div key={index} className="border border-opacity-50 px-1 text-sm mt-2 rounded-sm flex justify-between">
+            <div>{feature}</div>
+            <div>yes</div>
+          </div>
+        ))}
+      </a>
+    ))}
+  </div>
+</div>
+
+
+## Missing a carrier?
+
+You can get your shipping providers added to the purplship network:
+
+- Sponsor an integration
+- [Submit a PR](https://github.com/purplship/purplship).
