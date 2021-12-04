@@ -12,7 +12,7 @@ the communication to shipping carriers to one interface. It is designed
 to be extensible to allow integration of additional carrier support.
 
 2. The second component is the **purplship server** which is the backend server
-that exposes a Shipping REST API and a GraphQL API. The server is written in 
+that exposes a Shipping REST API and a GraphQL API. The server is written in
 Python with Django. It maintains its state in a PostgresSQL database.
 
 3. The third component is the **purplship dashboard** App which implements the user
@@ -20,6 +20,77 @@ interface that operation members can use for manual fulfilment processes.
 the app is a Nextjs application that runs in the browser and talks to the
 purplship server using the REST and Graph APIs.
 
-<figure style={{ margin: "5rem" }}>
-  <img src="/img/assets/purplship-server-architecture.svg" width="100%" />
-</figure>
+<div style={{ textAlign: 'center' }}>
+    <svg xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="741px" height="351px" viewBox="-0.5 -0.5 741 351">
+    <g>
+        <rect x={214} y="177.5" width={110} height={45} fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" strokeDasharray="3 3" pointerEvents="all" />
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}><div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '108px', height: '1px', paddingTop: '200px', marginLeft: '215px'}}><div data-drawio-colors="color: #000000; " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}><div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>Purplship Typescript SDK</div></div></div></foreignObject><text x={269} y={204} fill="#000000" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Purplship Typescri...</text>
+            </switch>
+        </g>
+        <ellipse cx="537.5" cy={200} rx="67.5" ry="67.5" fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" pointerEvents="all" />
+        <rect x="482.5" y={185} width={110} height={30} fill="none" stroke="none" pointerEvents="all" />
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}><div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '200px', marginLeft: '538px'}}><div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}><div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}><b>Purplship Server</b><br />(Django)</div></div></div></foreignObject><text x={538} y={204} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Purplship Server...</text>
+            </switch>
+        </g>
+        <path d="M 450 200 L 470 200 L 450 200 L 470 200" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
+        <path d="M 660 175 C 660 166.72 677.91 160 700 160 C 710.61 160 720.78 161.58 728.28 164.39 C 735.79 167.21 740 171.02 740 175 L 740 225 C 740 233.28 722.09 240 700 240 C 677.91 240 660 233.28 660 225 Z" fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} strokeDasharray="3 3" pointerEvents="all" />
+        <path d="M 740 175 C 740 183.28 722.09 190 700 190 C 677.91 190 660 183.28 660 175" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} strokeDasharray="3 3" pointerEvents="all" />
+        <rect x={665} y="192.5" width={70} height={30} fill="none" stroke="none" pointerEvents="all" />
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}><div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '208px', marginLeft: '700px'}}><div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}><div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}>Database<br />(Postgres)</div></div></div></foreignObject><text x={700} y={211} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Database...</text>
+            </switch>
+        </g>
+        <path d="M 605 200 L 660 200" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
+        <path d="M 537.51 0 L 586.88 50 L 537.51 100 L 488.13 50 Z" fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} strokeDasharray="3 3" pointerEvents="all" />
+        <rect x="507.51" y={35} width={60} height={30} fill="none" stroke="none" pointerEvents="all" />
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}><div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '50px', marginLeft: '538px'}}><div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}><div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}>Workers<br />(Huey)</div></div></div></foreignObject><text x={538} y={54} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Workers...</text>
+            </switch>
+        </g>
+        <rect x={0} y="177.5" width={100} height={45} fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" pointerEvents="all" />
+        <rect x={10} y={175} width={80} height={50} fill="none" stroke="none" pointerEvents="all" />
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}><div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '200px', marginLeft: '50px'}}><div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}><div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}><b>Purplship <br />Dashboard</b><br />(Nextjs)</div></div></div></foreignObject><text x={50} y={204} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Purplship...</text>
+            </switch>
+        </g>
+        <path d="M 120 200 L 100 200" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
+        <rect x={120} y={190} width={70} height={20} fill="none" stroke="none" pointerEvents="all" />
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}><div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '200px', marginLeft: '155px'}}><div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}><div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: "var(--ifm-font-color-base)", lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}>Typescript</div></div></div></foreignObject><text x={155} y={204} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Typescript</text>
+            </switch>
+        </g>
+        <path d="M 214 200 L 190 200" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
+        <rect x={340} y={190} width={110} height={20} fill="none" stroke="none" pointerEvents="all" />
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}><div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '200px', marginLeft: '395px'}}><div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}><div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: "var(--ifm-font-color-base)", lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}>REST + GraphQL</div></div></div></foreignObject><text x={395} y={204} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">REST + GraphQL</text>
+            </switch>
+        </g>
+        <path d="M 324 200 L 340 200" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
+        <rect x="491.25" y={310} width="92.5" height={40} fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" pointerEvents="all" />
+        <rect x="486.5" y={315} width={100} height={30} fill="none" stroke="none" pointerEvents="all" />
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}><div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '330px', marginLeft: '537px'}}><div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}><div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}><b>Purplship SDK</b><br />(Python)</div></div></div></foreignObject><text x={537} y={334} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Purplship SDK...</text>
+            </switch>
+        </g>
+        <path d="M 537.5 132.5 L 537.51 100" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
+        <path d="M 537.5 310 L 537.5 267.5" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" />
+        <a transform="translate(0,-5)" xlinkHref="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text textAnchor="middle" fontSize="10px" x="50%" y="100%">Viewer does not support full SVG 1.1</text>
+        </a>
+    </switch>
+  </svg>
+</div>
