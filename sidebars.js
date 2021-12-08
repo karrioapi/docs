@@ -119,7 +119,7 @@ const sidebars = {
       label: 'Data Graph',
       collapsible: false,
       items: [
-        'reference/data-graph/graphql-clients',
+        'reference/data-graph/graphql-requests',
         'reference/data-graph/users',
         'reference/data-graph/connections',
         'reference/data-graph/templates',
