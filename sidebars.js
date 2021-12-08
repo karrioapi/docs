@@ -110,7 +110,6 @@ const sidebars = {
         'reference/core-resources/trackers',
         'reference/core-resources/addresses',
         'reference/core-resources/parcels',
-        'reference/core-resources/customs',
         'reference/core-resources/proxy',
         'reference/core-resources/webhooks',
       ],
