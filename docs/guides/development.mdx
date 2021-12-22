@@ -37,7 +37,7 @@ version: '3'
 services:
   pship:
     container_name: pship
-    image: danh91.docker.scarf.sh/purplship/server:2021.11
+    image: danh91.docker.scarf.sh/purplship/server:2021.11.2
     restart: unless-stopped
     ports:
       - "5002:5002"
@@ -52,7 +52,7 @@ services:
 
   dashboard:
     container_name: dashboard
-    image: danh91.docker.scarf.sh/purplship/dashboard:2021.11
+    image: danh91.docker.scarf.sh/purplship/dashboard:2021.11.2
     ports:
       - "3000:3000"
     environment:
