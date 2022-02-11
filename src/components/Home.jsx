@@ -51,8 +51,8 @@ function Home() {
     return (
       <header id="hero" className="relative py-28">
         <div className="absolute inset-x-0 top-0 hero-illustration" style={{ backgroundImage: 'url(/img/bubble.svg)' }}></div>
-        <div className="relative max-w-lg m-auto">
-          <h1 className={`text-4xl text-center`} style={{ color: 'var(--ifm-heading-color)' }}>
+        <div className="relative max-w-2xl m-auto">
+          <h1 className={`text-6xl text-center`} style={{ color: 'var(--ifm-heading-color)' }}>
             Shipping infrastructure for your enterprise
           </h1>
           <h4 className={`text-xl text-center m-2`} style={{ color: 'var(--ifm-heading-color)' }}>
@@ -93,34 +93,31 @@ function Home() {
                   <div className="max-w-4xl mx-auto">
                     <dl className="rounded-lg shadow-xl lg:grid lg:grid-cols-3 showcase">
                       <div className="flex flex-col border-b p-6 text-center lg:border-0 showcase-border">
-                        <dt
-                          className="order-2 mt-2 text-lg leading-6 font-medium text-description"
-                          id="item-1"
-                        >
-                          Open Source
+                        <dt className="order-2 mt-2 text-lg leading-6 font-medium text-description" id="item-1">
+                          Supported Carriers
                         </dt>
                         <dd
                           className="order-1 text-5xl leading-none font-extrabold"
                           aria-describedby="item-1"
                           style={{ color: 'var(--ifm-color-primary)' }}
                         >
-                          100%
-                        </dd>
-                      </div>
-                      <div className="flex flex-col border-t border-b p-6 text-center lg:border-0 lg:border-l showcase-border">
-                        <dt className="order-2 mt-2 text-lg leading-6 font-medium text-description">
-                          Supported Carriers
-                        </dt>
-                        <dd className="order-1 text-5xl leading-none font-extrabold" style={{ color: 'var(--ifm-color-primary)' }}>
                           +15
                         </dd>
                       </div>
-                      <div className="flex flex-col border-t p-6 text-center lg:border-0 lg:border-l showcase-border">
+                      <div className="flex flex-col border-t border-b p-6 text-center lg:border-0 lg:border-l showcase-border">
                         <dt className="order-2 mt-2 text-lg leading-6 font-medium text-description">
                           OSS Downloads
                         </dt>
                         <dd className="order-1 text-5xl leading-none font-extrabold" style={{ color: 'var(--ifm-color-primary)' }}>
                           +10K
+                        </dd>
+                      </div>
+                      <div className="flex flex-col border-t p-6 text-center lg:border-0 lg:border-l showcase-border">
+                        <dt className="order-2 mt-2 text-lg leading-6 font-medium text-description">
+                          Shipping Transactions
+                        </dt>
+                        <dd className="order-1 text-5xl leading-none font-extrabold" style={{ color: 'var(--ifm-color-primary)' }}>
+                          +100K
                         </dd>
                       </div>
                     </dl>
@@ -166,7 +163,7 @@ function Home() {
               </p>
             </div>
 
-            <div className="pt-16">
+            <div className="py-32">
               <ul className="lg:grid lg:grid-cols-3 lg:col-gap-8 lg:row-gap-10">
                 <li>
                   <div className="flex">
@@ -234,7 +231,7 @@ function Home() {
             <div className="max-w-screen-xl mx-auto pt-6 px-4 md:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto text-center">
                 <h2 className="text-3xl leading-9 font-extrabold text-gray-900 md:text-4xl md:leading-10">
-                  Use Cases
+                  Headless Shipping
                 </h2>
                 <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
                   Shipping enabled across industries and use cases.
