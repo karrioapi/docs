@@ -51,9 +51,9 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'DATA',
+      label: 'GRAPH',
       items: [
-        'guides/data/graphql',
+        'guides/data/introduction',
         'guides/data/users',
         'guides/data/connections',
         'guides/data/templates',
@@ -85,7 +85,6 @@ const sidebars = {
         'guides/self-hosting/overview',
         'guides/self-hosting/configuration',
         'guides/self-hosting/docker',
-        'guides/self-hosting/heroku',
       ],
     },
   ],
