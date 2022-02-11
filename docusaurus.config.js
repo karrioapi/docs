@@ -16,7 +16,16 @@ const config = {
   organizationName: 'purplship', // Usually your GitHub org/user name.
   projectName: 'Purplship', // Usually your repo name.
 
-  plugins: ['tailwind-loader'],
+  plugins: [
+    'tailwind-loader',
+    [
+      '@docusaurus/plugin-google-analytics',
+      {
+        trackingID: 'UA-111378601-2',
+        anonymizeIP: true,
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -156,6 +165,10 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['json'],
+      },
+      googleAnalytics: {
+        trackingID: 'UA-111378601-2',
+        anonymizeIP: true,
       },
     }),
 };
