@@ -1,5 +1,210 @@
 ---
 id: docker
-title: Docker
+title: With Docker
 ---
 
+Docker is the easiest way to get started with self-hosted Purplship.
+
+## Before you begin
+
+You need the following installed in your system:
+- [Docker](https://docs.docker.com/engine/install/) and docker-compose.
+
+
+## Images
+
+We release a new version of the server and dashboard every months.
+
+```
+# server image
+danh91.docker.scarf.sh/purplship/server:[VERSION]
+
+# dashboard image
+danh91.docker.scarf.sh/purplship/dashboard:[VERSION]
+```
+
+The image is suitable for production use. See the [Configuration](#configuration)
+for a list of environment variables you can use to configure the container.
+
+:::info
+
+You can find the available release version tags on dockerhub.
+
+https://hub.docker.com/r/purplship/server/tags
+
+https://hub.docker.com/r/purplship/dashboard/tags
+
+:::
+
+## Confirguration
+
+The purplship server instance is configurable using the environment variables.
+purplship server is a [Django](https://www.djangoproject.com/) based project
+and most of [deployment settings](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/)
+are relevant to configure this project with few contextual naming differences.
+
+### DEPLOYMENT
+
+- **`PURPLSHIP_HOST`** | **default:** `0.0.0.0`
+
+The purplship server hostname
+
+- **`PURPLSHIP_PORT`** | **default:** `5002`
+
+The purplship server port
+
+- **`PURPLSHIP_WORKERS`** | **default:** `2`
+
+The number of parallel subprocesses for the purplship server
+
+- **`DETACHED_WORKER`** | [`True`, `False`] | **default:** `False`
+
+Indicate whether the purplship server process should be detached from the background worker process.
+
+:::caution
+  Setting this option to `True` means that you intend to run the background worker process in another container
+  or another runtime resource.
+:::
+
+- **`BACKGROUND_WORKERS`** | **default:** `2`
+
+The number of parallel subprocesses for the purplship server background worker
+
+- **`DEBUG_MODE`** | [`True`, `False`] | **default:** `False`
+
+It is important to set `DEBUG_MODE` to `False` in production for security and performance.
+
+:::note
+  **Is the equivalent of django's `DEBUG` flag**.
+:::
+
+- **`ALLOWED_HOSTS`**
+
+Set a list of authorized host in text separated by commas.
+
+> **e.g: "test.com,example.com"**
+
+- **`SECRET_KEY`**
+
+The secret key must be a unique large value for security reason.
+
+> **Is the equivalent of django's `SECRET_KEY` flag**.
+
+- **`USE_HTTPS`** | [`True`, `False`] | **default:** `False`
+
+You should set `USE_HTTPS` to `True` when you configure your system in production with SSL.
+
+- **`TRACKING_PULSE`** | **default:** `7200`
+
+The background tracking time interval in seconds. The default is of 2 hours.
+You can set it to a lower value if you want a more frequent tracking status update.
+
+---
+
+### CACHING
+
+- **`REDIS_HOST`**
+
+The redis host name or IP address.
+
+- **`REDIS_PORT`**
+
+The redis instance port.
+
+---
+
+### PROVISIONING
+
+- **`ADMIN_EMAIL`** | **default:** `admin@example.com`
+
+The default super user admin account email to add when the system start for the first time
+
+- **`ADMIN_PASSWORD`** | **default:** `demo`
+
+The default super user password
+
+:::caution
+  Make sure to change the password later
+:::
+
+---
+
+### LOGGING
+
+- **`LOG_LEVEL`** | [`DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`]
+
+The default value is **DEBUG** when **DEBUG_MODE** is **True** else **INFO**
+
+- **`LOG_DIR`**
+
+Is the log file location.
+
+- **`WORKER_DB_DIR`**
+
+The purplship server background worker persists events to process so that
+even after a shutdown, they can recover tasks and process them.
+
+:::tip
+  When you are using a container, you might want to mount this folder
+  on a volume so that they can be recovered when the container shuts down.
+:::
+
+---
+
+### DATABASE
+
+Purplship uses PostgresSQL as a database.
+
+- **`DATABASE_HOST`** | **default:** `db`
+
+The database host
+
+> the database host can be an IP address or a hostname
+
+- **`DATABASE_PORT`** | **default:** `5432`
+
+The database port
+
+- **`DATABASE_NAME`** | **default:** `db`
+
+The database name
+
+- **`DATABASE_USERNAME`** | **default:** `postgres`
+
+The database connection' user
+
+- **`DATABASE_PASSWORD`** | **default:** `postgres`
+
+The database connection' password
+
+---
+
+### EMAIL
+
+- **`EMAIL_USE_TLS`** | **default:** `False`
+
+The email server use TLS
+
+- **`EMAIL_HOST_USER`** | **default:** `False`
+
+The authentication user email
+
+- **`EMAIL_HOST_PASSWORD`**
+
+The authentication user password
+
+- **`EMAIL_HOST`** | **default:** `smtp.gmail.com`
+
+The email server host
+
+- **`EMAIL_PORT`** | **default:** `587`
+
+The email server port
+
+- **`EMAIL_PAGE_DOMAIN`** | **default:** `https://app.purplship.com`
+
+The email server use TLS
+
+- **`EMAIL_FROM_ADDRESS`** | **default:** `noreply@purplship.com`
+
+The email address to send emails from
