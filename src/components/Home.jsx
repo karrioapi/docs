@@ -1,5 +1,5 @@
 import { useBaseUrlUtils } from '@docusaurus/useBaseUrl';
-import useThemeContext from '@theme/hooks/useThemeContext';
+import { useColorMode } from '@docusaurus/theme-common';
 import React from 'react';
 
 import carriers from './carriers.json';
@@ -37,7 +37,7 @@ const CODE_SNIPPET = `curl --request POST \\
 
 function Home() {
   const { withBaseUrl } = useBaseUrlUtils();
-  const { isDarkTheme } = useThemeContext();
+  const { isDarkTheme } = useColorMode();
 
   React.useEffect(() => {
     if (isDarkTheme) {

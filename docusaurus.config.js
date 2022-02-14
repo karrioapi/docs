@@ -166,10 +166,10 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ['json'],
       },
-      googleAnalytics: {
-        trackingID: 'UA-111378601-2',
-        anonymizeIP: true,
-      },
+      // googleAnalytics: {
+      //   trackingID: 'UA-111378601-2',
+      //   anonymizeIP: true,
+      // },
     }),
 };
 
