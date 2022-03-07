@@ -33,6 +33,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/purplship/about/edit/main/',
@@ -63,24 +64,24 @@ const config = {
           srcDark: 'img/logo-inverted.svg',
         },
         items: [
+          // {
+          //   type: 'doc',
+          //   docId: 'introduction',
+          //   position: 'left',
+          //   label: 'Docs',
+          // },
           {
-            type: 'doc',
-            docId: 'introduction',
-            position: 'left',
-            label: 'Docs',
-          },
-          {
-            to: '/docs/guides',
+            to: '/guides',
             position: 'left',
             label: 'Guides',
           },
           {
-            to: '/docs/reference',
+            to: '/reference',
             position: 'left',
             label: 'Reference',
           },
           {
-            to: '/docs/carriers',
+            to: '/carriers',
             position: 'left',
             label: 'Carriers',
           },
@@ -104,19 +105,19 @@ const config = {
             items: [
               {
                 label: 'Overview',
-                to: '/docs',
+                to: '/',
               },
               {
                 label: 'Guides',
-                to: '/docs/guides',
+                to: '/guides',
               },
               {
                 label: 'Reference',
-                to: '/docs/reference',
+                to: '/reference',
               },
               {
                 label: 'Carriers',
-                to: '/docs/carriers',
+                to: '/carriers',
               },
             ],
           },
@@ -152,10 +153,10 @@ const config = {
           },
         ],
         logo: {
-          alt: 'Purplship Logo',
+          alt: 'Karrio Logo',
           src: 'img/logo-inverted.svg',
         },
-        copyright: `Copyright © ${new Date().getFullYear()} purplship`,
+        copyright: `Copyright © ${new Date().getFullYear()} karrio`,
       },
       tableOfContents: {
         minHeadingLevel: 2,

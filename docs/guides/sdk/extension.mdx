@@ -9,13 +9,13 @@ import TabItem from '@theme/TabItem';
 
 The question we are most asked is: **How to add a custom carrier?**
 
-We have experimented and studied approximately ~25 shipping carriers API/web services to design the purplship structure as is.
+We have experimented and studied approximately ~25 shipping carriers API/web services to design the karrio structure as is.
 
-The good news is that making adding a custom carrier easy fits perfectly in purplship vision.
+The good news is that making adding a custom carrier easy fits perfectly in karrio vision.
 
 :::caution
   To integrate a custom carrier at this stage, you will need:
-  
+
   - A minimal knowledge of Python
   - Write code to extend the abstract classes
   - Use the plugin/extension structure available
@@ -30,11 +30,11 @@ The good news is that making adding a custom carrier easy fits perfectly in purp
 1. Generate Python data types from the carrier API schemas
   1. Generate Python data types from the carrier API schemas using the type generators bellow
   2. Package the generated data types as a library in [purplship-carriers](https://github.com/PurplShip/purplship-carriers)
-    
-1. Create a purplship extension package
-  1. Create a new purplship extension by copying [.templates/carrier](https://github.com/PurplShip/purplship/tree/main/.templates/carrier)
+
+1. Create a karrio extension package
+  1. Create a new karrio extension by copying [.templates/carrier](https://github.com/PurplShip/purplship/tree/main/.templates/carrier)
       into [extensions/[carrier-name]](https://github.com/PurplShip/purplship/tree/main/extensions)
-  
+
   2. Rename all instance for [carrier] to the appropriate carrier name you are integrating. This must be done for files
       and directories
   3. Uncomment all methods you intend to integrate  in `extensions/[carrier-name]/purplship/mappers/[carrier-name]/mapper.py`
@@ -44,49 +44,49 @@ The good news is that making adding a custom carrier easy fits perfectly in purp
       and implement the right HTTP calls
 
 
-:::info 
+:::info
   The package naming convention for extensions is `purplship.[carrier_name]`
 :::
 
 ---
 
-### Extension anatomy 
+### Extension anatomy
 
-Considering the vision we aimed to achieve with purplship, the codebase has been modularized with a clear separation of
+Considering the vision we aimed to achieve withkarrio , the codebase has been modularized with a clear separation of
 concerns to decouple clearly the carrier integration from the integration abstraction. Additionally, each carrier
 integration is done in an isolated self-contained package.
 
 As a result, we have a very modular ecosystem where one can only select the carrier integrations of interest without
 carrying the whole codebase.
 
-**Most importantly, this flexibility allows the integration of additional carrier services under the purplship umbrella.**
+**Most importantly, this flexibility allows the integration of additional carrier services under the karrio umbrella.**
 
 
-:::info 
-  purplship makes shipping API integration easy for a single carrier and in a multi-carrier scenario, the benefit
+:::info
+  karrio makes shipping API integration easy for a single carrier and in a multi-carrier scenario, the benefit
   is exponential.
 :::
 
 
 #### Module convention
 
-Two modules are required to create a purplship extension.
+Two modules are required to create a karrio extension.
 
 :::info `purplship.mappers.[carrier_name]`"
-  This is where the purplship abstract classes are implemented. Also, the Metadata require to identified
+  This is where the karrio abstract classes are implemented. Also, the Metadata require to identified
   the extension is also provided there.
-  
-  > on runtime, purplship retrieves all mappers by going trought the `purplship.mappers` modules
+
+  > on runtime, karrio retrieves all mappers by going trought the `purplship.mappers` modules
 :::
 
 :::info `purplship.providers.[carrier_name]`"
-  This is where the mapping between purplship Unified API data is mapped on the carrier data type corresponding requests
+  This is where the mapping between karrio Unified API data is mapped on the carrier data type corresponding requests
 :::
 
 #### extension signature
 
-The Mapper is the cornerstone of purplship's abstraction. A `Metadata` declared at `purplship.mappers.[carrier_name].__init__`
-specifies the integration classes required to define a purplship compatible extension.
+The Mapper is the cornerstone ofkarrio 's abstraction. A `Metadata` declared at `purplship.mappers.[carrier_name].__init__`
+specifies the integration classes required to define a karrio compatible extension.
 
 ```text
 from purplship.core.metadata import Metadata
@@ -111,7 +111,7 @@ METADATA = Metadata(
     package_presets=units.PackagePresets, # Enum of parcel presets/templates
     services=units.ServiceType,  # Enum of Shipping services supported by the carrier
 )
-``` 
+```
 
 
 #### file structure
@@ -148,8 +148,8 @@ extensions/carrier
 └── setup.py
 ```
 
-:::info 
-  Note that `pickup` and `shipment` modules are directories since there are often many sub to integrate such as 
+:::info
+  Note that `pickup` and `shipment` modules are directories since there are often many sub to integrate such as
   **create**, **cancel**...
 :::
 
@@ -170,10 +170,10 @@ The mapper function implementations consists of instantiating carrier specific r
 <TabItem value="mapper" label="Mapper">
 
 ```python
-# Import purplship unified API models
+# Import karrio unified API models
 from purplship.core.models import PickupRequest
 
-# Import requirements from the DHL generated data types library (py-dhl) 
+# Import requirements from the DHL generated data types library (py-dhl)
 from pydhl.book_pickup_global_req_3_0 import BookPURequest, MetaData
 from pydhl.pickupdatatypes_global_3_0 import (
     Requestor,
@@ -242,7 +242,7 @@ def pickup_request(payload: PickupRequest, settings: Settings) -> Serializable[B
 <req:BookPURequest xmlns:req="http://www.dhl.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dhl.com book-pickup-global-req_EA.xsd" schemaVersion="3.">
     <Request>
         <ServiceHeader>
-            
+
             <MessageReference>1234567890123456789012345678901</MessageReference>
             <SiteID>site_id</SiteID>
             <Password>password</Password>
@@ -290,8 +290,8 @@ def pickup_request(payload: PickupRequest, settings: Settings) -> Serializable[B
 </div>
 
 
-:::info 
-  The mapping function instantiates the carrier data types like a tree to allow a global view and simplify the 
+:::info
+  The mapping function instantiates the carrier data types like a tree to allow a global view and simplify the
   mental relation between the `code` and the formatted data output `schema`.
 :::
 
@@ -305,13 +305,13 @@ are used to generate Python data types based of the schema format definition.
 - For `XML` and `SOAP` services, [generateDs](https://pypi.org/project/generateDS/) is used to generate `.xsd` files
 into Python data types
 
-:::info  
-  Check the [generate.sh](https://github.com/PurplShip/purplship-carriers/blob/main/py-canadapost/generate.sh) file 
+:::info
+  Check the [generate.sh](https://github.com/PurplShip/purplship-carriers/blob/main/py-canadapost/generate.sh) file
   to see how genereDs is used.
 :::
 
 - For `JSON` services, [quicktype](https://github.com/quicktype/quicktype) is used to generate `.json` files
-into Python data types. We then use [jstruct](https://github.com/PurplShip/jstruct) as a replacement 
+into Python data types. We then use [jstruct](https://github.com/PurplShip/jstruct) as a replacement
 for python dataclass to add automated nested object instantiation.
 
 
@@ -321,7 +321,7 @@ We have a dedicated repo for all carriers generated data types. You can submit a
 Check the [py-canadapost](https://github.com/PurplShip/purplship-carriers/tree/main/py-canadapost) package structure
 to define yours.
 
-:::info 
+:::info
   The package naming convention for carrier data types library is `carrier.[carrier_name]`
 :::
 
@@ -333,17 +333,17 @@ to define yours.
 #### Multi requests
 
 Generally, the carrier web services expose one API endpoint to accomplish most operations describe supported by
-the purplship unified interface. In some case, more than one API call are required to fulfil certain operation.
+the karrio unified interface. In some case, more than one API call are required to fulfil certain operation.
 
 ##### Abstraction
 
 :::info Pipeline
 
-  - The `Pipeline` instance is like an ordered dictionary where the keys are jobs identifier and the values are 
+  - The `Pipeline` instance is like an ordered dictionary where the keys are jobs identifier and the values are
   functions returning a `Job`.
   - The `Pipeline` exposes an `apply()` method that can be called to run sequentially the jobs provided following the
   definition order.
-  
+
   > every job receives the response of the job runned before as first argument. This allow jobs to check the state
   > and determine if the current job should be executed or not.
   >
@@ -356,13 +356,13 @@ the purplship unified interface. In some case, more than one API call are requir
   > The `id` correspond to the job name used with a Pipeline
   >
   > The `data` is often a Serializable carrier request data.
-  > 
+  >
   > When a `data` is not provided, the `fallback` is returned without further action.
 :::
 
 ##### Example
 
-By example, the `FedEx` **Pickup** service doesn't expose a way to `Update` a pickup scheduled previously. 
+By example, the `FedEx` **Pickup** service doesn't expose a way to `Update` a pickup scheduled previously.
 In such case updating a pickup is done by cancelling **the former** and **create a new one**.
 That means two calls needs to be made to update a pickup.
 
@@ -430,9 +430,9 @@ def modify_pickup(self, request: Serializable[Pipeline]) -> Deserializable[str]:
 
 #### Code reuse
 
-Remember that extensions are distributed as Python packages. Therefore, in order to reuse a carrier integration that 
-has many different services with a lot of shared functionality, it is recommended to package separately 
-the `purplship.provider.carrier` module that can be used as a dependency to many variation 
+Remember that extensions are distributed as Python packages. Therefore, in order to reuse a carrier integration that
+has many different services with a lot of shared functionality, it is recommended to package separately
+the `purplship.provider.carrier` module that can be used as a dependency to many variation
 of `purplship.mappers.carrier_service` modules in their own respective packages.
 
 :::info
@@ -442,12 +442,12 @@ of `purplship.mappers.carrier_service` modules in their own respective packages.
 
 #### Helpers
 
-After integrating and experimenting with multiple carriers services, some data structure manipulation lead to the 
+After integrating and experimenting with multiple carriers services, some data structure manipulation lead to the
 implementation of utilities functions located in `purplship.core.utils` module.
 
 - `DICTPARSE`
 
-Usage: 
+Usage:
 ```python
 from purplship.core.utils import DP
 ```
@@ -457,15 +457,15 @@ Python Library Documentation: class DICTPARSE in module purplship.core.utils.dic
 
 class DICTPARSE(builtins.object)
  |  Static methods defined here:
- |  
+ |
  |  jsonify(entity: Union[dict, ~T]) -> str
  |      Return a JSON.
- |      
+ |
  |      recursively parse a data type using __dict__ into a JSON
- |  
+ |
  |  to_dict(entity: Any) -> dict
  |      Return a python dictionary.
- |      
+ |
  |      recursively parse a data type using __dict__ into a JSON
 
 ```
@@ -473,7 +473,7 @@ class DICTPARSE(builtins.object)
 
 - `XMLPARSER`
 
-Usage: 
+Usage:
 ```python
 from purplship.core.utils import XP
 ```
@@ -483,44 +483,44 @@ Python Library Documentation: class XMLPARSER in module purplship.core.utils.xml
 
 class XMLPARSER(builtins.object)
  |  Static methods defined here:
- |  
+ |
  |  build(element_type: Type[~T], xml_node: purplship.core.utils.xml.Element = None) -> Union[~T, NoneType]
  |      Build xml element node into type class
- |      
+ |
  |      :param element_type: The xml node corresponding type (class)
  |      :param xml_node: the xml node source
  |      :return: None if the node is None else an instance of GenerateDS XML Element class
- |  
+ |
  |  bundle_xml(xml_strings: List[str]) -> str
  |      Bundle a list of XML string into a single one.
  |      => <wrapper>{all the XML trees concatenated}</wrapper>
- |      
+ |
  |      :param xml_strings:
  |      :return: a bundled XML text containing all the micro XML string
- |  
+ |
  |  export(typed_xml_element: Type[purplship.core.utils.xml.GenerateDSAbstract], **kwds) -> str
  |      Serialize a class instance into XML string.
  |      => Invoke the export method of generated type to return the subsequent XML represented
- |      
+ |
  |      :param typed_xml_element: a GeneratedDS XML Element instance
  |      :param kwds: exporting method arguments
  |      :return: an XML text
- |  
+ |
  |  jsonify_xml(xml_str: str) -> dict
  |      Turn a XML string into a Python Dictionary
- |      
+ |
  |      :param xml_str:
  |      :return: a dictionary
- |  
+ |
  |  to_xml(xml_str: str) -> purplship.core.utils.xml.Element
  |      Turn a XML text into an (lxml) XML Element.
- |      
+ |
  |      :param xml_str:
  |      :return: Node Element
- |  
+ |
  |  xml_tostring(xml_element: purplship.core.utils.xml.Element, encoding: str = 'utf-8') -> str
  |      Turn a XML Element into a XML text.
- |      
+ |
  |      :param xml_element: XML ELement
  |      :param encoding: the string format encoding
  |      :return: Node Element
@@ -529,7 +529,7 @@ class XMLPARSER(builtins.object)
 
 - `DATEFORMAT`
 
-Usage: 
+Usage:
 ```python
 from purplship.core.utils import DF
 ```
@@ -539,23 +539,23 @@ Python Library Documentation: class DATEFORMAT in module purplship.core.utils.da
 
 class DATEFORMAT(builtins.object)
  |  Static methods defined here:
- |  
+ |
  |  date(date_str: str = None, current_format: str = '%Y-%m-%d')
- |  
+ |
  |  fdate(date_str: str = None, current_format: str = '%Y-%m-%d')
- |  
+ |
  |  fdatetime(date_str: str = None, current_format: str = '%Y-%m-%d %H:%M:%S', output_format: str = '%Y-%m-%d %H:%M:%S')
- |  
+ |
  |  ftime(time_str: str, current_format: str = '%H:%M:%S', output_format: str = '%H:%M')
- |  
+ |
  |  ftimestamp(timestamp: Union[str, int] = None)
 
- 
+
 ```
 
 - `STRINGFORMAT`
 
-Usage: 
+Usage:
 ```python
 from purplship.core.utils import SF
 ```
@@ -565,7 +565,7 @@ Python Library Documentation: class STRINGFORMAT in module purplship.core.utils.
 
 class STRINGFORMAT(builtins.object)
  |  Static methods defined here:
- |  
+ |
  |  concat_str(*args, join: bool = False)
 
 
@@ -573,7 +573,7 @@ class STRINGFORMAT(builtins.object)
 
 - `Other`
 
-Usage: 
+Usage:
 ```python
 from purplship.core.utils import [function]
 ```
@@ -581,14 +581,14 @@ from purplship.core.utils import [function]
 ```text
 FUNCTIONS
     exec_async(action: Callable[[~S], ~T], sequence: List[~S]) -> List[~T]
-    
+
     exec_parrallel(function: Callable, sequence: List[~S], max_workers: int = None) -> List[~T]
         Return a list of result for function execution on each element of the sequence.
-    
+
     gif_to_pdf(gif_str: str) -> str
-    
+
     request(decoder: Callable = <function decode_bytes at 0x7f99cc71c3a0>, on_error: Callable[[urllib.error.HTTPError], str] = None, **args) -> str
         Return an HTTP response body.
-        
+
         make a http request (wrapper around Request method from built in urllib)
 ```

@@ -1,7 +1,7 @@
 @import "tailwindcss/tailwind.css";
 
 :root {
-  --ifm-font-size-base: 16px;
+  --ifm-font-size-base: 15px;
   --ifm-code-font-size: 90%;
   --ifm-background-color: var(--white);
   --ifm-footer-background-color: var(--grey-100);
@@ -155,14 +155,14 @@ html[data-theme="dark"] .header-github-link:before {
 .menu > .menu__list > .menu__list-item > .menu__link {
   margin-bottom: 4px;
   color: gray;
-  font-size: 0.85rem;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .menu__link {
-  font-size: 0.85rem;
+  font-size: 12px;
   font-weight: bold;
 }
 

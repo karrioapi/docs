@@ -11,24 +11,24 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-This guide describes how to use the Purplship GraphQL API to register a new
+This guide describes how to use the Karrio GraphQL API to register a new
 user account and do common account management operations.
 
 
 ## Creating a new user account
 
-Depending on the configuration of your Purplship server instance, registering
+Depending on the configuration of your Karrio server instance, registering
 a user account may be a single-step operation or it may require email confirmation
 to activate the account.
 
 :::info
 
-Purplship automatically require an email confirmation if the an email server is configured.
+Karrio automatically require an email confirmation if the an email server is configured.
 
 <details>
-<summary>Purplship Email Config</summary>
+<summary>Karrio Email Config</summary>
 
-You can configure your Purplship email server at http://localhost:5002/admin/constance/config/
+You can configure your Karrio email server at http://localhost:5002/admin/constance/config/
 
 - EMAIL_USE_TLS
 - EMAIL_HOST_USER
@@ -39,7 +39,7 @@ You can configure your Purplship email server at http://localhost:5002/admin/con
 - EMAIL_FROM_ADDRESS
 
 
-The `EMAIL_PAGE_DOMAIN` should be set to the domain name of your Purplship dashboard.
+The `EMAIL_PAGE_DOMAIN` should be set to the domain name of your Karrio dashboard.
 
 </details>
 :::
@@ -194,7 +194,7 @@ mutation {
 }
 ```
 
-As mentioned above, if the you have configured the purplship server email settings,
+As mentioned above, if the you have configured the karrio server email settings,
 the user will receive an email with a link to activate their account.
 
 ```
@@ -236,7 +236,7 @@ response
 {
   "data": {
     "user": {
-      "email": "admin@purplship.com",
+      "email": "admin@karrio.io",
       "full_name": "Admin",
       "is_staff": true,
       "last_login": "2021-12-15T22:32:34.229203+00:00",
