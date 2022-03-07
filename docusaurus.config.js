@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'purplship',
-  tagline: 'Open Source, On-prem or Private cloud Shipping API',
-  url: 'https://purplship.com',
+  title: 'karrio',
+  tagline: 'karrio – A headless, API-first, open-source shipping platform',
+  url: 'https://karrio.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -153,10 +153,10 @@ const config = {
           },
         ],
         logo: {
-          alt: 'Karrio Logo',
+          alt: 'Karrio Inc.',
           src: 'img/logo-inverted.svg',
         },
-        copyright: `Copyright © ${new Date().getFullYear()} karrio`,
+        copyright: `Copyright © ${new Date().getFullYear()} karrio Inc.`,
       },
       tableOfContents: {
         minHeadingLevel: 2,
