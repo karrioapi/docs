@@ -25,6 +25,13 @@ const config = {
         anonymizeIP: true,
       },
     ],
+    [
+      "@cmfcmf/docusaurus-search-local",
+      {
+        indexDocs: true,
+        language: "en",
+      },
+    ]
   ],
 
   presets: [
