@@ -21,7 +21,7 @@ const config = {
     [
       '@docusaurus/plugin-google-analytics',
       {
-        trackingID: 'UA-111378601-2',
+        trackingID: 'G-D1CJPS0Z69',
         anonymizeIP: true,
       },
     ],
@@ -91,6 +91,11 @@ const config = {
             to: '/carriers',
             position: 'left',
             label: 'Carriers',
+          },
+          {
+            to: 'https://app.karrio.io',
+            position: 'left',
+            label: 'Login',
           },
           {
             to: '/blog',
