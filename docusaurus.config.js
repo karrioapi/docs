@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'karrio',
-  tagline: 'karrio – A headless, API-first, open-source shipping platform',
+  title: 'Karrio',
+  tagline: 'The Headless, API-first, open source shipping platform.',
   url: 'https://karrio.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
@@ -61,22 +61,16 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/purplship.png',
-      metaImage: 'img/purplship.png',
+      image: 'img/karrio.png',
+      metaImage: 'img/karrio.png',
       navbar: {
-        title: '',
+        // title: 'Karrio',
         logo: {
-          alt: 'purplship',
+          alt: 'Karrio',
           src: 'img/logo.svg',
           srcDark: 'img/logo-inverted.svg',
         },
         items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'introduction',
-          //   position: 'left',
-          //   label: 'Docs',
-          // },
           {
             to: '/guides',
             position: 'left',
@@ -163,6 +157,15 @@ const config = {
               },
             ],
           },
+          {
+            title: 'Beta',
+            items: [
+              {
+                label: 'Join our beta',
+                href: 'https://app.karrio.io',
+              },
+            ],
+          },
         ],
         logo: {
           alt: 'Karrio Inc.',
@@ -175,9 +178,11 @@ const config = {
         maxHeadingLevel: 4,
       },
       prism: {
+        defaultLanguage: 'js',
+        additionalLanguages: ['json'],
+        plugins: ['line-numbers', 'show-language'],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['json'],
       },
     }),
 };

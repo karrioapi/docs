@@ -61,7 +61,7 @@ composer require purplship/purplship-php
 
 ```shell
 # Add script to an HTML page
-<script src="https://[api.karrio.io]/static/js/purplship.js"></script>
+<script src="https://[app.karrio.io]/static/js/purplship.js"></script>
 ```
 
 </TabItem>
@@ -103,7 +103,7 @@ using your `API key` to create an Address.
 
 ```javascript
 // Set your API key.
-// See your keys here: https://api.karrio.io/developers/api
+// See your keys here: https://app.karrio.io/developers/api
 const karrio = require('purplship')('key_...');
 
 const adddress = await purplship.addresses.create({
@@ -122,7 +122,7 @@ const adddress = await purplship.addresses.create({
 ```python
 
 # Set your secret key. Remember to switch to your live secret key in production.
-# See your keys here: https://api.karrio.io/developers/api
+# See your keys here: https://app.karrio.io/developers/api
 import purplship
 purplship.api_key = 'key_...'
 
@@ -141,7 +141,7 @@ adddress = purplship.addresses.create({
 
 ```php
 // Set your API key.
-// See your keys here: https://api.karrio.io/developers/api
+// See your keys here: https://app.karrio.io/developers/api
 $karrio = new \Karrio\Karrio('key_...');
 
 $adddress = $purplship->addresses->create([
@@ -159,7 +159,7 @@ $adddress = $purplship->addresses->create([
 
 ```javascript
 // Set your API key.
-// See your keys here: https://api.karrio.io/developers/api
+// See your keys here: https://app.karrio.io/developers/api
 const karrio = Karrio('key_...');
 
 (async () => {

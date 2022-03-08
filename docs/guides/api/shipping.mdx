@@ -204,7 +204,7 @@ the provided shipping details.
 
 ```bash
 curl --request POST \
-  --url https://api.karrio.io/v1/proxy/rates \
+  --url https://app.karrio.io/v1/proxy/rates \
   --header 'Authorization: Token [API_KEY]' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -315,7 +315,7 @@ retrieved previously and the preferred rate' `selected_rate_id`.
 
 ```bash
 curl --request POST \
-  --url https://api.karrio.io/v1/proxy/shipping \
+  --url https://app.karrio.io/v1/proxy/shipping \
   --header 'Authorization: Token  [API_KEY]' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -603,7 +603,7 @@ retrieve shipping rates for it.
 
 ```bash
 curl --request POST \
-  --url 'https://api.karrio.io/v1/shipments?test=true' \
+  --url 'https://app.karrio.io/v1/shipments?test=true' \
   --header 'Authorization: Token  [API_KEY]' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -815,7 +815,7 @@ provide the preferred shipping rate id to buy the label.
 
 ```bash
 curl --request POST \
-  --url https://api.karrio.io/v1/shipments/shp_e53f4d88846a48079e71c2fff81dfddc/purchase \
+  --url https://app.karrio.io/v1/shipments/shp_e53f4d88846a48079e71c2fff81dfddc/purchase \
   --header 'Authorization: Token [API_KEY]' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -1002,5 +1002,5 @@ curl --request POST \
 
 ## Next steps
 
-- To start integrating, [Checkout the OpenAPI Reference](https://api.karrio.io/openapi).
+- To start integrating, [Checkout the OpenAPI Reference](https://app.karrio.io/openapi).
 - Got a question? [Ask here](https://github.com/purplship/purplship/discussions).
