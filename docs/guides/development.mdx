@@ -37,7 +37,7 @@ version: '3'
 services:
   pship:
     container_name: pship
-    image: danh91.docker.scarf.sh/purplship/server:2022.1.4
+    image: danh91.docker.scarf.sh/karrio/server:2022.1.4
     restart: unless-stopped
     ports:
       - "5002:5002"
@@ -52,7 +52,7 @@ services:
 
   dashboard:
     container_name: dashboard
-    image: danh91.docker.scarf.sh/purplship/dashboard:2022.1.4
+    image: danh91.docker.scarf.sh/karrio/dashboard:2022.1.4
     ports:
       - "3000:3000"
     environment:
@@ -97,4 +97,4 @@ Log in with the default admin account `admin@example.com` | `demo`
 
 ## Next steps
 
-- Got a question? [Ask here](https://github.com/purplship/purplship/discussions).
+- Got a question? [Ask here](https://github.com/karrio/karrio/discussions).

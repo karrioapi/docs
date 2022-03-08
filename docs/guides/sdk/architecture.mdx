@@ -10,14 +10,14 @@ karrio proposes a set of unified APIs accepting all required data to send reques
 The typical data flows for all requests processed by karrio is illustrated bellow.
 
 <figure>
-  <img src="/img/assets/purplship-sequence-diagram.svg" width="100%" />
+  <img src="/img/assets/karrio-sequence-diagram.svg" width="100%" />
   <figcaption>karrio - Sequence</figcaption>
 </figure>
 
 To accomplish this, the overall abstraction proposed by karrio come down to the implementation these abstract classes.
 
 <figure>
-  <img src="/img/assets/purplship-class-diagram.svg" width="100%" />
+  <img src="/img/assets/karrio-class-diagram.svg" width="100%" />
   <figcaption>karrio - Class Diagram</figcaption>
 </figure>
 
@@ -59,7 +59,7 @@ To accomplish this, the overall abstraction proposed by karrio come down to the 
 This is how these classes come together to make a request to a carrier service
 
 ```python
-from purplship.mappers.canadapost import Settings, Mapper, Proxy
+from karrio.mappers.canadapost import Settings, Mapper, Proxy
 
 # Instantiate a connection settings
 canadapost_settings = Settings(
@@ -77,7 +77,7 @@ canadapost_proxy = Proxy(canadapost_settings)
 
 
 # e.g: a Pickup scheduling request
-from purplship.core.models import PickupRequest, Address
+from karrio.core.models import PickupRequest, Address
 
 
 # A karrio unified Pickup request type
@@ -141,18 +141,18 @@ Once you understand the lifecycle above, you can send any requests supported by 
 However, this looks a little verbose. That's why we introduced a Fluent interface to handle this process with fewer lines.
 
 ```python
-import purplship
+import karrio
 
 # Create a carrier connection gateway
 # This will instantiate the corresponding Settings, Mapper and Proxy
-canadapost_gateway = purplship.gateway['canadapost'].create({
+canadapost_gateway = karrio.gateway['canadapost'].create({
     'contract_id': '42708517',
     'customer_number': '2004381',
     'password': 'password',
     'username': 'username'
 })
 
-pickup_request = purplship.Pickup.schedule({
+pickup_request = karrio.Pickup.schedule({
     'pickup_date': '2021-12-15',
     'closing_time': '17:00',
     'ready_time': '10:00',

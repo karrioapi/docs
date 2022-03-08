@@ -29,23 +29,23 @@ The good news is that making adding a custom carrier easy fits perfectly in karr
 
 1. Generate Python data types from the carrier API schemas
   1. Generate Python data types from the carrier API schemas using the type generators bellow
-  2. Package the generated data types as a library in [purplship-carriers](https://github.com/PurplShip/purplship-carriers)
+  2. Package the generated data types as a library in [karrio-carriers](https://github.com/PurplShip/karrio-carriers)
 
 1. Create a karrio extension package
-  1. Create a new karrio extension by copying [.templates/carrier](https://github.com/PurplShip/purplship/tree/main/.templates/carrier)
-      into [extensions/[carrier-name]](https://github.com/PurplShip/purplship/tree/main/extensions)
+  1. Create a new karrio extension by copying [.templates/carrier](https://github.com/PurplShip/karrio/tree/main/.templates/carrier)
+      into [extensions/[carrier-name]](https://github.com/PurplShip/karrio/tree/main/extensions)
 
   2. Rename all instance for [carrier] to the appropriate carrier name you are integrating. This must be done for files
       and directories
-  3. Uncomment all methods you intend to integrate  in `extensions/[carrier-name]/purplship/mappers/[carrier-name]/mapper.py`
-      and `extensions/[carrier-name]/purplship/providers/[carrier-name]/__init__.py`
+  3. Uncomment all methods you intend to integrate  in `extensions/[carrier-name]/karrio/mappers/[carrier-name]/mapper.py`
+      and `extensions/[carrier-name]/karrio/providers/[carrier-name]/__init__.py`
   4. Implement all enabled mapping functions across the module
-  5. Uncomment all methods you intend to integrate `extensions/[carrier-name]/purplship/mappers/[carrier-name]/proxy`
+  5. Uncomment all methods you intend to integrate `extensions/[carrier-name]/karrio/mappers/[carrier-name]/proxy`
       and implement the right HTTP calls
 
 
 :::info
-  The package naming convention for extensions is `purplship.[carrier_name]`
+  The package naming convention for extensions is `karrio.[carrier_name]`
 :::
 
 ---
@@ -72,29 +72,29 @@ carrying the whole codebase.
 
 Two modules are required to create a karrio extension.
 
-:::info `purplship.mappers.[carrier_name]`"
+:::info `karrio.mappers.[carrier_name]`"
   This is where the karrio abstract classes are implemented. Also, the Metadata require to identified
   the extension is also provided there.
 
-  > on runtime, karrio retrieves all mappers by going trought the `purplship.mappers` modules
+  > on runtime, karrio retrieves all mappers by going trought the `karrio.mappers` modules
 :::
 
-:::info `purplship.providers.[carrier_name]`"
+:::info `karrio.providers.[carrier_name]`"
   This is where the mapping between karrio Unified API data is mapped on the carrier data type corresponding requests
 :::
 
 #### extension signature
 
-The Mapper is the cornerstone ofkarrio 's abstraction. A `Metadata` declared at `purplship.mappers.[carrier_name].__init__`
+The Mapper is the cornerstone ofkarrio 's abstraction. A `Metadata` declared at `karrio.mappers.[carrier_name].__init__`
 specifies the integration classes required to define a karrio compatible extension.
 
 ```text
-from purplship.core.metadata import Metadata
+from karrio.core.metadata import Metadata
 
-from purplship.mappers.[carrier_name].mapper import Mapper
-from purplship.mappers.[carrier_name].proxy import Proxy
-from purplship.mappers.[carrier_name].settings import Settings
-import purplship.providers.[carrier_name].units as units
+from karrio.mappers.[carrier_name].mapper import Mapper
+from karrio.mappers.[carrier_name].proxy import Proxy
+from karrio.mappers.[carrier_name].settings import Settings
+import karrio.providers.[carrier_name].units as units
 
 
 METADATA = Metadata(
@@ -120,7 +120,7 @@ The carrier extension package folder structure looks like this
 
 ```text
 extensions/carrier
-├── purplship
+├── karrio
 │   ├── mappers
 │   │   └── carrier
 │   │       ├── __init__.py
@@ -155,7 +155,7 @@ extensions/carrier
 
 :::warning
   You don't need to create the file structure from scratch. start of by copying the template available
-  at the root of the project under [.templates/carrier](https://github.com/PurplShip/purplship/tree/main/.templates/carrier)
+  at the root of the project under [.templates/carrier](https://github.com/PurplShip/karrio/tree/main/.templates/carrier)
 :::
 
 ---
@@ -171,7 +171,7 @@ The mapper function implementations consists of instantiating carrier specific r
 
 ```python
 # Import karrio unified API models
-from purplship.core.models import PickupRequest
+from karrio.core.models import PickupRequest
 
 # Import requirements from the DHL generated data types library (py-dhl)
 from pydhl.book_pickup_global_req_3_0 import BookPURequest, MetaData
@@ -297,7 +297,7 @@ def pickup_request(payload: PickupRequest, settings: Settings) -> Serializable[B
 
 ### Generated schema data types
 
-To keep to robustness and simplify the maintenance of the codebase, In purplship, we use Python data types reflecting
+To keep to robustness and simplify the maintenance of the codebase, In karrio, we use Python data types reflecting
 the schemas of carriers we want to integrate.
 That said, defining every schema object's structure can be tedious, long and unproductive. Therefore, code generators
 are used to generate Python data types based of the schema format definition.
@@ -306,7 +306,7 @@ are used to generate Python data types based of the schema format definition.
 into Python data types
 
 :::info
-  Check the [generate.sh](https://github.com/PurplShip/purplship-carriers/blob/main/py-canadapost/generate.sh) file
+  Check the [generate.sh](https://github.com/PurplShip/karrio-carriers/blob/main/py-canadapost/generate.sh) file
   to see how genereDs is used.
 :::
 
@@ -318,7 +318,7 @@ for python dataclass to add automated nested object instantiation.
 #### Data types libraries
 
 We have a dedicated repo for all carriers generated data types. You can submit a PR there for a new carrier.
-Check the [py-canadapost](https://github.com/PurplShip/purplship-carriers/tree/main/py-canadapost) package structure
+Check the [py-canadapost](https://github.com/PurplShip/karrio-carriers/tree/main/py-canadapost) package structure
 to define yours.
 
 :::info
@@ -374,9 +374,9 @@ from functools import partial
 # Import the the requests types from the carrier generated data types
 from carrier_datatypes.pickup import CarrierPickupRequest, CarrierPickupCancelRequest
 
-from purplship.core.settings import Settings
-from purplship.core.models import PickupUpdateRequest
-from purplship.core.utils import Pipeline, Job, Serializable
+from karrio.core.settings import Settings
+from karrio.core.models import PickupUpdateRequest
+from karrio.core.utils import Pipeline, Job, Serializable
 
 def pickup_update_request(payload: PickupUpdateRequest, settings: Settings) -> Serializable[Pipeline]:
     """
@@ -407,7 +407,7 @@ def _cancel_pickup_request(create_pickup_response: str, payload, settings) -> Jo
 - Implement the `modify_pickup` proxy function by applying the pipeline
 
 ```python
-from purplship.core.utils import Deserializable, Serializable, request as http, Job, Pipeline
+from karrio.core.utils import Deserializable, Serializable, request as http, Job, Pipeline
 
 def modify_pickup(self, request: Serializable[Pipeline]) -> Deserializable[str]:
     def process(job: Job):
@@ -432,28 +432,28 @@ def modify_pickup(self, request: Serializable[Pipeline]) -> Deserializable[str]:
 
 Remember that extensions are distributed as Python packages. Therefore, in order to reuse a carrier integration that
 has many different services with a lot of shared functionality, it is recommended to package separately
-the `purplship.provider.carrier` module that can be used as a dependency to many variation
-of `purplship.mappers.carrier_service` modules in their own respective packages.
+the `karrio.provider.carrier` module that can be used as a dependency to many variation
+of `karrio.mappers.carrier_service` modules in their own respective packages.
 
 :::info
-  By example, there are two `FedEx` related extension `purplship.fedex` and `purplship.fedex_express` because we can
-  reuse most of the `purplship.fedex` package implementation in a `purplship.fedex_freight` extension later on.
+  By example, there are two `FedEx` related extension `karrio.fedex` and `karrio.fedex_express` because we can
+  reuse most of the `karrio.fedex` package implementation in a `karrio.fedex_freight` extension later on.
 :::
 
 #### Helpers
 
 After integrating and experimenting with multiple carriers services, some data structure manipulation lead to the
-implementation of utilities functions located in `purplship.core.utils` module.
+implementation of utilities functions located in `karrio.core.utils` module.
 
 - `DICTPARSE`
 
 Usage:
 ```python
-from purplship.core.utils import DP
+from karrio.core.utils import DP
 ```
 
 ```text
-Python Library Documentation: class DICTPARSE in module purplship.core.utils.dict
+Python Library Documentation: class DICTPARSE in module karrio.core.utils.dict
 
 class DICTPARSE(builtins.object)
  |  Static methods defined here:
@@ -475,16 +475,16 @@ class DICTPARSE(builtins.object)
 
 Usage:
 ```python
-from purplship.core.utils import XP
+from karrio.core.utils import XP
 ```
 
 ```text
-Python Library Documentation: class XMLPARSER in module purplship.core.utils.xml
+Python Library Documentation: class XMLPARSER in module karrio.core.utils.xml
 
 class XMLPARSER(builtins.object)
  |  Static methods defined here:
  |
- |  build(element_type: Type[~T], xml_node: purplship.core.utils.xml.Element = None) -> Union[~T, NoneType]
+ |  build(element_type: Type[~T], xml_node: karrio.core.utils.xml.Element = None) -> Union[~T, NoneType]
  |      Build xml element node into type class
  |
  |      :param element_type: The xml node corresponding type (class)
@@ -498,7 +498,7 @@ class XMLPARSER(builtins.object)
  |      :param xml_strings:
  |      :return: a bundled XML text containing all the micro XML string
  |
- |  export(typed_xml_element: Type[purplship.core.utils.xml.GenerateDSAbstract], **kwds) -> str
+ |  export(typed_xml_element: Type[karrio.core.utils.xml.GenerateDSAbstract], **kwds) -> str
  |      Serialize a class instance into XML string.
  |      => Invoke the export method of generated type to return the subsequent XML represented
  |
@@ -512,13 +512,13 @@ class XMLPARSER(builtins.object)
  |      :param xml_str:
  |      :return: a dictionary
  |
- |  to_xml(xml_str: str) -> purplship.core.utils.xml.Element
+ |  to_xml(xml_str: str) -> karrio.core.utils.xml.Element
  |      Turn a XML text into an (lxml) XML Element.
  |
  |      :param xml_str:
  |      :return: Node Element
  |
- |  xml_tostring(xml_element: purplship.core.utils.xml.Element, encoding: str = 'utf-8') -> str
+ |  xml_tostring(xml_element: karrio.core.utils.xml.Element, encoding: str = 'utf-8') -> str
  |      Turn a XML Element into a XML text.
  |
  |      :param xml_element: XML ELement
@@ -531,11 +531,11 @@ class XMLPARSER(builtins.object)
 
 Usage:
 ```python
-from purplship.core.utils import DF
+from karrio.core.utils import DF
 ```
 
 ```text
-Python Library Documentation: class DATEFORMAT in module purplship.core.utils.datetime
+Python Library Documentation: class DATEFORMAT in module karrio.core.utils.datetime
 
 class DATEFORMAT(builtins.object)
  |  Static methods defined here:
@@ -557,11 +557,11 @@ class DATEFORMAT(builtins.object)
 
 Usage:
 ```python
-from purplship.core.utils import SF
+from karrio.core.utils import SF
 ```
 
 ```text
-Python Library Documentation: class STRINGFORMAT in module purplship.core.utils.string
+Python Library Documentation: class STRINGFORMAT in module karrio.core.utils.string
 
 class STRINGFORMAT(builtins.object)
  |  Static methods defined here:
@@ -575,7 +575,7 @@ class STRINGFORMAT(builtins.object)
 
 Usage:
 ```python
-from purplship.core.utils import [function]
+from karrio.core.utils import [function]
 ```
 
 ```text

@@ -52,7 +52,7 @@ parcels configured and accessible from your account.
 <TabItem value="node" label="Node">
 
 ```javascript
-const parcel = await purplship.parcels.create({
+const parcel = await karrio.parcels.create({
 	"weight": 1,
 	"weight_unit": "KG",
 	"package_preset": "canadapost_corrugated_small_box"
@@ -63,7 +63,7 @@ const parcel = await purplship.parcels.create({
 <TabItem value="python" label="Python">
 
 ```python
-parcel = purplship.parcels.create({
+parcel = karrio.parcels.create({
 	"weight": 1,
 	"weight_unit": "KG",
 	"package_preset": "canadapost_corrugated_small_box"
@@ -74,7 +74,7 @@ parcel = purplship.parcels.create({
 <TabItem value="php" label="PHP">
 
 ```php
-$parcel = $purplship->parcels->create([
+$parcel = $karrio->parcels->create([
 	"weight" => 1,
 	"weight_unit" => "KG",
 	"package_preset" => "canadapost_corrugated_small_box"
@@ -86,7 +86,7 @@ $parcel = $purplship->parcels->create([
 
 ```javascript
 (async () => {
-  const parcel = await purplship.parcels.create({
+  const parcel = await karrio.parcels.create({
     "weight": 1,
     "weight_unit": "KG",
     "package_preset": "canadapost_corrugated_small_box"
@@ -130,21 +130,21 @@ Throws an error if create parameters are invalid.
 <TabItem value="node" label="Node">
 
 ```javascript
-const parcel = await purplship.parcels.retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
+const parcel = await karrio.parcels.retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python
-parcel = purplship.parcels.retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
+parcel = karrio.parcels.retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
 ```
 
 </TabItem>
 <TabItem value="php" label="PHP">
 
 ```php
-$parcel = $purplship->parcels->retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
+$parcel = $karrio->parcels->retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
 ```
 
 </TabItem>
@@ -152,7 +152,7 @@ $parcel = $purplship->parcels->retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
 
 ```javascript
 (async () => {
-  const parcel = await purplship.parcels.retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
+  const parcel = await karrio.parcels.retrieve("pcl_99bc776deadf431a964a67c0ed8259e4");
 })();
 ```
 
@@ -193,7 +193,7 @@ Any parameters not provided will be left unchanged.
 <TabItem value="node" label="Node">
 
 ```javascript
-const parcel = await purplship.parcels.update({
+const parcel = await karrio.parcels.update({
 	"weight": 1.2,
 });
 ```
@@ -202,7 +202,7 @@ const parcel = await purplship.parcels.update({
 <TabItem value="python" label="Python">
 
 ```python
-parcel = purplship.parcels.update({
+parcel = karrio.parcels.update({
 	"weight": 1.2,
 });
 ```
@@ -211,7 +211,7 @@ parcel = purplship.parcels.update({
 <TabItem value="php" label="PHP">
 
 ```php
-$parcel = $purplship->parcels->update([
+$parcel = $karrio->parcels->update([
   "weight" => 1.2,
 ]);
 ```
@@ -221,7 +221,7 @@ $parcel = $purplship->parcels->update([
 
 ```javascript
 (async () => {
-  const parcel = await purplship.parcels.update({
+  const parcel = await karrio.parcels.update({
     "weight": 1.2,
   });
 })();
@@ -265,21 +265,21 @@ Permanently deletes an parcel. It cannot be undone.
 <TabItem value="node" label="Node">
 
 ```javascript
-const parcel = await purplship.parcels.discard("pcl_99bc776deadf431a964a67c0ed8259e4");
+const parcel = await karrio.parcels.discard("pcl_99bc776deadf431a964a67c0ed8259e4");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python
-parcel = purplship.parcels.discard("pcl_99bc776deadf431a964a67c0ed8259e4");
+parcel = karrio.parcels.discard("pcl_99bc776deadf431a964a67c0ed8259e4");
 ```
 
 </TabItem>
 <TabItem value="php" label="PHP">
 
 ```php
-$parcel = $purplship->parcels->discard("pcl_99bc776deadf431a964a67c0ed8259e4");
+$parcel = $karrio->parcels->discard("pcl_99bc776deadf431a964a67c0ed8259e4");
 ```
 
 </TabItem>
@@ -287,7 +287,7 @@ $parcel = $purplship->parcels->discard("pcl_99bc776deadf431a964a67c0ed8259e4");
 
 ```javascript
 (async () => {
-  const parcel = await purplship.parcels.discard("pcl_99bc776deadf431a964a67c0ed8259e4");
+  const parcel = await karrio.parcels.discard("pcl_99bc776deadf431a964a67c0ed8259e4");
 })();
 ```
 

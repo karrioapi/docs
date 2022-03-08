@@ -37,7 +37,7 @@ We provide official libraries for different programming languages.
 
 ```shell
 # Install via npm
-npm install --save purplship
+npm install --save karrio
 ```
 
 </TabItem>
@@ -45,7 +45,7 @@ npm install --save purplship
 
 ```shell
 # Install through pip
-pip install --upgrade purplship-python
+pip install --upgrade karrio-python
 ```
 
 </TabItem>
@@ -53,7 +53,7 @@ pip install --upgrade purplship-python
 
 ```shell
 # Install the PHP library via Composer
-composer require purplship/purplship-php
+composer require karrio/karrio-php
 ```
 
 </TabItem>
@@ -61,7 +61,7 @@ composer require purplship/purplship-php
 
 ```shell
 # Add script to an HTML page
-<script src="https://[app.karrio.io]/static/js/purplship.js"></script>
+<script src="https://[app.karrio.io]/static/js/karrio.js"></script>
 ```
 
 </TabItem>
@@ -104,9 +104,9 @@ using your `API key` to create an Address.
 ```javascript
 // Set your API key.
 // See your keys here: https://app.karrio.io/developers/api
-const karrio = require('purplship')('key_...');
+const karrio = require('karrio')('key_...');
 
-const adddress = await purplship.addresses.create({
+const adddress = await karrio.addresses.create({
 	"address_line1": "125 Church St",
 	"person_name": "John Doe",
 	"city": "Moncton",
@@ -123,10 +123,10 @@ const adddress = await purplship.addresses.create({
 
 # Set your secret key. Remember to switch to your live secret key in production.
 # See your keys here: https://app.karrio.io/developers/api
-import purplship
-purplship.api_key = 'key_...'
+import karrio
+karrio.api_key = 'key_...'
 
-adddress = purplship.addresses.create({
+adddress = karrio.addresses.create({
 	"address_line1": "125 Church St",
 	"person_name": "John Doe",
 	"city": "Moncton",
@@ -144,7 +144,7 @@ adddress = purplship.addresses.create({
 // See your keys here: https://app.karrio.io/developers/api
 $karrio = new \Karrio\Karrio('key_...');
 
-$adddress = $purplship->addresses->create([
+$adddress = $karrio->addresses->create([
   "address_line1" => "125 Church St",
   "person_name" => "Johm Doe",
   "city" => "Moncton",
@@ -163,7 +163,7 @@ $adddress = $purplship->addresses->create([
 const karrio = Karrio('key_...');
 
 (async () => {
-  const adddress = await purplship.addresses.create({
+  const adddress = await karrio.addresses.create({
     "address_line1": "125 Church St",
     "person_name": "John Doe",
     "city": "Moncton",

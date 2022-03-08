@@ -13,8 +13,8 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'purplship', // Usually your GitHub org/user name.
-  projectName: 'Purplship', // Usually your repo name.
+  organizationName: 'karrio', // Usually your GitHub org/user name.
+  projectName: 'karrio', // Usually your repo name.
 
   plugins: [
     'tailwind-loader',
