@@ -21,7 +21,7 @@ const config = {
     [
       '@docusaurus/plugin-google-analytics',
       {
-        trackingID: 'G-D1CJPS0Z69',
+        trackingID: 'UA-223037359-1',
         anonymizeIP: true,
       },
     ],
