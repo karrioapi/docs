@@ -2,7 +2,7 @@
 slug: open-source-on-premises-shipping-api
 title: Open Source on-premises shipping API
 authors: daniel
-tags: [intro, purplship]
+tags: [intro, karrio]
 ---
 
 #### The need for carrier integration
@@ -38,16 +38,16 @@ features without restriction.
 
 #### A modern toolbox
 
-Purplship is more than a black box multi-carrier Saas API. It is a toolbox that proposes a
+Karrio is more than a black box multi-carrier Saas API. It is a toolbox that proposes a
 unified API to communicate with all supported carriers and an open-source abstraction that
 serves as a framework for additional carrier integration.
 
-Purplship is written in Python with a Django REST app layer and a React web app. Join the
+Karrio is written in Python with a Django REST app layer and a React web app. Join the
 community today and contribute to making shipping service integration accessible to
 businesses of all sizes.
 
 To learn more:
 
-* Ask us anything at hello@purplship.com
-* [Follow purplship on Github](https://github.com/Purplship/purplship)
-* [Report any issues on our public repository](https://github.com/Purplship/purplship/issues)
+* Ask us anything at hello@karrio.io
+* [Follow karrio on Github](https://github.com/karrioapi/karrio)
+* [Report any issues on our public repository](https://github.com/karrioapi/karrio/issues)

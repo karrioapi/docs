@@ -43,13 +43,13 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/purplship/about/edit/main/',
+          editUrl: 'https://github.com/karrioapi/about/edit/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/purplship/about/edit/main/blog/',
+            'https://github.com/karrioapi/about/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -97,7 +97,7 @@ const config = {
             position: 'right'
           },
           {
-            href: 'https://github.com/purplship/purplship',
+            href: 'https://github.com/karrioapi/karrio',
             position: 'right',
             className: 'header-github-link',
           },
@@ -132,15 +132,15 @@ const config = {
             items: [
               {
                 label: 'Discussions',
-                href: 'https://github.com/purplship/purplship/discussions',
+                href: 'https://github.com/karrioapi/karrio/discussions',
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/purplship',
+                href: 'https://discordapp.com/invite/karrio',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/purplship',
+                href: 'https://twitter.com/karrio',
               },
             ],
           },
@@ -153,7 +153,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/purplship/purplship',
+                href: 'https://github.com/karrioapi/karrio',
               },
             ],
           },

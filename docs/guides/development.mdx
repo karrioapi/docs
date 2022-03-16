@@ -35,8 +35,8 @@ DETACHED_WORKER=False
 version: '3'
 
 services:
-  pship:
-    container_name: pship
+  karrio:
+    container_name: karrio
     image: danh91.docker.scarf.sh/karrio/server:2022.1.4
     restart: unless-stopped
     ports:
@@ -48,7 +48,7 @@ services:
       - db_network
       - web_network
     volumes:
-      - pshipstatics:/pship/static
+      - karriostatics:/karrio/static
 
   dashboard:
     container_name: dashboard
@@ -56,7 +56,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - 'NEXT_PUBLIC_PURPLSHIP_API_URL=http://[YOUR-LOCAL-IP-ADDRESS]:5002'
+      - 'NEXT_PUBLIC_KARRIO_API_URL=http://[YOUR-LOCAL-IP-ADDRESS]:5002'
       - 'NEXTAUTH_URL=http://[YOUR-LOCAL-IP-ADDRESS]:3000'
       - JWT_SECRET="n*s-ex6@ex_r1i%bk=3jd)p+lsick5bi*90!mbk7rc3iy_op1r"
     networks:
@@ -75,7 +75,7 @@ services:
       - db_network
 
 volumes:
-  pshipstatics:
+  karriostatics:
  karrio -db:
 
 networks:
