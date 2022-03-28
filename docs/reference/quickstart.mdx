@@ -8,16 +8,16 @@ import TabItem from '@theme/TabItem';
 
 # Development quickstart
 
-Get up and running with our client libraries and start developing your Purplship
+Get up and running with our client libraries and start developing your Karrio
 integration.
 
-Integrating Purplship into your app or website can begin as soon as you create
-a Purplship account, and requires three steps:
+Integrating Karrio into your app or website can begin as soon as you create
+a Karrio account, and requires three steps:
 
 `1` [Install a client library](#1-install-a-client-library) so your integration
-can interact with the Purplship API
+can interact with the Karrio API
 
-`2` [Obtain your API keys](#2-obtain-your-api-keys) so Purplship can authenticate
+`2` [Obtain your API keys](#2-obtain-your-api-keys) so Karrio can authenticate
 your integration’s API requests
 
 `3` [Make a test API request](#3-make-a-test-api-request) to confirm everything
@@ -37,7 +37,7 @@ We provide official libraries for different programming languages.
 
 ```shell
 # Install via npm
-npm install --save purplship
+npm install --save karrio
 ```
 
 </TabItem>
@@ -45,7 +45,7 @@ npm install --save purplship
 
 ```shell
 # Install through pip
-pip install --upgrade purplship-python
+pip install --upgrade karrio-python
 ```
 
 </TabItem>
@@ -53,7 +53,7 @@ pip install --upgrade purplship-python
 
 ```shell
 # Install the PHP library via Composer
-composer require purplship/purplship-php
+composer require karrioapi/karrio-php
 ```
 
 </TabItem>
@@ -61,7 +61,7 @@ composer require purplship/purplship-php
 
 ```shell
 # Add script to an HTML page
-<script src="https://[api.purplship.com]/static/js/purplship.js"></script>
+<script src="https://[app.karrio.io]/static/js/karrio.js"></script>
 ```
 
 </TabItem>
@@ -74,11 +74,11 @@ composer require purplship/purplship-php
 
 ## `2` Obtain your API keys
 
-Purplship authenticates your API requests using your account’s API keys.
+Karrio authenticates your API requests using your account’s API keys.
 If you don’t include your key when making an API request, or use one
-that is incorrect or outdated, Purplship returns an error.
+that is incorrect or outdated, Karrio returns an error.
 
-Purplship accounts support two type of keys: an `API key` ideal for server
+Karrio accounts support two type of keys: an `API key` ideal for server
 applications and a `JSON Web Token` ideal for client applications.
 
 You can generate new `JSON Web Token` by API requests providing an account
@@ -103,10 +103,10 @@ using your `API key` to create an Address.
 
 ```javascript
 // Set your API key.
-// See your keys here: https://cloud.purplship.com/developers/api
-const purplship = require('purplship')('key_...');
+// See your keys here: https://app.karrio.io/developers/api
+const karrio = require('karrio')('key_...');
 
-const adddress = await purplship.addresses.create({
+const adddress = await karrio.addresses.create({
 	"address_line1": "125 Church St",
 	"person_name": "John Doe",
 	"city": "Moncton",
@@ -122,11 +122,11 @@ const adddress = await purplship.addresses.create({
 ```python
 
 # Set your secret key. Remember to switch to your live secret key in production.
-# See your keys here: https://cloud.purplship.com/developers/api
-import purplship
-purplship.api_key = 'key_...'
+# See your keys here: https://app.karrio.io/developers/api
+import karrio
+karrio.api_key = 'key_...'
 
-adddress = purplship.addresses.create({
+adddress = karrio.addresses.create({
 	"address_line1": "125 Church St",
 	"person_name": "John Doe",
 	"city": "Moncton",
@@ -141,10 +141,10 @@ adddress = purplship.addresses.create({
 
 ```php
 // Set your API key.
-// See your keys here: https://cloud.purplship.com/developers/api
-$purplship = new \Purplship\Purplship('key_...');
+// See your keys here: https://app.karrio.io/developers/api
+$karrio = new \Karrio\Karrio('key_...');
 
-$adddress = $purplship->addresses->create([
+$adddress = $karrio->addresses->create([
   "address_line1" => "125 Church St",
   "person_name" => "Johm Doe",
   "city" => "Moncton",
@@ -159,11 +159,11 @@ $adddress = $purplship->addresses->create([
 
 ```javascript
 // Set your API key.
-// See your keys here: https://cloud.purplship.com/developers/api
-const purplship = Purplship('key_...');
+// See your keys here: https://app.karrio.io/developers/api
+const karrio = Karrio('key_...');
 
 (async () => {
-  const adddress = await purplship.addresses.create({
+  const adddress = await karrio.addresses.create({
     "address_line1": "125 Church St",
     "person_name": "John Doe",
     "city": "Moncton",
@@ -178,7 +178,7 @@ const purplship = Purplship('key_...');
 </Tabs>
 </div>
 
-Purplship returns an Address object in response to your API request.
+Karrio returns an Address object in response to your API request.
 
 ```json
 {

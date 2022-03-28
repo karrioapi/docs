@@ -1,7 +1,7 @@
 [
   {
     "name": "Aramex",
-    "href": "/docs/carriers/aramex",
+    "href": "/carriers/aramex",
     "status": "beta",
     "features": [
       "Tracking"
@@ -9,7 +9,7 @@
   },
   {
     "name": "Australia Post",
-    "href": "/docs/carriers/australiapost",
+    "href": "/carriers/australiapost",
     "status": "beta",
     "features": [
       "Tracking"
@@ -17,7 +17,7 @@
   },
   {
     "name": "Canada Post",
-    "href": "/docs/carriers/canadapost",
+    "href": "/carriers/canadapost",
     "status": "certified",
     "features": [
       "Rating",
@@ -28,7 +28,7 @@
   },
   {
     "name": "Canpar",
-    "href": "/docs/carriers/canpar",
+    "href": "/carriers/canpar",
     "status": "beta",
     "features": [
       "Rating",
@@ -39,7 +39,7 @@
   },
   {
     "name": "DHL Express",
-    "href": "/docs/carriers/dhl-express",
+    "href": "/carriers/dhl-express",
     "status": "certified",
     "features": [
       "Rating",
@@ -50,7 +50,7 @@
   },
   {
     "name": "DHL Poland",
-    "href": "/docs/carriers/dhl-poland",
+    "href": "/carriers/dhl-poland",
     "status": "beta",
     "features": [
       "Rating",
@@ -60,7 +60,7 @@
   },
   {
     "name": "DHL Universal",
-    "href": "/docs/carriers/dhl-universal",
+    "href": "/carriers/dhl-universal",
     "status": "certified",
     "features": [
       "Tracking"
@@ -68,7 +68,7 @@
   },
   {
     "name": "Dicom",
-    "href": "/docs/carriers/dicom",
+    "href": "/carriers/dicom",
     "status": "alpha",
     "features": [
       "Tracking"
@@ -76,7 +76,7 @@
   },
   {
     "name": "FedEx",
-    "href": "/docs/carriers/fedex",
+    "href": "/carriers/fedex",
     "status": "certified",
     "features": [
       "Rating",
@@ -87,7 +87,7 @@
   },
   {
     "name": "ICS Courier",
-    "href": "/docs/carriers/ics-courrier",
+    "href": "/carriers/ics-courrier",
     "status": "alpha",
     "features": [
       "Rating",
@@ -97,7 +97,7 @@
   },
   {
     "name": "Purolator",
-    "href": "/docs/carriers/purolator",
+    "href": "/carriers/purolator",
     "status": "beta",
     "features": [
       "Rating",
@@ -108,7 +108,7 @@
   },
   {
     "name": "Royal Mail",
-    "href": "/docs/carriers/royalmail",
+    "href": "/carriers/royalmail",
     "status": "beta",
     "features": [
       "Rating"
@@ -116,7 +116,7 @@
   },
   {
     "name": "Sendle",
-    "href": "/docs/carriers/sendle",
+    "href": "/carriers/sendle",
     "status": "beta",
     "features": [
       "Tracking"
@@ -124,7 +124,7 @@
   },
   {
     "name": "TNT",
-    "href": "/docs/carriers/tnt",
+    "href": "/carriers/tnt",
     "status": "beta",
     "features": [
       "Tracking"
@@ -132,7 +132,7 @@
   },
   {
     "name": "UPS",
-    "href": "/docs/carriers/ups",
+    "href": "/carriers/ups",
     "status": "certified",
     "features": [
       "Rating",
@@ -143,7 +143,7 @@
   },
   {
     "name": "USPS Ground",
-    "href": "/docs/carriers/ups-ground",
+    "href": "/carriers/ups-ground",
     "status": "beta",
     "features": [
       "Rating",
@@ -154,7 +154,7 @@
   },
   {
     "name": "USPS",
-    "href": "/docs/carriers/usps",
+    "href": "/carriers/usps",
     "status": "beta",
     "features": [
       "Rating",
@@ -165,7 +165,7 @@
   },
   {
     "name": "USPS International",
-    "href": "/docs/carriers/usps-international",
+    "href": "/carriers/usps-international",
     "status": "beta",
     "features": [
       "Rating",

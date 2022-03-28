@@ -6,25 +6,32 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'purplship',
-  tagline: 'Open Source, On-prem or Private cloud Shipping API',
-  url: 'https://purplship.com',
+  title: 'Karrio',
+  tagline: 'The Headless, API-first, open source shipping platform.',
+  url: 'https://karrio.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'purplship', // Usually your GitHub org/user name.
-  projectName: 'Purplship', // Usually your repo name.
+  organizationName: 'karrio', // Usually your GitHub org/user name.
+  projectName: 'karrio', // Usually your repo name.
 
   plugins: [
     'tailwind-loader',
     [
       '@docusaurus/plugin-google-analytics',
       {
-        trackingID: 'UA-111378601-2',
+        trackingID: 'UA-223037359-1',
         anonymizeIP: true,
       },
     ],
+    [
+      "@cmfcmf/docusaurus-search-local",
+      {
+        indexDocs: true,
+        language: "en",
+      },
+    ]
   ],
 
   presets: [
@@ -33,15 +40,16 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/purplship/about/edit/main/',
+          editUrl: 'https://github.com/karrioapi/about/edit/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/purplship/about/edit/main/blog/',
+            'https://github.com/karrioapi/about/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -53,36 +61,35 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/purplship.png',
-      metaImage: 'img/purplship.png',
+      image: 'img/karrio.png',
+      metaImage: 'img/karrio.png',
       navbar: {
-        title: '',
+        // title: 'Karrio',
         logo: {
-          alt: 'purplship',
+          alt: 'Karrio',
           src: 'img/logo.svg',
           srcDark: 'img/logo-inverted.svg',
         },
         items: [
           {
-            type: 'doc',
-            docId: 'introduction',
-            position: 'left',
-            label: 'Docs',
-          },
-          {
-            to: '/docs/guides',
+            to: '/guides',
             position: 'left',
             label: 'Guides',
           },
           {
-            to: '/docs/reference',
+            to: '/reference',
             position: 'left',
             label: 'Reference',
           },
           {
-            to: '/docs/carriers',
+            to: '/carriers',
             position: 'left',
             label: 'Carriers',
+          },
+          {
+            to: 'https://app.karrio.io',
+            position: 'left',
+            label: 'Login',
           },
           {
             to: '/blog',
@@ -90,7 +97,7 @@ const config = {
             position: 'right'
           },
           {
-            href: 'https://github.com/purplship/purplship',
+            href: 'https://github.com/karrioapi/karrio',
             position: 'right',
             className: 'header-github-link',
           },
@@ -104,19 +111,19 @@ const config = {
             items: [
               {
                 label: 'Overview',
-                to: '/docs',
+                to: '/',
               },
               {
                 label: 'Guides',
-                to: '/docs/guides',
+                to: '/guides',
               },
               {
                 label: 'Reference',
-                to: '/docs/reference',
+                to: '/reference',
               },
               {
                 label: 'Carriers',
-                to: '/docs/carriers',
+                to: '/carriers',
               },
             ],
           },
@@ -125,15 +132,15 @@ const config = {
             items: [
               {
                 label: 'Discussions',
-                href: 'https://github.com/purplship/purplship/discussions',
+                href: 'https://github.com/karrioapi/karrio/discussions',
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/purplship',
+                href: 'https://discordapp.com/invite/karrio',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/purplship',
+                href: 'https://twitter.com/karrio',
               },
             ],
           },
@@ -146,25 +153,36 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/purplship/purplship',
+                href: 'https://github.com/karrioapi/karrio',
+              },
+            ],
+          },
+          {
+            title: 'Beta',
+            items: [
+              {
+                label: 'Join our beta',
+                href: 'https://app.karrio.io',
               },
             ],
           },
         ],
         logo: {
-          alt: 'Purplship Logo',
+          alt: 'Karrio Inc.',
           src: 'img/logo-inverted.svg',
         },
-        copyright: `Copyright © ${new Date().getFullYear()} purplship`,
+        copyright: `Copyright © ${new Date().getFullYear()} karrio Inc.`,
       },
       tableOfContents: {
         minHeadingLevel: 2,
         maxHeadingLevel: 4,
       },
       prism: {
+        defaultLanguage: 'js',
+        additionalLanguages: ['json'],
+        plugins: ['line-numbers', 'show-language'],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['json'],
       },
     }),
 };

@@ -3,7 +3,7 @@ id: docker
 title: With Docker
 ---
 
-Docker is the easiest way to get started with self-hosted Purplship.
+Docker is the easiest way to get started with self-hosted Karrio.
 
 ## Before you begin
 
@@ -17,10 +17,10 @@ We release a new version of the server and dashboard every months.
 
 ```
 # server image
-danh91.docker.scarf.sh/purplship/server:[VERSION]
+danh91.docker.scarf.sh/karrio/server:[VERSION]
 
 # dashboard image
-danh91.docker.scarf.sh/purplship/dashboard:[VERSION]
+danh91.docker.scarf.sh/karrio/dashboard:[VERSION]
 ```
 
 The image is suitable for production use. See the [Configuration](#configuration)
@@ -30,36 +30,36 @@ for a list of environment variables you can use to configure the container.
 
 You can find the available release version tags on dockerhub.
 
-https://hub.docker.com/r/purplship/server/tags
+https://hub.docker.com/r/karrio/server/tags
 
-https://hub.docker.com/r/purplship/dashboard/tags
+https://hub.docker.com/r/karrio/dashboard/tags
 
 :::
 
 ## Confirguration
 
-The purplship server instance is configurable using the environment variables.
-purplship server is a [Django](https://www.djangoproject.com/) based project
+The karrio server instance is configurable using the environment variables.
+karrio server is a [Django](https://www.djangoproject.com/) based project
 and most of [deployment settings](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/)
 are relevant to configure this project with few contextual naming differences.
 
 ### DEPLOYMENT
 
-- **`PURPLSHIP_HOST`** | **default:** `0.0.0.0`
+- **`KARRIO_HOST`** | **default:** `0.0.0.0`
 
-The purplship server hostname
+The karrio server hostname
 
-- **`PURPLSHIP_PORT`** | **default:** `5002`
+- **`KARRIO_PORT`** | **default:** `5002`
 
-The purplship server port
+The karrio server port
 
-- **`PURPLSHIP_WORKERS`** | **default:** `2`
+- **`KARRIO_WORKERS`** | **default:** `2`
 
-The number of parallel subprocesses for the purplship server
+The number of parallel subprocesses for the karrio server
 
 - **`DETACHED_WORKER`** | [`True`, `False`] | **default:** `False`
 
-Indicate whether the purplship server process should be detached from the background worker process.
+Indicate whether the karrio server process should be detached from the background worker process.
 
 :::caution
   Setting this option to `True` means that you intend to run the background worker process in another container
@@ -68,7 +68,7 @@ Indicate whether the purplship server process should be detached from the backgr
 
 - **`BACKGROUND_WORKERS`** | **default:** `2`
 
-The number of parallel subprocesses for the purplship server background worker
+The number of parallel subprocesses for the karrio server background worker
 
 - **`DEBUG_MODE`** | [`True`, `False`] | **default:** `False`
 
@@ -141,7 +141,7 @@ Is the log file location.
 
 - **`WORKER_DB_DIR`**
 
-The purplship server background worker persists events to process so that
+The karrio server background worker persists events to process so that
 even after a shutdown, they can recover tasks and process them.
 
 :::tip
@@ -153,7 +153,7 @@ even after a shutdown, they can recover tasks and process them.
 
 ### DATABASE
 
-Purplship uses PostgresSQL as a database.
+Karrio uses PostgresSQL as a database.
 
 - **`DATABASE_HOST`** | **default:** `db`
 
@@ -201,10 +201,10 @@ The email server host
 
 The email server port
 
-- **`EMAIL_PAGE_DOMAIN`** | **default:** `https://app.purplship.com`
+- **`EMAIL_PAGE_DOMAIN`** | **default:** `https://app.karrio.io`
 
 The email server use TLS
 
-- **`EMAIL_FROM_ADDRESS`** | **default:** `noreply@purplship.com`
+- **`EMAIL_FROM_ADDRESS`** | **default:** `noreply@karrio.io`
 
 The email address to send emails from

@@ -51,7 +51,7 @@ addresses configured and accessible from your account.
 <TabItem value="node" label="Node">
 
 ```javascript
-const adddress = await purplship.addresses.create({
+const adddress = await karrio.addresses.create({
 	"address_line1": "125 Church St",
 	"person_name": "John Doe",
 	"city": "Moncton",
@@ -65,7 +65,7 @@ const adddress = await purplship.addresses.create({
 <TabItem value="python" label="Python">
 
 ```python
-adddress = purplship.addresses.create({
+adddress = karrio.addresses.create({
 	"address_line1": "125 Church St",
 	"person_name": "John Doe",
 	"city": "Moncton",
@@ -79,7 +79,7 @@ adddress = purplship.addresses.create({
 <TabItem value="php" label="PHP">
 
 ```php
-$adddress = $purplship->addresses->create([
+$adddress = $karrio->addresses->create([
   "address_line1" => "125 Church St",
   "person_name" => "Johm Doe",
   "city" => "Moncton",
@@ -94,7 +94,7 @@ $adddress = $purplship->addresses->create([
 
 ```javascript
 (async () => {
-  const adddress = await purplship.addresses.create({
+  const adddress = await karrio.addresses.create({
     "address_line1": "125 Church St",
     "person_name": "John Doe",
     "city": "Moncton",
@@ -146,21 +146,21 @@ Throws an error if create parameters are invalid.
 <TabItem value="node" label="Node">
 
 ```javascript
-const adddress = await purplship.addresses.retrieve("adr_7686aff180044495a83610713d47c38a");
+const adddress = await karrio.addresses.retrieve("adr_7686aff180044495a83610713d47c38a");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python
-adddress = purplship.addresses.retrieve("adr_7686aff180044495a83610713d47c38a");
+adddress = karrio.addresses.retrieve("adr_7686aff180044495a83610713d47c38a");
 ```
 
 </TabItem>
 <TabItem value="php" label="PHP">
 
 ```php
-$adddress = $purplship->addresses->retrieve("adr_7686aff180044495a83610713d47c38a");
+$adddress = $karrio->addresses->retrieve("adr_7686aff180044495a83610713d47c38a");
 ```
 
 </TabItem>
@@ -168,7 +168,7 @@ $adddress = $purplship->addresses->retrieve("adr_7686aff180044495a83610713d47c38
 
 ```javascript
 (async () => {
-  const adddress = await purplship.addresses.retrieve("adr_7686aff180044495a83610713d47c38a");
+  const adddress = await karrio.addresses.retrieve("adr_7686aff180044495a83610713d47c38a");
 })();
 ```
 
@@ -214,7 +214,7 @@ Any parameters not provided will be left unchanged.
 <TabItem value="node" label="Node">
 
 ```javascript
-const adddress = await purplship.addresses.update({
+const adddress = await karrio.addresses.update({
 	"person_name": "Jane Doe",
 });
 ```
@@ -223,7 +223,7 @@ const adddress = await purplship.addresses.update({
 <TabItem value="python" label="Python">
 
 ```python
-adddress = purplship.addresses.update({
+adddress = karrio.addresses.update({
 	"person_name": "Jane Doe",
 });
 ```
@@ -232,7 +232,7 @@ adddress = purplship.addresses.update({
 <TabItem value="php" label="PHP">
 
 ```php
-$adddress = $purplship->addresses->update([
+$adddress = $karrio->addresses->update([
   "person_name" => "Jane Doe",
 ]);
 ```
@@ -242,7 +242,7 @@ $adddress = $purplship->addresses->update([
 
 ```javascript
 (async () => {
-  const adddress = await purplship.addresses.update({
+  const adddress = await karrio.addresses.update({
     "person_name": "John Doe",
   });
 })();
@@ -291,21 +291,21 @@ Permanently deletes an address. It cannot be undone.
 <TabItem value="node" label="Node">
 
 ```javascript
-const adddress = await purplship.addresses.discard("adr_7686aff180044495a83610713d47c38a");
+const adddress = await karrio.addresses.discard("adr_7686aff180044495a83610713d47c38a");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python
-adddress = purplship.addresses.discard("adr_7686aff180044495a83610713d47c38a");
+adddress = karrio.addresses.discard("adr_7686aff180044495a83610713d47c38a");
 ```
 
 </TabItem>
 <TabItem value="php" label="PHP">
 
 ```php
-$adddress = $purplship->addresses->discard("adr_7686aff180044495a83610713d47c38a");
+$adddress = $karrio->addresses->discard("adr_7686aff180044495a83610713d47c38a");
 ```
 
 </TabItem>
@@ -313,7 +313,7 @@ $adddress = $purplship->addresses->discard("adr_7686aff180044495a83610713d47c38a
 
 ```javascript
 (async () => {
-  const adddress = await purplship.addresses.discard("adr_7686aff180044495a83610713d47c38a");
+  const adddress = await karrio.addresses.discard("adr_7686aff180044495a83610713d47c38a");
 })();
 ```
 

@@ -9,20 +9,20 @@ Using the fluent API with a gateway previously initialized, you can fetch live s
 
 
 ```python
-import purplship
-from purplship.core.models import RateRequest
+import karrio
+from karrio.core.models import RateRequest
 
 request = RateRequest(...)
 
-rates, messages = purplship.Rating.fetch(request).from_(carrier_gateway).parse()
+rates, messages = karrio.Rating.fetch(request).from_(carrier_gateway).parse()
 ```
 
 :::tip
   In a multi-carrier integration, we would often want to get shipping quotes from multiple carriers.
   That can be achieve by fetching from multiple gateways
-  
+
   e.g:
-  `purplship.Rating.fetch(request).from_(candapost_gateway, purolator_gateway, ...).parse()`
+  `karrio.Rating.fetch(request).from_(candapost_gateway, purolator_gateway, ...).parse()`
 :::
 
 ### Parameters
@@ -30,63 +30,63 @@ rates, messages = purplship.Rating.fetch(request).from_(carrier_gateway).parse()
 
 #### RateRequest
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `shipper` | [Address](#address) | **required**
 | `recipient` | [Address](#address) | **required**
 | `parcels` | List[[Parcel](#parcel)] | **required**
-| `services` | List[str] | 
-| `options` | `dict` | 
-| `reference` | `str` | 
+| `services` | List[str] |
+| `options` | `dict` |
+| `reference` | `str` |
 
 #### Address
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `id` | `str` | 
-| `postal_code` | `str` | 
-| `city` | `str` | 
-| `person_name` | `str` | 
-| `company_name` | `str` | 
-| `country_code` | `str` | 
-| `email` | `str` | 
-| `phone_number` | `str` | 
-| `state_code` | `str` | 
-| `residential` | `bool` | 
-| `address_line1` | `str` | 
-| `address_line2` | `str` | 
-| `federal_tax_id` | `str` | 
-| `state_tax_id` | `str` | 
-| `extra` | [AddressExtra](#addressextra) | 
+| `id` | `str` |
+| `postal_code` | `str` |
+| `city` | `str` |
+| `person_name` | `str` |
+| `company_name` | `str` |
+| `country_code` | `str` |
+| `email` | `str` |
+| `phone_number` | `str` |
+| `state_code` | `str` |
+| `residential` | `bool` |
+| `address_line1` | `str` |
+| `address_line2` | `str` |
+| `federal_tax_id` | `str` |
+| `state_tax_id` | `str` |
+| `extra` | [AddressExtra](#addressextra) |
 
 
 #### AddressExtra
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `street_name` | `str` | 
-| `street_number` | `str` | 
-| `street_type` | `str` | 
-| `suburb` | `str` | 
-| `suite` | `str` | 
+| `street_name` | `str` |
+| `street_number` | `str` |
+| `street_type` | `str` |
+| `suburb` | `str` |
+| `suite` | `str` |
 
 
 #### Parcel
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `id` | `str` | 
-| `weight` | `float` | 
-| `width` | `float` | 
-| `height` | `float` | 
-| `length` | `float` | 
-| `packaging_type` | `str` | 
-| `package_preset` | `str` | 
-| `description` | `str` | 
-| `content` | `str` | 
-| `is_document` | `bool` | 
-| `weight_unit` | `str` | 
-| `dimension_unit` | `str` | 
+| `id` | `str` |
+| `weight` | `float` |
+| `width` | `float` |
+| `height` | `float` |
+| `length` | `float` |
+| `packaging_type` | `str` |
+| `package_preset` | `str` |
+| `description` | `str` |
+| `content` | `str` |
+| `is_document` | `bool` |
+| `weight_unit` | `str` |
+| `dimension_unit` | `str` |
 
 
 
@@ -95,40 +95,40 @@ rates, messages = purplship.Rating.fetch(request).from_(carrier_gateway).parse()
 
 #### RateDetails
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
 | `currency` | `str` | **required**
-| `transit_days` | `int` | 
-| `service` | `str` | 
-| `discount` | `float` | 
-| `base_charge` | `float` | 
-| `total_charge` | `float` | 
-| `duties_and_taxes` | `float` | 
-| `extra_charges` | List[[ChargeDetails](#chargedetails)] | 
-| `meta` | `dict` | 
-| `id` | `str` | 
+| `transit_days` | `int` |
+| `service` | `str` |
+| `discount` | `float` |
+| `base_charge` | `float` |
+| `total_charge` | `float` |
+| `duties_and_taxes` | `float` |
+| `extra_charges` | List[[ChargeDetails](#chargedetails)] |
+| `meta` | `dict` |
+| `id` | `str` |
 
 
 #### ChargeDetails
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `name` | `str` | 
-| `amount` | `float` | 
-| `currency` | `str` | 
+| `name` | `str` |
+| `amount` | `float` |
+| `currency` | `str` |
 
 
 #### Message
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
-| `message` | Union[str, Any] | 
-| `code` | `str` | 
-| `details` | `dict` | 
+| `message` | Union[str, Any] |
+| `code` | `str` |
+| `details` | `dict` |
 
 
 ---
@@ -137,8 +137,8 @@ rates, messages = purplship.Rating.fetch(request).from_(carrier_gateway).parse()
 ### Code sample
 
 ```python
-import purplship
-from purplship.core.models import Address, Parcel, RateRequest
+import karrio
+from karrio.core.models import Address, Parcel, RateRequest
 
 shipper = Address(
     postal_code="V6M2V9",
@@ -166,7 +166,7 @@ parcel = Parcel(
     dimension_unit='CM'
 )
 
-request = purplship.Rating.fetch(
+request = karrio.Rating.fetch(
     RateRequest(
         shipper=shipper,
         recipient=recipient,

@@ -4,33 +4,33 @@ title: Introduction
 slug: /guides/sdk
 ---
 
-This section is dedicated to the purplship core shipping SDK. This SDK is a formed
+This section is dedicated to the karrio core shipping SDK. This SDK is a formed
 of a set of abtractions and implementations of the shipping services. The constructs
 and helpers functions provided helps build a framework for shipping services integration.
 
-This the translation pattern that maps various carrier APIs under a unified set of 
-data models. 
+This the translation pattern that maps various carrier APIs under a unified set of
+data models.
 
 
 The key features are:
 
 - **Unified API**: A standardized set of models representing the common shipping data (`Address`, `Parcel`, `Shipment`...)
 - **Intuitive API**: A library that abstracts and unifies the typical shipping API services (`Rating`, `Pickup`, `Tracking`...)
-- **Multi-carrier**: Integrate Purplship once and connect to multiple shipping carrier APIs
+- **Multi-carrier**: Integrate Karrio once and connect to multiple shipping carrier APIs
 - **Custom carrier**: A framework to integrate a shipping carrier services within minutes
 
 
 ## Usage
 
-The Purplship SDK offer a modular set of packages. The purplship core package and a set of 
+The Karrio SDK offer a modular set of packages. The karrio core package and a set of
 supported carrier extensions.
 
-You can therefore use the purplship SDK without any of the server API aspect of the project.
+You can therefore use the karrio SDK without any of the server API aspect of the project.
 
 :::caution
 The SDK is written in Python. Therefore, you can only use it within a Python project.
 
-Using the purplship server APIs gives you a better interoperability with other languages
+Using the karrio server APIs gives you a better interoperability with other languages
 and ecosystems.
 :::
 
@@ -41,11 +41,11 @@ Requirements:
 - Python 3.7
 
 ```bash
-# Install purplship SDK core package
-pip install purplship
+# Install karrio SDK core package
+pip install karrio
 
 # Install a carrier extension
-pip install purplship.canadapost
+pip install karrio.canadapost
 ```
 
 :::info Available carrier extensions
@@ -53,24 +53,24 @@ pip install purplship.canadapost
 <details>
 <summary>Carrier Pypi Packages</summary>
 
-- `purplship.aramex`
-- `purplship.australiapost`
-- `purplship.canadapost`
-- `purplship.canpar`
-- `purplship.dhl-express`
-- `purplship.dhl-universal`
-- `purplship.dicom`
-- `purplship.fedex`
-- `purplship.purolator`
-- `purplship.royalmail`
-- `purplship.sendle`
-- `purplship.sf-express`
-- `purplship.tnt`
-- `purplship.ups`
-- `purplship.usps`
-- `purplship.usps-international`
-- `purplship.yanwen`
-- `purplship.yunexpress`
+- `karrio.aramex`
+- `karrio.australiapost`
+- `karrio.canadapost`
+- `karrio.canpar`
+- `karrio.dhl-express`
+- `karrio.dhl-universal`
+- `karrio.dicom`
+- `karrio.fedex`
+- `karrio.purolator`
+- `karrio.royalmail`
+- `karrio.sendle`
+- `karrio.sf-express`
+- `karrio.tnt`
+- `karrio.ups`
+- `karrio.usps`
+- `karrio.usps-international`
+- `karrio.yanwen`
+- `karrio.yunexpress`
 
 </details>
 
@@ -82,13 +82,13 @@ pip install purplship.canadapost
 - Fetch shipping rates
 
 ```python
-import purplship
-from purplship.core.models import Address, Parcel, RateRequest
-from purplship.mappers.canadapost.settings import Settings
+import karrio
+from karrio.core.models import Address, Parcel, RateRequest
+from karrio.mappers.canadapost.settings import Settings
 
 
 # Initialize a carrier gateway
-canadapost = purplship.gateway["canadapost"].create(
+canadapost = karrio.gateway["canadapost"].create(
     Settings(
         username="username",
         password="password",
@@ -136,7 +136,7 @@ rate_request = RateRequest(
 )
 
 # Send a rate request using a carrier gateway
-response = purplship.Rating.fetch(rate_request).from_(canadapost)
+response = karrio.Rating.fetch(rate_request).from_(canadapost)
 
 # Parse the returned response
 rates, messages = response.parse()
@@ -166,4 +166,4 @@ print(rates)
 
 ## Next steps
 
-- Got a question? [Ask here](https://github.com/purplship/purplship/discussions).
+- Got a question? [Ask here](https://github.com/karrioapi/karrio/discussions).

@@ -10,12 +10,12 @@ to the `Tracking` API.
 
 
 ```python
-import purplship
-from purplship.core.models import TrackingRequest
+import karrio
+from karrio.core.models import TrackingRequest
 
 request = TrackingRequest(...)
 
-tracking_details_list, messages = purplship.Tracking.fetch(request).from_(carrier_gateway).parse()
+tracking_details_list, messages = karrio.Tracking.fetch(request).from_(carrier_gateway).parse()
 ```
 
 ### Parameters
@@ -23,11 +23,11 @@ tracking_details_list, messages = purplship.Tracking.fetch(request).from_(carrie
 
 #### TrackingRequest
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `tracking_numbers` | List[str] | **required**
-| `language_code` | `str` | 
-| `level_of_details` | `str` | 
+| `language_code` | `str` |
+| `level_of_details` | `str` |
 
 
 ### Response
@@ -35,36 +35,36 @@ tracking_details_list, messages = purplship.Tracking.fetch(request).from_(carrie
 
 #### TrackingDetails
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
 | `tracking_number` | `str` | **required**
 | `events` | List[[TrackingEvent](#trackingevent)] | **required**
-| `delivered` | `bool` | 
+| `delivered` | `bool` |
 
 
 #### TrackingEvent
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `date` | `str` | **required**
 | `description` | `str` | **required**
-| `location` | `str` | 
-| `code` | `str` | 
-| `time` | `str` | 
-| `signatory` | `str` | 
+| `location` | `str` |
+| `code` | `str` |
+| `time` | `str` |
+| `signatory` | `str` |
 
 
 #### Message
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
-| `message` | Union[str, Any] | 
-| `code` | `str` | 
-| `details` | `dict` | 
+| `message` | Union[str, Any] |
+| `code` | `str` |
+| `details` | `dict` |
 
 
 ---
@@ -72,10 +72,10 @@ tracking_details_list, messages = purplship.Tracking.fetch(request).from_(carrie
 ### Code sample
 
 ```python
-import purplship
-from purplship.core.models import TrackingRequest
+import karrio
+from karrio.core.models import TrackingRequest
 
-request = purplship.Tracking.fetch(
+request = karrio.Tracking.fetch(
     TrackingRequest(tracking_numbers=["1Z12345E6205277936"])
 )
 

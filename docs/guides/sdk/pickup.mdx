@@ -6,12 +6,12 @@ title: Pickup
 ## `Schedule`
 
 ```python
-import purplship
-from purplship.core.models import PickupRequest
+import karrio
+from karrio.core.models import PickupRequest
 
 request = PickupRequest(...)
 
-pickup, messages = purplship.Pickup.schedule(request).from_(carrier_gateway).parse()
+pickup, messages = karrio.Pickup.schedule(request).from_(carrier_gateway).parse()
 ```
 
 ### Parameters
@@ -19,66 +19,66 @@ pickup, messages = purplship.Pickup.schedule(request).from_(carrier_gateway).par
 
 #### PickupRequest
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `pickup_date` | `str` | **required**
 | `ready_time` | `str` | **required**
 | `closing_time` | `str` | **required**
 | `address` | [Address](#address) | **required**
-| `parcels` | List[[Parcel](#parcel)] | 
-| `instruction` | `str` | 
-| `package_location` | `str` | 
-| `options` | `dict` | 
+| `parcels` | List[[Parcel](#parcel)] |
+| `instruction` | `str` |
+| `package_location` | `str` |
+| `options` | `dict` |
 
 
 #### Address
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `id` | `str` | 
-| `postal_code` | `str` | 
-| `city` | `str` | 
-| `person_name` | `str` | 
-| `company_name` | `str` | 
-| `country_code` | `str` | 
-| `email` | `str` | 
-| `phone_number` | `str` | 
-| `state_code` | `str` | 
-| `residential` | `bool` | 
-| `address_line1` | `str` | 
-| `address_line2` | `str` | 
-| `federal_tax_id` | `str` | 
-| `state_tax_id` | `str` | 
-| `extra` | [AddressExtra](#addressextra) | 
+| `id` | `str` |
+| `postal_code` | `str` |
+| `city` | `str` |
+| `person_name` | `str` |
+| `company_name` | `str` |
+| `country_code` | `str` |
+| `email` | `str` |
+| `phone_number` | `str` |
+| `state_code` | `str` |
+| `residential` | `bool` |
+| `address_line1` | `str` |
+| `address_line2` | `str` |
+| `federal_tax_id` | `str` |
+| `state_tax_id` | `str` |
+| `extra` | [AddressExtra](#addressextra) |
 
 
 #### AddressExtra
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `street_name` | `str` | 
-| `street_number` | `str` | 
-| `street_type` | `str` | 
-| `suburb` | `str` | 
-| `suite` | `str` | 
+| `street_name` | `str` |
+| `street_number` | `str` |
+| `street_type` | `str` |
+| `suburb` | `str` |
+| `suite` | `str` |
 
 
 #### Parcel
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `id` | `str` | 
-| `weight` | `float` | 
-| `width` | `float` | 
-| `height` | `float` | 
-| `length` | `float` | 
-| `packaging_type` | `str` | 
-| `package_preset` | `str` | 
-| `description` | `str` | 
-| `content` | `str` | 
-| `is_document` | `bool` | 
-| `weight_unit` | `str` | 
-| `dimension_unit` | `str` | 
+| `id` | `str` |
+| `weight` | `float` |
+| `width` | `float` |
+| `height` | `float` |
+| `length` | `float` |
+| `packaging_type` | `str` |
+| `package_preset` | `str` |
+| `description` | `str` |
+| `content` | `str` |
+| `is_document` | `bool` |
+| `weight_unit` | `str` |
+| `dimension_unit` | `str` |
 
 
 ### Response
@@ -86,36 +86,36 @@ pickup, messages = purplship.Pickup.schedule(request).from_(carrier_gateway).par
 
 #### PickupDetails
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
 | `confirmation_number` | `str` | **required**
-| `pickup_date` | `str` | 
-| `pickup_charge` | [ChargeDetails](#chargedetails) | 
-| `ready_time` | `str` | 
-| `closing_time` | `str` | 
-| `id` | `str` | 
+| `pickup_date` | `str` |
+| `pickup_charge` | [ChargeDetails](#chargedetails) |
+| `ready_time` | `str` |
+| `closing_time` | `str` |
+| `id` | `str` |
 
 
 #### ChargeDetails
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `name` | `str` | 
-| `amount` | `float` | 
-| `currency` | `str` | 
+| `name` | `str` |
+| `amount` | `float` |
+| `currency` | `str` |
 
 
 #### Message
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
-| `message` | Union[str, Any] | 
-| `code` | `str` | 
-| `details` | `dict` | 
+| `message` | Union[str, Any] |
+| `code` | `str` |
+| `details` | `dict` |
 
 
 ---
@@ -123,8 +123,8 @@ pickup, messages = purplship.Pickup.schedule(request).from_(carrier_gateway).par
 ### Code sample
 
 ```python
-import purplship
-from purplship.core.models import PickupRequest, Address
+import karrio
+from karrio.core.models import PickupRequest, Address
 
 address = Address(
     postal_code="V6M2V9",
@@ -134,7 +134,7 @@ address = Address(
     address_line1="5840 Oak St"
 )
 
-request = purplship.Pickup.schedule(
+request = karrio.Pickup.schedule(
     PickupRequest(
         pickup_date="2015-01-28",
         address=address,
@@ -171,12 +171,12 @@ pickup, messages = request.from_(carrier_gateway).parse()
 ## `Update`
 
 ```python
-import purplship
-from purplship.core.models import PickupUpdateRequest
+import karrio
+from karrio.core.models import PickupUpdateRequest
 
 request = PickupUpdateRequest(...)
 
-pickup, messages = purplship.Pickup.update(request).from_(carrier_gateway).parse()
+pickup, messages = karrio.Pickup.update(request).from_(carrier_gateway).parse()
 ```
 
 ### Parameters
@@ -184,67 +184,67 @@ pickup, messages = purplship.Pickup.update(request).from_(carrier_gateway).parse
 
 #### PickupUpdateRequest
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `confirmation_number` | `str` | **required**
 | `pickup_date` | `str` | **required**
 | `ready_time` | `str` | **required**
 | `closing_time` | `str` | **required**
 | `address` | [Address](#address) | **required**
-| `parcels` | List[[Parcel](#parcel)] | 
-| `instruction` | `str` | 
-| `package_location` | `str` | 
-| `options` | `dict` | 
+| `parcels` | List[[Parcel](#parcel)] |
+| `instruction` | `str` |
+| `package_location` | `str` |
+| `options` | `dict` |
 
 
 #### Address
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `id` | `str` | 
-| `postal_code` | `str` | 
-| `city` | `str` | 
-| `person_name` | `str` | 
-| `company_name` | `str` | 
-| `country_code` | `str` | 
-| `email` | `str` | 
-| `phone_number` | `str` | 
-| `state_code` | `str` | 
-| `residential` | `bool` | 
-| `address_line1` | `str` | 
-| `address_line2` | `str` | 
-| `federal_tax_id` | `str` | 
-| `state_tax_id` | `str` | 
-| `extra` | [AddressExtra](#addressextra) | 
+| `id` | `str` |
+| `postal_code` | `str` |
+| `city` | `str` |
+| `person_name` | `str` |
+| `company_name` | `str` |
+| `country_code` | `str` |
+| `email` | `str` |
+| `phone_number` | `str` |
+| `state_code` | `str` |
+| `residential` | `bool` |
+| `address_line1` | `str` |
+| `address_line2` | `str` |
+| `federal_tax_id` | `str` |
+| `state_tax_id` | `str` |
+| `extra` | [AddressExtra](#addressextra) |
 
 
 #### AddressExtra
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `street_name` | `str` | 
-| `street_number` | `str` | 
-| `street_type` | `str` | 
-| `suburb` | `str` | 
-| `suite` | `str` | 
+| `street_name` | `str` |
+| `street_number` | `str` |
+| `street_type` | `str` |
+| `suburb` | `str` |
+| `suite` | `str` |
 
 
 #### Parcel
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `id` | `str` | 
-| `weight` | `float` | 
-| `width` | `float` | 
-| `height` | `float` | 
-| `length` | `float` | 
-| `packaging_type` | `str` | 
-| `package_preset` | `str` | 
-| `description` | `str` | 
-| `content` | `str` | 
-| `is_document` | `bool` | 
-| `weight_unit` | `str` | 
-| `dimension_unit` | `str` | 
+| `id` | `str` |
+| `weight` | `float` |
+| `width` | `float` |
+| `height` | `float` |
+| `length` | `float` |
+| `packaging_type` | `str` |
+| `package_preset` | `str` |
+| `description` | `str` |
+| `content` | `str` |
+| `is_document` | `bool` |
+| `weight_unit` | `str` |
+| `dimension_unit` | `str` |
 
 
 ### Response
@@ -252,36 +252,36 @@ pickup, messages = purplship.Pickup.update(request).from_(carrier_gateway).parse
 
 #### PickupDetails
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
 | `confirmation_number` | `str` | **required**
-| `pickup_date` | `str` | 
-| `pickup_charge` | [ChargeDetails](#chargedetails) | 
-| `ready_time` | `str` | 
-| `closing_time` | `str` | 
-| `id` | `str` | 
+| `pickup_date` | `str` |
+| `pickup_charge` | [ChargeDetails](#chargedetails) |
+| `ready_time` | `str` |
+| `closing_time` | `str` |
+| `id` | `str` |
 
 
 #### ChargeDetails
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `name` | `str` | 
-| `amount` | `float` | 
-| `currency` | `str` | 
+| `name` | `str` |
+| `amount` | `float` |
+| `currency` | `str` |
 
 
 #### Message
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
-| `message` | Union[str, Any] | 
-| `code` | `str` | 
-| `details` | `dict` | 
+| `message` | Union[str, Any] |
+| `code` | `str` |
+| `details` | `dict` |
 
 
 ---
@@ -289,8 +289,8 @@ pickup, messages = purplship.Pickup.update(request).from_(carrier_gateway).parse
 ### Code sample
 
 ```python
-import purplship
-from purplship.core.models import PickupUpdateRequest, Address
+import karrio
+from karrio.core.models import PickupUpdateRequest, Address
 
 address = Address(
     postal_code="V6M2V9",
@@ -300,7 +300,7 @@ address = Address(
     address_line1="5840 Oak St"
 )
 
-request = purplship.Pickup.update(
+request = karrio.Pickup.update(
     PickupUpdateRequest(
         confirmation_number="45L6KJ56LK5",  # Previously scheduled pickup confirmation number
         pickup_date="2015-01-28",
@@ -338,12 +338,12 @@ pickup, messages = request.from_(gateway).parse()
 ## `Cancel`
 
 ```python
-import purplship
-from purplship.core.models import PickupCancelRequest
+import karrio
+from karrio.core.models import PickupCancelRequest
 
 request = PickupCancelRequest(...)
 
-confirmation, messages = purplship.Pickup.cancel(request).from_(carrier_gateway).parse()
+confirmation, messages = karrio.Pickup.cancel(request).from_(carrier_gateway).parse()
 ```
 
 ### Parameters
@@ -351,44 +351,44 @@ confirmation, messages = purplship.Pickup.cancel(request).from_(carrier_gateway)
 
 #### PickupCancelRequest
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `confirmation_number` | `str` | **required**
-| `address` | [Address](#address) | 
-| `pickup_date` | `str` | 
-| `reason` | `str` | 
+| `address` | [Address](#address) |
+| `pickup_date` | `str` |
+| `reason` | `str` |
 
 
 #### Address
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `id` | `str` | 
-| `postal_code` | `str` | 
-| `city` | `str` | 
-| `person_name` | `str` | 
-| `company_name` | `str` | 
-| `country_code` | `str` | 
-| `email` | `str` | 
-| `phone_number` | `str` | 
-| `state_code` | `str` | 
-| `residential` | `bool` | 
-| `address_line1` | `str` | 
-| `address_line2` | `str` | 
-| `federal_tax_id` | `str` | 
-| `state_tax_id` | `str` | 
-| `extra` | [AddressExtra](#addressextra) | 
+| `id` | `str` |
+| `postal_code` | `str` |
+| `city` | `str` |
+| `person_name` | `str` |
+| `company_name` | `str` |
+| `country_code` | `str` |
+| `email` | `str` |
+| `phone_number` | `str` |
+| `state_code` | `str` |
+| `residential` | `bool` |
+| `address_line1` | `str` |
+| `address_line2` | `str` |
+| `federal_tax_id` | `str` |
+| `state_tax_id` | `str` |
+| `extra` | [AddressExtra](#addressextra) |
 
 
 #### AddressExtra
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
-| `street_name` | `str` | 
-| `street_number` | `str` | 
-| `street_type` | `str` | 
-| `suburb` | `str` | 
-| `suite` | `str` | 
+| `street_name` | `str` |
+| `street_number` | `str` |
+| `street_type` | `str` |
+| `suburb` | `str` |
+| `suite` | `str` |
 
 
 ### Response
@@ -396,7 +396,7 @@ confirmation, messages = purplship.Pickup.cancel(request).from_(carrier_gateway)
 
 #### ConfirmationDetails
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
@@ -406,13 +406,13 @@ confirmation, messages = purplship.Pickup.cancel(request).from_(carrier_gateway)
 
 #### Message
 
-| Name | Type | Description 
+| Name | Type | Description
 | --- | --- | --- |
 | `carrier_name` | `str` | **required**
 | `carrier_id` | `str` | **required**
-| `message` | Union[str, Any] | 
-| `code` | `str` | 
-| `details` | `dict` | 
+| `message` | Union[str, Any] |
+| `code` | `str` |
+| `details` | `dict` |
 
 
 ---
@@ -420,10 +420,10 @@ confirmation, messages = purplship.Pickup.cancel(request).from_(carrier_gateway)
 ### Code sample
 
 ```python
-import purplship
-from purplship.core.models import PickupCancelRequest
+import karrio
+from karrio.core.models import PickupCancelRequest
 
-request = purplship.Pickup.cancel(
+request = karrio.Pickup.cancel(
     PickupCancelRequest(
         confirmation_number="45L6KJ56LK5",  # Previously scheduled pickup confirmation number
     )
