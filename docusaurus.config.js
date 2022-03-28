@@ -87,11 +87,6 @@ const config = {
             label: 'Carriers',
           },
           {
-            to: 'https://app.karrio.io',
-            position: 'left',
-            label: 'Login',
-          },
-          {
             to: '/blog',
             label: 'Blog',
             position: 'right'
@@ -162,7 +157,7 @@ const config = {
             items: [
               {
                 label: 'Join our beta',
-                href: 'https://app.karrio.io',
+                href: 'https://karrio.io',
               },
             ],
           },
