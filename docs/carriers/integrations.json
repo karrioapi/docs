@@ -86,16 +86,6 @@
     ]
   },
   {
-    "name": "ICS Courier",
-    "href": "/carriers/ics-courrier",
-    "status": "alpha",
-    "features": [
-      "Rating",
-      "Shipping",
-      "Tracking"
-    ]
-  },
-  {
     "name": "Purolator",
     "href": "/carriers/purolator",
     "status": "beta",
@@ -134,17 +124,6 @@
     "name": "UPS",
     "href": "/carriers/ups",
     "status": "certified",
-    "features": [
-      "Rating",
-      "Shipping",
-      "Tracking",
-      "Pickup"
-    ]
-  },
-  {
-    "name": "USPS Ground",
-    "href": "/carriers/ups-ground",
-    "status": "beta",
     "features": [
       "Rating",
       "Shipping",
