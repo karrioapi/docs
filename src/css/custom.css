@@ -151,6 +151,20 @@ html[data-theme="dark"] .header-github-link:before {
   }
 }
 
+div[class^="docItemContainer_"] {
+  max-width: none;
+}
+@media (min-width: 997px) {
+  div[class^="docItemContainer_"] {
+    max-width: none;
+    padding: 0 calc(var(--ifm-spacing-horizontal) * 2);
+  }
+}
+
+div[class^="docSidebarContainer_"] {
+  border-right-color: var(--ifm-sidebar-border-color);
+}
+
 /* Sidebar nav header  */
 .menu > .menu__list > .menu__list-item > .menu__link {
   margin-bottom: 4px;
