@@ -204,7 +204,7 @@ the provided shipping details.
 
 ```bash
 curl --request POST \
-  --url https://app.karrio.io/v1/proxy/rates \
+  --url https://api.karrio.io/v1/proxy/rates \
   --header 'Authorization: Token [API_KEY]' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -315,7 +315,7 @@ retrieved previously and the preferred rate' `selected_rate_id`.
 
 ```bash
 curl --request POST \
-  --url https://app.karrio.io/v1/proxy/shipping \
+  --url https://api.karrio.io/v1/proxy/shipping \
   --header 'Authorization: Token  [API_KEY]' \
   --header 'Content-Type: application/json' \
   --data '{
@@ -815,7 +815,7 @@ provide the preferred shipping rate id to buy the label.
 
 ```bash
 curl --request POST \
-  --url https://app.karrio.io/v1/shipments/shp_e53f4d88846a48079e71c2fff81dfddc/purchase \
+  --url https://api.karrio.io/v1/shipments/shp_e53f4d88846a48079e71c2fff81dfddc/purchase \
   --header 'Authorization: Token [API_KEY]' \
   --header 'Content-Type: application/json' \
   --data '{
