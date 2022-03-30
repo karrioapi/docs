@@ -5,7 +5,7 @@ title: Connected Carriers
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `Carrier Settings` object allow you to perform get live rates, generate labels,
+The `Carrier` object allow you to perform get live rates, generate labels,
 track shipments and any other carrier supported operations. The API allow you to
 retrieve the list of carriers configured and accessible from your account.
 
@@ -23,11 +23,15 @@ retrieve the list of carriers configured and accessible from your account.
         <td>GET</td>
         <td>/v1/carriers</td>
       </tr>
+      <tr>
+        <td>GET</td>
+        <td>/v1/carriers/<strong>[carrier_name]</strong>/services</td>
+      </tr>
     </tbody>
   </table>
 </div>
 
-## Get Carrier Settings
+## Get carrier connections
 
 <div id="tabs">
 <Tabs>
@@ -142,3 +146,61 @@ Karrio returns a list for carrier settings object in response to your API reques
 ```
 
 </div>
+
+
+
+## Get carrier services
+
+<div id="tabs">
+<Tabs>
+<TabItem value="node" label="Node">
+
+```javascript
+const carriers = await karrio.carriers.get_services("dhl_poland");
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+carriers = karrio.carriers.get_services("dhl_poland")
+```
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+```php
+carriers = karrio->carriers->get_services("dhl_poland");
+```
+
+</TabItem>
+<TabItem value="js" label="Javascript">
+
+```javascript
+(async () => {
+  const carriers = await karrio.carriers.get_services("dhl_poland");
+})();
+```
+
+</TabItem>
+</Tabs>
+</div>
+
+Karrio returns a dictionary of carrier service_code as key and
+service_name as values.
+
+<div id="tabs">
+
+```json
+{
+	"dhl_poland_premium": "PR",
+	"dhl_poland_polska": "AH",
+	"dhl_poland_09": "09",
+	"dhl_poland_12": "12",
+	"dhl_poland_connect": "EK",
+	"dhl_poland_international": "PI"
+}
+```
+
+</div>
+

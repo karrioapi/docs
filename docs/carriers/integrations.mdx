@@ -11,7 +11,7 @@ Karrio allow you to access a network of shipping carriers and integrate with any
 additional logistics provider.
 
 
-## Connections
+## Carriers Connections
 
 You can connect and use services from several carriers.
 
@@ -32,6 +32,32 @@ You can connect and use services from several carriers.
         ))}
       </a>
     ))}
+  </div>
+</div>
+
+
+## Custom Carrier
+
+Karrio allow you to define your own carrier and allow developers to integrate with
+using the Karrio API they are already familiar with.
+
+<div id="tailwind">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:mr-8">
+    <a className="group rounded-lg border-2 p-3 hover:shadow no-underline"
+      href="/carriers/custom-carrier" style={{ color: "var(--ifm-font-color-base)" }}>
+      <div className="flex justify-between">
+        <div className="text-base font-semibold ">Custom Carrier</div>
+        <code className="text-sm font-light px-2">production</code>
+      </div>
+      <div className="border border-opacity-50 px-1 text-sm mt-2 rounded-sm flex justify-between">
+        <div>Rating</div>
+        <div>yes</div>
+      </div>
+      <div className="border border-opacity-50 px-1 text-sm mt-2 rounded-sm flex justify-between">
+        <div>Shipping</div>
+        <div>yes</div>
+      </div>
+    </a>
   </div>
 </div>
 

@@ -105,7 +105,7 @@ const config = {
             title: 'Resources',
             items: [
               {
-                label: 'Overview',
+                label: 'Docs',
                 to: '/',
               },
               {
@@ -119,6 +119,10 @@ const config = {
               {
                 label: 'Carriers',
                 to: '/carriers',
+              },
+              {
+                label: 'OpenAPI',
+                to: 'https://api.karrio.io/openapi',
               },
             ],
           },
@@ -140,7 +144,7 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'Company',
             items: [
               {
                 label: 'Blog',
