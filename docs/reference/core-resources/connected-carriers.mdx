@@ -1,6 +1,8 @@
 ---
 id: connected-carriers
 title: Connected Carriers
+tags:
+  - REST API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -156,21 +158,21 @@ Karrio returns a list for carrier settings object in response to your API reques
 <TabItem value="node" label="Node">
 
 ```javascript
-const carriers = await karrio.carriers.get_services("ups");
+const services = await karrio.carriers.get_services("ups");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python
-carriers = karrio.carriers.get_services("ups")
+services = karrio.carriers.get_services("ups")
 ```
 
 </TabItem>
 <TabItem value="php" label="PHP">
 
 ```php
-carriers = karrio->carriers->get_services("ups");
+$services = karrio->carriers->get_services("ups");
 ```
 
 </TabItem>
@@ -178,7 +180,7 @@ carriers = karrio->carriers->get_services("ups");
 
 ```javascript
 (async () => {
-  const carriers = await karrio.carriers.get_services("ups");
+  const services = await karrio.carriers.get_services("ups");
 })();
 ```
 
