@@ -156,21 +156,21 @@ Karrio returns a list for carrier settings object in response to your API reques
 <TabItem value="node" label="Node">
 
 ```javascript
-const carriers = await karrio.carriers.get_services("dhl_poland");
+const carriers = await karrio.carriers.get_services("ups");
 ```
 
 </TabItem>
 <TabItem value="python" label="Python">
 
 ```python
-carriers = karrio.carriers.get_services("dhl_poland")
+carriers = karrio.carriers.get_services("ups")
 ```
 
 </TabItem>
 <TabItem value="php" label="PHP">
 
 ```php
-carriers = karrio->carriers->get_services("dhl_poland");
+carriers = karrio->carriers->get_services("ups");
 ```
 
 </TabItem>
@@ -178,7 +178,7 @@ carriers = karrio->carriers->get_services("dhl_poland");
 
 ```javascript
 (async () => {
-  const carriers = await karrio.carriers.get_services("dhl_poland");
+  const carriers = await karrio.carriers.get_services("ups");
 })();
 ```
 
@@ -193,12 +193,29 @@ service_name as values.
 
 ```json
 {
-	"dhl_poland_premium": "PR",
-	"dhl_poland_polska": "AH",
-	"dhl_poland_09": "09",
-	"dhl_poland_12": "12",
-	"dhl_poland_connect": "EK",
-	"dhl_poland_international": "PI"
+	"ups_standard": "11",
+	"ups_worldwide_expedited": "08",
+	"ups_worldwide_express": "07",
+	"ups_worldwide_express_plus": "54",
+	"ups_worldwide_saver": "65",
+	"ups_2nd_day_air": "02",
+	"ups_2nd_day_air_am": "59",
+	"ups_3_day_select": "12",
+	"ups_expedited_mail_innovations": "M4",
+	"ups_first_class_mail": "M2",
+	"ups_ground": "03",
+	"ups_next_day_air": "01",
+	"ups_next_day_air_early": "14",
+	"ups_next_day_air_saver": "13",
+	"ups_priority_mail": "M3",
+	"ups_access_point_economy": "70",
+	"ups_today_dedicated_courier": "83",
+	"ups_today_express": "85",
+	"ups_today_express_saver": "86",
+	"ups_today_standard": "82",
+	"ups_worldwide_express_freight": "96",
+	"ups_priority_mail_innovations": "M5",
+	"ups_economy_mail_innovations": "M6"
 }
 ```
 
