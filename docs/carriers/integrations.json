@@ -51,7 +51,7 @@
   {
     "name": "DHL Poland",
     "href": "/carriers/dhl-poland",
-    "status": "beta",
+    "status": "certified",
     "features": [
       "Rating",
       "Shipping",

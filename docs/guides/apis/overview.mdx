@@ -1,0 +1,86 @@
+---
+id: overview
+title: Overview
+slug: /guides/apis
+---
+
+Whether you're building a custom branded shipping software or
+looking for ways to extend karrio server, the following guide
+will help you achieve your goals.
+
+Karrio comes with a set of product that can be used to integrate shipping
+capabilities to your apps. Developers can use the APIs to create a tailored
+shipping experience for customers.
+
+To that end, karrio exposes:
+
+- REST - Interact with carrier services and create standardize shipping data.
+- GraphQL - Manage your shipping data and customize your fulfilment process.
+
+
+## REST API
+
+The karrio shipping API is powered by REST. Rather than dealing
+with non-standardized, often poorly documented carrier webservices
+and arcane technologies such as SOAP. karrio proposes a unified
+and intuitive REST API compatible with all supported carriers services.
+
+
+### References
+
+karrio exposes a set of REST API resources. The full references are accessible
+at [`/openapi/`](https://api.karrio.io/openapi) with the description of all
+APIs from your browser.
+
+<img src="/img/assets/openapi.png" />
+
+
+### Playground
+
+You can download the karrio `OpenAPI` specification to quickly
+familiarize yourself with the REST API and perform example requests
+by importing it in tools such as [Insomnia](https://insomnia.rest/download)
+or [Postman](https://www.postman.com/product/rest-client/)
+
+
+<img src="/img/assets/insomnia.png" />
+
+
+## GraphQL API
+
+karrio leverage a GraphQL API to expose access to shipping related
+objects data available in the system. GraphQL is a query language that
+allows clients to talk to an API server. Unlike REST, it gives the client
+control over how much or how little data they want to request about each
+object and allows relations within the object graph to be traversed easily.
+
+To learn more about GraphQL language and its concepts, see the
+official [GraphQL website](https://graphql.org/).
+
+The API endpoint is available at [`/graphql/`](https://api.karrio.io/graphql)
+and requires queries to be submitted using HTTP `POST` method and the `application/json`
+content type.
+
+
+### Playground
+
+karrio exposes an interactive GraphQL editor under [`/graphql/`](https://api.karrio.io/graphql),
+allowing access to the GraphQL API from your browser.
+
+GraphQL Playground is an external interactive editor for your GraphQL queries.
+It is based on Graphiql and accessible through the web browser.
+
+Using Playground is easy and intuitive with its sidebar navigation contain
+a listing of all operations available in the API. The Playground allows you
+to quickly familiarize yourself with the GraphQL API, perform example
+operations, and send your first queries.
+
+<img src="/img/assets/graphiQL.png" />
+
+
+
+## Next steps
+
+- Got a question? [Ask here](https://github.com/karrioapi/karrio/discussions).
+- Visit the reference to [learn more](/reference).
+

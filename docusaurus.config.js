@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Karrio',
   tagline: 'The Headless, API-first, open source shipping platform.',
-  url: 'https://karrio.com',
+  url: 'https://karrio.io',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -44,6 +44,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/karrioapi/about/edit/main/',
+          sidebarCollapsible: false,
         },
         blog: {
           showReadingTime: true,
@@ -72,7 +73,7 @@ const config = {
         },
         items: [
           {
-            to: '/guides',
+            to: '/',
             position: 'left',
             label: 'Guides',
           },
@@ -105,12 +106,8 @@ const config = {
             title: 'Resources',
             items: [
               {
-                label: 'Docs',
-                to: '/',
-              },
-              {
                 label: 'Guides',
-                to: '/guides',
+                to: '/',
               },
               {
                 label: 'Reference',
@@ -122,7 +119,7 @@ const config = {
               },
               {
                 label: 'OpenAPI',
-                to: 'https://api.karrio.io/openapi',
+                href: 'https://api.karrio.io/openapi',
               },
             ],
           },
