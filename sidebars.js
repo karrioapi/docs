@@ -21,8 +21,8 @@ const sidebars = {
       items: [
         'introduction',
         'architecture',
-        'development',
         'extensibility',
+        'development',
       ],
     },
     {
