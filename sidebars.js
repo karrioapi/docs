@@ -58,6 +58,7 @@ const sidebars = {
           collapsible: true,
           items: [
             'guides/apis/authentication',
+            'guides/apis/error-codes',
             'guides/apis/connected-carriers',
             'guides/apis/shipping',
             'guides/apis/tracking',
