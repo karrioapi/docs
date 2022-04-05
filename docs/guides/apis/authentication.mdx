@@ -13,12 +13,7 @@ Karrio authenticates your API requests using your account’s API keys.
 If you don’t include your key when making an API request, or use an
 incorrect or outdated one, Karrio returns an error.
 
-Every account has separate keys for testing and for running live
-transactions. All API requests exist in either test or live mode, and
-objects in one mode (customers, plans, coupons, etc.) can’t manipulate
-objects in the other.
-
-There are also two types of keys: a private key and a JSON Web Token.
+There are two types of keys: a private key and a JSON Web Token.
 
 - Private You must keep your private API keys confidential and only
 store them on your own servers. You must not share your private API
@@ -57,7 +52,7 @@ curl --request POST \\
 <TabItem value="js" label="Javascript">
 
 ```javascript
-const karrio = Karrio('key_...');
+const karrio = Karrio();
 const token = await karrio.api.authenticate({
 	"email": "admin@example.com",
 	"password": "demo",
