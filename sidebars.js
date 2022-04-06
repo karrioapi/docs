@@ -22,7 +22,7 @@ const sidebars = {
         'introduction',
         'architecture',
         'extensibility',
-        'development',
+        'installation',
       ],
     },
     {
@@ -81,6 +81,14 @@ const sidebars = {
             'guides/apis/organizations',
           ],
         },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'DEVELOPMENT',
+      collapsed: false,
+      items: [
+        'development/setup',
       ],
     },
     {
