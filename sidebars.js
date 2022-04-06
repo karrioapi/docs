@@ -48,6 +48,16 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'PLATFORM',
+      collapsed: false,
+      items: [
+        'platform/api-logs',
+        'platform/events',
+        'platform/document-templates',
+      ],
+    },
+    {
+      type: 'category',
       label: 'APIs',
       items: [
         'guides/apis/overview',
@@ -59,7 +69,7 @@ const sidebars = {
           items: [
             'guides/apis/authentication',
             'guides/apis/error-codes',
-            'guides/apis/connected-carriers',
+            'guides/apis/carriers',
             'guides/apis/shipping',
             'guides/apis/tracking',
           ],
