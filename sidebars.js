@@ -85,8 +85,6 @@ const sidebars = {
             'guides/apis/addresses',
             'guides/apis/parcels',
             'guides/apis/metadata',
-            'guides/apis/logs',
-            'guides/apis/events',
             'guides/apis/users',
             'guides/apis/organizations',
           ],
