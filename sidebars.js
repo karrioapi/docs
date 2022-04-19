@@ -129,7 +129,7 @@ const sidebars = {
       type: 'category',
       label: 'SEE ALSO',
       collapsed: false,
-      items: ['faq', 'support', 'contributing'],
+      items: ['faq', 'support', 'contributing', "privace", "terms"],
     },
   ],
   reference: [
