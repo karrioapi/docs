@@ -5,7 +5,7 @@ authors: daniel
 tags: [intro, karrio]
 ---
 
-#### The need for carrier integration
+### The need for carrier integration
 
 One of the critical determinants of Amazon’s success is their access to a network of
 logistics carriers combined with their investment in strategic warehouse establishment.
@@ -14,7 +14,7 @@ becomes a smarter choice. Integrating your platform to a network of carriers wil
 allow your shoppers to get the best experience and value for shipments with different
 weights, dimensions and expected services.
 
-#### Developer experience and time-to-value
+### Developer experience and time-to-value
 
 Developers often face two challenges when integrating with a shipping carrier Webservice.
 First, the integration is tedious and long as most of the major carriers use arcane
@@ -27,7 +27,7 @@ but rather each company offers its own Interface. The consequence is that for an
 integration needed, you will have to go through a new learning and discovery curve with
 each carrier individually.
 
-#### Why is it still unsolved?
+### Why is it still unsolved?
 
 Most of the saas platforms offering shipping APIs are exclusively tailored to work with
 their implementation which creates a vendor lockin and reliance on their servers.
@@ -36,7 +36,7 @@ To accomplish that, we have opted to adopt the open-core model for simple distri
 and additionally offer teams control over the roadmap with the freedom to develop additional
 features without restriction.
 
-#### A modern toolbox
+### A modern toolbox
 
 Karrio is more than a black box multi-carrier Saas API. It is a toolbox that proposes a
 unified API to communicate with all supported carriers and an open-source abstraction that
