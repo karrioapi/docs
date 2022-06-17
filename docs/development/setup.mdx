@@ -12,15 +12,14 @@ Documentation for developers contributing to the Karrio code base.
 
 - [Git](https://git-scm.com/downloads)
 - [Docker](https://www.docker.com/products/docker-desktop) & [Docker Compose](https://docs.docker.com/compose/install/)
-- [Node](https://nodejs.org/en/download/)
-- [Python (optional)](https://www.python.org/downloads/)
+- [Node v16.15.1 +](https://nodejs.org/en/download/)
+- [Python 3.8 +](https://www.python.org/downloads/)
 
 
 ## Server
 
 The following steps need to be performed inside a terminal window
-(Windows user may prefer to use the [Windows Terminal](https://aka.ms/windowsterminal)
-but the Command Prompt will also work).
+(Windows user may prefer to use the [Windows WSL](https://docs.microsoft.com/en-us/windows/wsl/install)).
 
 Clone the repository:
 
@@ -40,8 +39,6 @@ docker-compose up -d db
 
 
 ### Installation using Python
-
-*This setup is ideal for Linux and macOS*
 
 - Setup Python environment with the dependencies:
 
@@ -67,37 +64,6 @@ karrio createsuperuser
 ```shell
 karrio runserver 0.0.0.0:5002
 ```
-
-
-### Installation using Docker
-
-*This setup is ideal for Windows*
-
-Build docker images:
-
-```shell
-docker-compose build
-```
-
-- Apply database migrations, collect static assets:
-
-```shell
-docker-compose run --rm api karrio migrate
-docker-compose run --rm api karrio collectstatic --noinput
-```
-
-- Finally, create yourself an admin account:
-
-```shell
-docker-compose run --rm api karrio createsuperuser
-```
-
-- Start the server:
-
-```shell
-docker-compose run --rm api karrio runserver 0.0.0.0:5002
-```
-
 
 
 ## Dashboard
