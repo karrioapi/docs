@@ -501,7 +501,7 @@ curl --request POST \
       "test_mode": true
     }
   ],
-  "tracking_url": "/v1/proxy/tracking/canadapost/123456789012?test",
+  "tracking_url": "/v1/proxy/tracking/canadapost/123456789012",
   "service": "canadapost_regular_parcel",
   "shipper": {
     "id": null,
@@ -679,10 +679,7 @@ curl --request POST \
       "carrier_id": "canadapost",
       "currency": "CAD",
       "service": "canadapost_regular_parcel",
-      "discount": 4.06,
-      "base_charge": 30.07,
       "total_charge": 35.84,
-      "duties_and_taxes": 1.71,
       "transit_days": 10,
       "extra_charges": [
         {
@@ -704,10 +701,7 @@ curl --request POST \
       "carrier_id": "canadapost",
       "currency": "CAD",
       "service": "canadapost_expedited_parcel",
-      "discount": 4.45,
-      "base_charge": 32.99,
       "total_charge": 39.31,
-      "duties_and_taxes": 1.87,
       "transit_days": 8,
       "extra_charges": [
         {
@@ -921,7 +915,7 @@ curl --request POST \
         "test_mode": true
       }
     ],
-    "tracking_url": "/v1/tracking_status/canadapost/123456789012?test",
+    "tracking_url": "/v1/tracking_status/canadapost/123456789012",
     "service": "canadapost_regular_parcel",
     "shipper": {
       "id": "adr_5713af1104b542cf84e7f64cda719d70",
