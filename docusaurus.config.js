@@ -154,11 +154,15 @@ const config = {
             ],
           },
           {
-            title: 'Beta',
+            title: 'About Us',
             items: [
               {
-                label: 'Join our beta',
+                label: 'Karrio',
                 href: 'https://karrio.io',
+              },
+              {
+                label: 'Join our beta',
+                href: 'https://karrio.io/pricing',
               },
             ],
           },
