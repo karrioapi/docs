@@ -1,6 +1,6 @@
 ---
 id: setup
-title: Setup
+title: Dev setup
 ---
 
 # Developing Karrio
@@ -40,7 +40,7 @@ docker-compose up -d db
 
 ### Installation using Python
 
-- Setup Python environment with the dependencies:
+- Setup a Python environment with all dependencies:
 
 ```shell
 . ./scripts/setup-server-env.sh
@@ -100,6 +100,55 @@ cp .env.sample .env
 ```shell
 npm run dev
 ```
+
+
+## Scripts
+
+### Working on Karrio SDK core and all extensions
+
+- Setting up Karrio SDK and all carrier extensions
+
+```shell
+cd karrio
+. ./scripts/setup-sdk-env.sh
+```
+
+
+- Running all SDK tests
+
+```shell
+cd karrio
+./scripts/run-sdk-tests.sh
+```
+
+### Working on a single carrier
+
+- Setup a Python environment with the dev dependencies
+
+```shell
+cd karrio
+./scripts/create-new-env.sh
+```
+
+_This will create and activate an isolated Python environment with the dev dependencies required to work on karrio._
+
+
+- Install an extension in dev mode
+
+```shell
+cd karrio
+# pip install -e sdk/extensions/[carrier_extension]
+pip install -e sdk/extensions/fedex
+```
+
+- Running tests for a single extension
+
+```shell
+cd karrio
+# python -m unittest discover -v -f sdk/extensions/[carrier_extension]/tests
+python -m unittest discover -v -f sdk/extensions/fedex/tests
+```
+
 
 ## Troubleshooting
 
