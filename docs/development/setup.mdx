@@ -175,6 +175,35 @@ cd karrio
 karrio test --failfast karrio.server.manager.tests
 ```
 
+### Reset Karrio database for a fresh reinstall
+
+```shell
+cd karrio
+# stop and remove the database container
+docker-compose down
+
+# start a fresh Postgres container 
+docker-compose up -d db
+```
+
+
+### Backup your data
+
+```shell
+cd karrio
+karrio dumpdata -e contenttypes -o [BACKUP_LOCATION_PATH]/data[VERSION].json
+# e.g: karrio dumpdata -e contenttypes -o ../backup/data2022.10-3.json
+```
+
+
+### Load dev data
+
+```shell
+cd karrio
+karrio loaddata [BACKUP_LOCATION_PATH]/data[VERSION].json  
+# e.g: karrio loaddata ../backup/data2022.10-1.json
+```
+
 
 ## Troubleshooting
 
