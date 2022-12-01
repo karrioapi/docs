@@ -167,6 +167,15 @@ cd karrio
 ```
 
 
+- Running tests on a single karrio server module
+
+```shell
+cd karrio
+# karrio test --failfast karrio.server.[module].tests
+karrio test --failfast karrio.server.manager.tests
+```
+
+
 ## Troubleshooting
 
 Make sure Docker and Docker Compose work before attempting to run Karrio.
