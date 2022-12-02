@@ -45,7 +45,17 @@ docker-compose up -d db
 - Setup a Python environment with all dependencies:
 
 ```shell
-. ./scripts/setup-server-env.sh
+source ./scripts/setup-server-env.sh
+```
+
+or 
+
+```shell
+# installation
+./scripts/setup-server-env.sh
+
+# activate environment
+source ./scripts/activate-env.sh
 ```
 
 - Apply database migrations, collect static assets:
