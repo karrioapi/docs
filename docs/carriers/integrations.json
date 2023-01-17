@@ -1,5 +1,14 @@
 [
   {
+    "name": "AmazonMWS",
+    "href": "/carriers/amazon_mws",
+    "status": "beta",
+    "features": [
+      "Rating",
+      "Shipping"
+    ]
+  },
+  {
     "name": "Aramex",
     "href": "/carriers/aramex",
     "status": "beta",
@@ -38,6 +47,16 @@
     ]
   },
   {
+    "name": "Chronopost",
+    "href": "/carriers/chronopost",
+    "status": "beta",
+    "features": [
+      "Rating",
+      "Shipping",
+      "Tracking"
+    ]
+  },
+  {
     "name": "DHL Express",
     "href": "/carriers/dhl-express",
     "status": "certified",
@@ -71,6 +90,16 @@
     "href": "/carriers/dicom",
     "status": "alpha",
     "features": [
+      "Tracking"
+    ]
+  },
+  {
+    "name": "Deutsche Post DHL",
+    "href": "/carriers/dpdhl",
+    "status": "beta",
+    "features": [
+      "Rating",
+      "Shipping",
       "Tracking"
     ]
   },
