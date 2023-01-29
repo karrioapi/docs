@@ -7,13 +7,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Karrio',
-  tagline: 'The Headless, API-first, open source shipping platform.',
+  tagline: 'The Open source shipping API for enterprise and platform.',
   url: 'https://karrio.io',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'karrio', // Usually your GitHub org/user name.
+  organizationName: 'karrioapi', // Usually your GitHub org/user name.
   projectName: 'karrio', // Usually your repo name.
 
   plugins: [
@@ -43,14 +43,8 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/karrioapi/about/edit/main/',
+          editUrl: 'https://github.com/karrioapi/docs/edit/main/',
           sidebarCollapsible: false,
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/karrioapi/about/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -86,11 +80,6 @@ const config = {
             to: '/carriers',
             position: 'left',
             label: 'Carriers',
-          },
-          {
-            to: '/blog',
-            label: 'Blog',
-            position: 'right'
           },
           {
             href: 'https://github.com/karrioapi/karrio',
