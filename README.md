@@ -1,6 +1,8 @@
 # Karrio docs
 
-Karrio docs, and blog (<https://docs.karrio.io>)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c811d9e3-b88f-4124-aa21-daeb8233c412/deploy-status)](https://app.netlify.com/sites/karrio-docs/deploys)
+
+Karrio docs (<https://docs.karrio.io>)
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
