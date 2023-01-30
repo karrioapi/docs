@@ -35,7 +35,7 @@ version: "3"
 services:
   karrio:
     container_name: karrio
-    image: karrio.docker.scarf.sh/karrio/server:2022.8.15
+    image: karrio.docker.scarf.sh/karrio/server:2023.1
     restart: unless-stopped
     ports:
       - "5002:5002"
@@ -50,7 +50,7 @@ services:
 
   dashboard:
     container_name: dashboard
-    image: karrio.docker.scarf.sh/karrio/dashboard:2022.8.15
+    image: karrio.docker.scarf.sh/karrio/dashboard:2023.1
     ports:
       - "3000:3000"
     environment:
