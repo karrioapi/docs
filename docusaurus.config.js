@@ -67,14 +67,14 @@ const config = {
         },
         items: [
           {
-            to: '/',
+            to: '/overview',
             position: 'left',
-            label: 'Guides',
+            label: 'Docs',
           },
           {
-            to: '/reference',
+            to: '/api',
             position: 'left',
-            label: 'Reference',
+            label: 'API',
           },
           {
             to: '/carriers',

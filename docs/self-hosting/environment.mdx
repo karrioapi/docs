@@ -1,49 +1,32 @@
 ---
-id: docker
-title: With Docker
+id: environment
+title: Environment Variables
 ---
 
-Docker is the easiest way to get started with self-hosted Karrio.
-
-## Before you begin
-
-You need the following installed in your system:
-- [Docker](https://docs.docker.com/engine/install/) and docker-compose.
-
-
-## Images
-
-We release a new version of the server and dashboard every months.
-
-```
-# server image
-danh91.docker.scarf.sh/karrio/server:[VERSION]
-
-# dashboard image
-danh91.docker.scarf.sh/karrio/dashboard:[VERSION]
-```
-
-The image is suitable for production use. See the [Configuration](#configuration)
-for a list of environment variables you can use to configure the container.
-
-:::info
-
-You can find the available release version tags on dockerhub.
-
-https://hub.docker.com/r/karrio/server/tags
-
-https://hub.docker.com/r/karrio/dashboard/tags
-
-:::
-
-## Confirguration
 
 The karrio server instance is configurable using the environment variables.
 karrio server is a [Django](https://www.djangoproject.com/) based project
 and most of [deployment settings](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/)
 are relevant to configure this project with few contextual naming differences.
 
-### DEPLOYMENT
+
+For settings that can be managed with Instance Settings, you can either set the values via environment variables or through the Instance Settings page in your instance.
+However, it is strongly **recommended to use Instance settings.** Environment variables are only loaded when there are no values in Instance settings,
+which means that environment variables could reflect outdated values.
+
+For other settings, there are various environment variables you can set to configure your instance.
+Below is a comprehensive list of all of them.
+
+Some variables here are default Django variables.
+This [Django Docs page](https://docs.djangoproject.com/en/3.2/ref/settings/) has more information about them.
+
+
+| Variable                   | Description                           | Default Value          |
+| :------------------------- | :------------------------------------ | :--------------------- |
+| `SECRET_KEY`               | **❗️ Always required.** [Used by Django for cryptography](https://docs.djangoproject.com/en/2.2/ref/settings/#secret-key). Helps secure cookies, sessions, hashes, etc. Custom value required in production. | `<randomly generated secret key>`
+
+
+## DEPLOYMENT
 
 - **`KARRIO_HOST`** | **default:** `localhost`
 
@@ -101,7 +84,7 @@ You can set it to a lower value if you want a more frequent tracking status upda
 
 ---
 
-### CACHING
+## CACHING
 
 - **`REDIS_HOST`**
 
@@ -113,7 +96,7 @@ The redis instance port.
 
 ---
 
-### PROVISIONING
+## PROVISIONING
 
 - **`ADMIN_EMAIL`** | **default:** `admin@example.com`
 
@@ -129,7 +112,7 @@ The default super user password
 
 ---
 
-### LOGGING
+## LOGGING
 
 - **`LOG_LEVEL`** | [`DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`]
 
@@ -151,7 +134,7 @@ even after a shutdown, they can recover tasks and process them.
 
 ---
 
-### DATABASE
+## DATABASE
 
 Karrio uses PostgresSQL as a database.
 
@@ -179,7 +162,7 @@ The database connection' password
 
 ---
 
-### EMAIL
+## EMAIL
 
 - **`EMAIL_USE_TLS`** | **default:** `False`
 

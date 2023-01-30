@@ -1,5 +1,5 @@
 ---
-id: setup
+id: development
 title: Dev setup
 ---
 
@@ -48,7 +48,7 @@ docker-compose up -d db
 source ./scripts/setup-server-env.sh
 ```
 
-or 
+or
 
 ```shell
 # installation
@@ -166,7 +166,7 @@ python -m unittest discover -v -f sdk/extensions/fedex/tests
 
 ### Working on karrio server
 
-- Setting up Karrio server 
+- Setting up Karrio server
 
 ```shell
 cd karrio
@@ -197,7 +197,7 @@ cd karrio
 # stop and remove the database container
 docker-compose down
 
-# start a fresh Postgres container 
+# start a fresh Postgres container
 docker-compose up -d db
 ```
 
@@ -215,7 +215,7 @@ karrio dumpdata -e contenttypes -o [BACKUP_LOCATION_PATH]/data[VERSION].json
 
 ```shell
 cd karrio
-karrio loaddata [BACKUP_LOCATION_PATH]/data[VERSION].json  
+karrio loaddata [BACKUP_LOCATION_PATH]/data[VERSION].json
 # e.g: karrio loaddata ../backup/data2022.10-1.json
 ```
 

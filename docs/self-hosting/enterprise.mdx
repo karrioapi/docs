@@ -1,0 +1,37 @@
+---
+id: enterprise
+title: Enterprise
+---
+
+Docker is the easiest way to get started with self-hosted Karrio.
+
+## Before you begin
+
+You need the following installed in your system:
+- [Docker](https://docs.docker.com/engine/install/) and docker-compose.
+
+
+## Images
+
+We release a new version of the server and dashboard every months.
+
+```
+# server image
+karrio.docker.scarf.sh/karrio/server:[VERSION]
+
+# dashboard image
+karrio.docker.scarf.sh/karrio/dashboard:[VERSION]
+```
+
+The image is suitable for production use. See the [Configuration](#configuration)
+for a list of environment variables you can use to configure the container.
+
+:::info
+
+You can find the available release version tags on dockerhub.
+
+https://hub.docker.com/r/karrio/server/tags
+
+https://hub.docker.com/r/karrio/dashboard/tags
+
+:::
