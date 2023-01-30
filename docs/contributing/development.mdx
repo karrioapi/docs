@@ -7,14 +7,12 @@ title: Dev setup
 
 Documentation for developers contributing to the Karrio code base.
 
-
 ## Prerequisites
 
 - [Git](https://git-scm.com/downloads)
 - [Docker](https://www.docker.com/products/docker-desktop) & [Docker Compose](https://docs.docker.com/compose/install/)
 - [Node v16.15.1 +](https://nodejs.org/en/download/)
 - [Python 3.8 +](https://www.python.org/downloads/)
-
 
 ## Server
 
@@ -30,7 +28,6 @@ git clone https://github.com/[YOUR_USERNAME]/karrio.git
 cd karrio
 ```
 
-
 ### Database
 
 Setup a PostgreSQL database for the application.
@@ -39,23 +36,22 @@ Setup a PostgreSQL database for the application.
 docker-compose up -d db
 ```
 
-
 ### Installation using Python
 
 - Setup a Python environment with all dependencies:
 
 ```shell
-source ./scripts/setup-server-env.sh
+source ./bin/setup-server-env
 ```
 
 or
 
 ```shell
 # installation
-./scripts/setup-server-env.sh
+./bin/setup-server-env
 
 # activate environment
-source ./scripts/activate-env.sh
+source ./bin/activate-env
 ```
 
 - Apply database migrations, collect static assets:
@@ -74,13 +70,8 @@ karrio createsuperuser
 - Start the server:
 
 ```shell
-karrio runserver 0.0.0.0:5002
+./bin/start
 ```
-
-:::caution
-  On windows, use `0.0.0.0:5002` instead of `localhost:5002`
-:::
-
 
 ## Dashboard
 
@@ -105,17 +96,11 @@ npm install
 cp .env.sample .env
 ```
 
-:::caution
-  On windows set up:
-  NEXT_PUBLIC_KARRIO_API_URL=http://localhost:5002
-:::
-
 - Start the dashboard:
 
 ```shell
 npm run dev
 ```
-
 
 ## Scripts
 
@@ -125,15 +110,14 @@ npm run dev
 
 ```shell
 cd karrio
-. ./scripts/setup-sdk-env.sh
+. ./bin/setup-sdk-env
 ```
-
 
 - Running all SDK tests
 
 ```shell
 cd karrio
-./scripts/run-sdk-tests.sh
+./bin/run-sdk-tests
 ```
 
 ### Working on a single carrier
@@ -142,11 +126,10 @@ cd karrio
 
 ```shell
 cd karrio
-./scripts/create-new-env.sh
+./bin/create-new-env
 ```
 
 _This will create and activate an isolated Python environment with the dev dependencies required to work on karrio._
-
 
 - Install an extension in dev mode
 
@@ -170,17 +153,15 @@ python -m unittest discover -v -f sdk/extensions/fedex/tests
 
 ```shell
 cd karrio
-. ./scripts/setup-server-env.sh
+. ./bin/setup-server-env
 ```
-
 
 - Running all server tests
 
 ```shell
 cd karrio
-./scripts/run-server-tests.sh
+./bin/run-server-tests
 ```
-
 
 - Running tests on a single karrio server module
 
@@ -201,7 +182,6 @@ docker-compose down
 docker-compose up -d db
 ```
 
-
 ### Backup your data
 
 ```shell
@@ -210,7 +190,6 @@ karrio dumpdata -e contenttypes -o [BACKUP_LOCATION_PATH]/data[VERSION].json
 # e.g: karrio dumpdata -e contenttypes -o ../backup/data2022.10-3.json
 ```
 
-
 ### Load dev data
 
 ```shell
@@ -218,7 +197,6 @@ cd karrio
 karrio loaddata [BACKUP_LOCATION_PATH]/data[VERSION].json
 # e.g: karrio loaddata ../backup/data2022.10-1.json
 ```
-
 
 ## Troubleshooting
 
@@ -229,4 +207,3 @@ Make sure you've read the warning about Windows 10 Home.
 Windows versions before Windows 10 are not officially supported.
 
 If you encounter other problems, see [Support](/support).
-

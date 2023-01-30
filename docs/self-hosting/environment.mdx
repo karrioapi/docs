@@ -3,12 +3,10 @@ id: environment
 title: Environment Variables
 ---
 
-
 The karrio server instance is configurable using the environment variables.
 karrio server is a [Django](https://www.djangoproject.com/) based project
 and most of [deployment settings](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/)
 are relevant to configure this project with few contextual naming differences.
-
 
 For settings that can be managed with Instance Settings, you can either set the values via environment variables or through the Instance Settings page in your instance.
 However, it is strongly **recommended to use Instance settings.** Environment variables are only loaded when there are no values in Instance settings,
@@ -19,12 +17,6 @@ Below is a comprehensive list of all of them.
 
 Some variables here are default Django variables.
 This [Django Docs page](https://docs.djangoproject.com/en/3.2/ref/settings/) has more information about them.
-
-
-| Variable                   | Description                           | Default Value          |
-| :------------------------- | :------------------------------------ | :--------------------- |
-| `SECRET_KEY`               | **❗️ Always required.** [Used by Django for cryptography](https://docs.djangoproject.com/en/2.2/ref/settings/#secret-key). Helps secure cookies, sessions, hashes, etc. Custom value required in production. | `<randomly generated secret key>`
-
 
 ## DEPLOYMENT
 
@@ -45,8 +37,8 @@ The number of parallel subprocesses for the karrio server
 Indicate whether the karrio server process should be detached from the background worker process.
 
 :::caution
-  Setting this option to `True` means that you intend to run the background worker process in another container
-  or another runtime resource.
+Setting this option to `True` means that you intend to run the background worker process in another container
+or another runtime resource.
 :::
 
 - **`BACKGROUND_WORKERS`** | **default:** `2`
@@ -58,7 +50,7 @@ The number of parallel subprocesses for the karrio server background worker
 It is important to set `DEBUG_MODE` to `False` in production for security and performance.
 
 :::note
-  **Is the equivalent of django's `DEBUG` flag**.
+**Is the equivalent of django's `DEBUG` flag**.
 :::
 
 - **`ALLOWED_HOSTS`**
@@ -107,7 +99,7 @@ The default super user admin account email to add when the system start for the 
 The default super user password
 
 :::caution
-  Make sure to change the password later
+Make sure to change the password later
 :::
 
 ---
@@ -128,8 +120,8 @@ The karrio server background worker persists events to process so that
 even after a shutdown, they can recover tasks and process them.
 
 :::tip
-  When you are using a container, you might want to mount this folder
-  on a volume so that they can be recovered when the container shuts down.
+When you are using a container, you might want to mount this folder
+on a volume so that they can be recovered when the container shuts down.
 :::
 
 ---

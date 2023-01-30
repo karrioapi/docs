@@ -2,8 +2,9 @@
 id: extension
 title: Extension
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 ## Custom Carrier
 
@@ -14,16 +15,16 @@ We have experimented and studied approximately ~100 shipping carriers API/web se
 The good news is that making it easy to add a custom carrier fits perfectly with karrio' vision.
 
 :::caution
-  To integrate a custom carrier at this stage, you will need:
+To integrate a custom carrier at this stage, you will need:
 
-  - A minimal knowledge of Python
-  - Write code to extend the abstract classes
-  - Use the plugin/extension structure available
-  - Read and Understand the carrier' API documentation
+- A minimal knowledge of Python
+- Write code to extend the abstract classes
+- Use the plugin/extension structure available
+- Read and Understand the carrier' API documentation
+
 :::
 
 ---
-
 
 ### Steps to integrate a custom carrier
 
@@ -31,9 +32,8 @@ The good news is that making it easy to add a custom carrier fits perfectly with
 
 2. Generate Python data types from the carrier API schemas
 
-
 :::info
-  The package naming convention for extensions is `karrio.[carrier_name]`
+The package naming convention for extensions is `karrio.[carrier_name]`
 :::
 
 #### 1. Create a karrio extension package
@@ -44,28 +44,28 @@ You can run the following command to scafold a karrio extension for you carrier.
 ```terminal
 python run add-extension
 ```
-:::info
-  Id: usps                                      # Karrio unique carrier_name
-  Name: USPS                                    # Carrier label that will be used throughout the app
-  Features [tracking, rating, shipping]:        # The carrier features you wish to integrate
-  Version [2023.1]:                             # The extension initial version
-  Is XML API? [y/n]:                            # Specify whether the carrier' API data format is XML. (n - for JSON APIs)
-:::
+
+```
+Id: usps                                # Karrio unique carrier_name
+Name: USPS                              # Carrier label that will be used throughout the app
+Features [tracking, rating, shipping]:  # The carrier features you wish to integrate
+Version [2023.1]:                       # The extension initial version
+Is XML API? [y/n]:                      # Specify whether the carrier' API data format is XML. (n - for JSON APIs)
+```
 
 This command will create a karrio compatible extension folder under `sdk/extensions/[carrier_name]`
-with all the boilerplate code required for your integration. 
-From there, all you have to do is implement the API data mapping from and to karrio unified interface and add API contract tests 
-to ensure that karrio generates the right requests for your API. 
+with all the boilerplate code required for your integration.
+From there, all you have to do is implement the API data mapping from and to karrio unified interface and add API contract tests
+to ensure that karrio generates the right requests for your API.
 Additionally, you need to instruct karrio on how to parse responses returned from your carrier' API.
-
 
 #### 2. Generate Python data types from the carrier API schemas
 
 Karrio uses some cool open source projects to generate API schema datatypes.
 
 :::info
-    We strongly believe in **types** because with a good IDE setup, they help you understand
-    the datatypes available and makes maintenance easy.
+We strongly believe in **types** because with a good IDE setup, they help you understand
+the datatypes available and makes maintenance easy.
 :::
 
 - Generate Python datatypes for an XML/SOAP API
@@ -84,9 +84,8 @@ Please check the [amazon_mws schema scripting](https://github.com/karrioapi/karr
 To use quicktype, you need to build a the custom docker image we have prepared for our fork.
 
 ```terminal
-./scripts/build-tool-image
+./bin/build-tool-image
 ```
-
 
 ---
 
@@ -101,26 +100,25 @@ carrying the whole codebase.
 
 **Most importantly, this flexibility allows the integration of additional carrier services under the karrio umbrella.**
 
-
 :::info
-  karrio makes shipping API integration easy for a single carrier and in a multi-carrier scenario, the value
-  is exponential.
+karrio makes shipping API integration easy for a single carrier and in a multi-carrier scenario, the value
+is exponential.
 :::
-
 
 #### Module convention
 
 Two modules are required to create a karrio extension.
 
-:::info `karrio.mappers.[carrier_name]`"
-  This is where the karrio abstract classes are implemented. Also, the Metadata require to identified
-  the extension is also provided there.
+:::info `karrio.mappers.[carrier_name]`
+This is where the karrio abstract classes are implemented. Also, the Metadata require to identified
+the extension is also provided there.
 
-  > on runtime, karrio retrieves all mappers by going trought the `karrio.mappers` modules
+> on runtime, karrio retrieves all mappers by going trought the `karrio.mappers` modules
+
 :::
 
-:::info `karrio.providers.[carrier_name]`"
-  This is where the mapping between karrio Unified API data is mapped on the carrier data type corresponding requests
+:::info `karrio.providers.[carrier_name]`
+This is where the mapping between karrio Unified API data is mapped on the carrier data type corresponding requests
 :::
 
 #### extension signature
@@ -154,7 +152,6 @@ METADATA = Metadata(
     is_hub=False # True if the carrier is a hub like (EasyPost, Shippo, Postmen...)
 )
 ```
-
 
 #### file structure
 
@@ -191,8 +188,8 @@ extensions/[carrier_name]/
 ```
 
 :::info
-  Note that `pickup` and `shipment` modules are directories since there are often many sub to integrate such as
-  **create**, **cancel**...
+Note that `pickup` and `shipment` modules are directories since there are often many sub to integrate such as
+**create**, **cancel**...
 :::
 
 ---
@@ -200,7 +197,6 @@ extensions/[carrier_name]/
 #### Mappers implementation
 
 The mapper function implementations consists of instantiating carrier specific request data types assigning
-
 
 <div id="tabs">
 <Tabs>
@@ -326,10 +322,9 @@ def pickup_request(payload: PickupRequest, settings: Settings) -> Serializable[B
 </Tabs>
 </div>
 
-
 :::info
-  The mapping function instantiates the carrier data types like a tree to allow a global view and simplify the
-  mental relation between the `code` and the formatted data output `schema`.
+The mapping function instantiates the carrier data types like a tree to allow a global view and simplify the
+mental relation between the `code` and the formatted data output `schema`.
 :::
 
 ### Generated schema data types
@@ -340,13 +335,13 @@ That said, defining every schema object's structure can be tedious, long and unp
 are used to generate Python data types based of the schema format definition.
 
 - For `XML` and `SOAP` services, [generateDs](https://pypi.org/project/generateDS/) is used to generate `.xsd` files
-into Python data types
+  into Python data types
 
 :::info
-  Check the [generate.sh](https://github.com/karrio/karrio/blob/main/schemas/) file
-  to see how genereDs is used.
+Check the [generate.sh](https://github.com/karrio/karrio/blob/main/schemas/) file
+to see how genereDs is used.
 :::
 
 - For `JSON` services, [quicktype](https://github.com/karrio/quicktype) is used to generate `.json` files
-into Python data types. We then use [jstruct](https://github.com/karrio/jstruct) as a replacement
-for python dataclass to add automated nested object instantiation.
+  into Python data types. We then use [jstruct](https://github.com/karrio/jstruct) as a replacement
+  for python dataclass to add automated nested object instantiation.
