@@ -1,11 +1,13 @@
 ---
 id: authentication
 title: Authentication
+description: Manage you API keys to authenticate requests to Karrio.
 tags:
   - Authentication
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 **Manage your API keys to authenticate requests with Karrio.**
 
@@ -16,21 +18,19 @@ incorrect or outdated one, Karrio returns an error.
 There are two types of keys: a private key and a JSON Web Token.
 
 - Private You must keep your private API keys confidential and only
-store them on your own servers. You must not share your private API
-key with any third parties. Your account’s private API key can perform
-any API request to Karrio without restriction. If Karrio believes that
-your secret API key has been compromised, you may cancel and reissue it.
+  store them on your own servers. You must not share your private API
+  key with any third parties. Your account’s private API key can perform
+  any API request to Karrio without restriction. If Karrio believes that
+  your secret API key has been compromised, you may cancel and reissue it.
 - JSON Web Token aka JWT are meant solely to identify your account with
-Karrio, they aren’t secret. In other words, you can safely publish them
-in places like your karrio.js JavaScript code, or in an Android or iPhone app.
-
+  Karrio, they aren’t secret. In other words, you can safely publish them
+  in places like your karrio.js JavaScript code, or in an Android or iPhone app.
 
 ## Obtaining your API keys
 
 - Your Private API key is always available in the [Dashboard](https://app.karrio.io/developers/api):
 
 <img style={{ borderRadius: 5 }} src="/img/assets/api-key.png" width="90%" />
-
 
 - The JSON Web Token on the other hand are obtained by API request
 
@@ -54,8 +54,8 @@ curl --request POST \\
 ```javascript
 const karrio = Karrio();
 const token = await karrio.api.authenticate({
-	"email": "admin@example.com",
-	"password": "demo",
+  email: "admin@example.com",
+  password: "demo",
 });
 ```
 

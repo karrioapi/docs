@@ -1,16 +1,17 @@
 ---
 id: carriers
 title: Carriers
+description: Retrieve the list of carrier connections configured for your account.
 tags:
   - REST API
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 The `Carrier` object allow you to perform get live rates, generate labels,
 track shipments and any other carrier supported operations. The API allow you to
 retrieve the list of carriers configured and accessible from your account.
-
 
 <div id="tailwind">
   <table className="table-auto">
@@ -27,7 +28,9 @@ retrieve the list of carriers configured and accessible from your account.
       </tr>
       <tr>
         <td>GET</td>
-        <td>/v1/carriers/<strong>[carrier_name]</strong>/services</td>
+        <td>
+          /v1/carriers/<strong>[carrier_name]</strong>/services
+        </td>
       </tr>
     </tbody>
   </table>
@@ -36,29 +39,6 @@ retrieve the list of carriers configured and accessible from your account.
 ## Get carrier connections
 
 <div id="tabs">
-<Tabs>
-<TabItem value="node" label="Node">
-
-```javascript
-const carriers = await karrio.carriers.list();
-```
-
-</TabItem>
-<TabItem value="python" label="Python">
-
-```python
-carriers = karrio.carriers.list()
-```
-
-</TabItem>
-<TabItem value="php" label="PHP">
-
-```php
-carriers = karrio->carriers->list();
-```
-
-</TabItem>
-<TabItem value="js" label="Javascript">
 
 ```javascript
 (async () => {
@@ -66,8 +46,6 @@ carriers = karrio->carriers->list();
 })();
 ```
 
-</TabItem>
-</Tabs>
 </div>
 
 Karrio returns a list for carrier settings object in response to your API request.
@@ -149,34 +127,9 @@ Karrio returns a list for carrier settings object in response to your API reques
 
 </div>
 
-
-
 ## Get carrier services
 
 <div id="tabs">
-<Tabs>
-<TabItem value="node" label="Node">
-
-```javascript
-const services = await karrio.carriers.get_services("ups");
-```
-
-</TabItem>
-<TabItem value="python" label="Python">
-
-```python
-services = karrio.carriers.get_services("ups")
-```
-
-</TabItem>
-<TabItem value="php" label="PHP">
-
-```php
-$services = karrio->carriers->get_services("ups");
-```
-
-</TabItem>
-<TabItem value="js" label="Javascript">
 
 ```javascript
 (async () => {
@@ -184,8 +137,6 @@ $services = karrio->carriers->get_services("ups");
 })();
 ```
 
-</TabItem>
-</Tabs>
 </div>
 
 Karrio returns a dictionary of carrier service_code as key and
@@ -195,31 +146,30 @@ service_name as values.
 
 ```json
 {
-	"ups_standard": "11",
-	"ups_worldwide_expedited": "08",
-	"ups_worldwide_express": "07",
-	"ups_worldwide_express_plus": "54",
-	"ups_worldwide_saver": "65",
-	"ups_2nd_day_air": "02",
-	"ups_2nd_day_air_am": "59",
-	"ups_3_day_select": "12",
-	"ups_expedited_mail_innovations": "M4",
-	"ups_first_class_mail": "M2",
-	"ups_ground": "03",
-	"ups_next_day_air": "01",
-	"ups_next_day_air_early": "14",
-	"ups_next_day_air_saver": "13",
-	"ups_priority_mail": "M3",
-	"ups_access_point_economy": "70",
-	"ups_today_dedicated_courier": "83",
-	"ups_today_express": "85",
-	"ups_today_express_saver": "86",
-	"ups_today_standard": "82",
-	"ups_worldwide_express_freight": "96",
-	"ups_priority_mail_innovations": "M5",
-	"ups_economy_mail_innovations": "M6"
+  "ups_standard": "11",
+  "ups_worldwide_expedited": "08",
+  "ups_worldwide_express": "07",
+  "ups_worldwide_express_plus": "54",
+  "ups_worldwide_saver": "65",
+  "ups_2nd_day_air": "02",
+  "ups_2nd_day_air_am": "59",
+  "ups_3_day_select": "12",
+  "ups_expedited_mail_innovations": "M4",
+  "ups_first_class_mail": "M2",
+  "ups_ground": "03",
+  "ups_next_day_air": "01",
+  "ups_next_day_air_early": "14",
+  "ups_next_day_air_saver": "13",
+  "ups_priority_mail": "M3",
+  "ups_access_point_economy": "70",
+  "ups_today_dedicated_courier": "83",
+  "ups_today_express": "85",
+  "ups_today_express_saver": "86",
+  "ups_today_standard": "82",
+  "ups_worldwide_express_freight": "96",
+  "ups_priority_mail_innovations": "M5",
+  "ups_economy_mail_innovations": "M6"
 }
 ```
 
 </div>
-

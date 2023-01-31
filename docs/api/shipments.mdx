@@ -1,186 +1,788 @@
 ---
-id: shipping
-title: Shipping
+id: shipments
+title: Shipments
+description: Manage shipments buy and print labels using the API.
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 Karrio exposes API endpoints that forwards shipping requests to the carrier's API.
-
 
 ## Shipping Flow
 
 From a technical perspective, the shipping process can visualized as follow
 
-
-<div style={{ textAlign: 'center' }}>
-  <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="599px" height="501px" viewBox="-0.5 -0.5 599 501" style={{ maxWidth: '100%' }}>
+<div style={{ textAlign: "center" }}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    version="1.1"
+    width="599px"
+    height="501px"
+    viewBox="-0.5 -0.5 599 501"
+    style={{ maxWidth: "100%" }}
+  >
     <defs />
     <g>
-      <path d="M 125 126.67 L 125 169.88" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
-      <path d="M 125 178.88 L 120.5 169.88 L 129.5 169.88 Z" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="all" />
-      <rect x={70} y={90} width={110} height="36.67" rx="5.5" ry="5.5" fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" pointerEvents="all" />
+      <path
+        d="M 125 126.67 L 125 169.88"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="stroke"
+      />
+      <path
+        d="M 125 178.88 L 120.5 169.88 L 129.5 169.88 Z"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="all"
+      />
+      <rect
+        x={70}
+        y={90}
+        width={110}
+        height="36.67"
+        rx="5.5"
+        ry="5.5"
+        fill="rgba(255, 255, 255, 1)"
+        stroke="var(--ifm-font-color-base)"
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '108px', height: '1px', paddingTop: '108px', marginLeft: '71px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>Prepare a package</div>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "108px",
+                height: "1px",
+                paddingTop: "108px",
+                marginLeft: "71px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "12px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "normal",
+                    overflowWrap: "normal",
+                  }}
+                >
+                  Prepare a package
+                </div>
               </div>
             </div>
           </foreignObject>
-          <text x={125} y={112} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Prepare a package</text>
+          <text
+            x={125}
+            y={112}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="12px"
+            textAnchor="middle"
+          >
+            Prepare a package
+          </text>
         </switch>
       </g>
-      <path d="M 125 380 L 125 449.88" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
-      <path d="M 125 458.88 L 120.5 449.88 L 129.5 449.88 Z" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="all" />
+      <path
+        d="M 125 380 L 125 449.88"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="stroke"
+      />
+      <path
+        d="M 125 458.88 L 120.5 449.88 L 129.5 449.88 Z"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '420px', marginLeft: '145px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '11px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}>Yes</div>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "1px",
+                height: "1px",
+                paddingTop: "420px",
+                marginLeft: "145px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "11px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Yes
+                </div>
               </div>
             </div>
           </foreignObject>
-          <text x={145} y={423} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="11px" textAnchor="middle">Yes</text>
+          <text
+            x={145}
+            y={423}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="11px"
+            textAnchor="middle"
+          >
+            Yes
+          </text>
         </switch>
       </g>
-      <path d="M 125 180 L 250 280 L 125 380 L 0 280 Z" fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="all" />
+      <path
+        d="M 125 180 L 250 280 L 125 380 L 0 280 Z"
+        fill="rgba(255, 255, 255, 1)"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '240px', height: '1px', paddingTop: '278px', marginLeft: '5px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "240px",
+                height: "1px",
+                paddingTop: "278px",
+                marginLeft: "5px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "12px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "normal",
+                    overflowWrap: "normal",
+                  }}
+                >
                   <b>Require shipping details</b>
                   <br />
-                  - shipper address<br />
-                  - receiver address<br />
-                  - package weight &amp; dimension</div>
+                  - shipper address
+                  <br />
+                  - receiver address
+                  <br />- package weight &amp; dimension
+                </div>
               </div>
             </div>
           </foreignObject>
-          <text x={125} y={282} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Require shipping details...</text>
+          <text
+            x={125}
+            y={282}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="12px"
+            textAnchor="middle"
+          >
+            Require shipping details...
+          </text>
         </switch>
       </g>
-      <rect x={50} y={460} width={150} height={40} fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" pointerEvents="all" />
+      <rect
+        x={50}
+        y={460}
+        width={150}
+        height={40}
+        fill="rgba(255, 255, 255, 1)"
+        stroke="var(--ifm-font-color-base)"
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '148px', height: '1px', paddingTop: '480px', marginLeft: '51px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>Receive a list of rates</div>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "148px",
+                height: "1px",
+                paddingTop: "480px",
+                marginLeft: "51px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "12px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "normal",
+                    overflowWrap: "normal",
+                  }}
+                >
+                  Receive a list of rates
+                </div>
               </div>
             </div>
           </foreignObject>
-          <text x={125} y={484} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Receive a list of rates</text>
+          <text
+            x={125}
+            y={484}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="12px"
+            textAnchor="middle"
+          >
+            Receive a list of rates
+          </text>
         </switch>
       </g>
-      <rect x={45} y={10} width={160} height={30} fill="none" stroke="none" pointerEvents="all" />
+      <rect
+        x={45}
+        y={10}
+        width={160}
+        height={30}
+        fill="none"
+        stroke="none"
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '158px', height: '1px', paddingTop: '25px', marginLeft: '46px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "158px",
+                height: "1px",
+                paddingTop: "25px",
+                marginLeft: "46px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "12px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "normal",
+                    overflowWrap: "normal",
+                  }}
+                >
                   <h2>
-                    <font style={{fontSize: '14px', color: "var(--ifm-font-color-base)" }}>GET SHIPPING RATES</font>
+                    <font
+                      style={{
+                        fontSize: "14px",
+                        color: "var(--ifm-font-color-base)",
+                      }}
+                    >
+                      GET SHIPPING RATES
+                    </font>
                   </h2>
                 </div>
               </div>
             </div>
           </foreignObject>
-          <text x={125} y={29} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">GET SHIPPING RATES</text>
+          <text
+            x={125}
+            y={29}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="12px"
+            textAnchor="middle"
+          >
+            GET SHIPPING RATES
+          </text>
         </switch>
       </g>
-      <path d="M 495 126.67 L 495 219.88" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
-      <path d="M 495 228.88 L 490.5 219.88 L 499.5 219.88 Z" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="all" />
-      <rect x={425} y={90} width={140} height="36.67" rx="5.5" ry="5.5" fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" pointerEvents="all" />
+      <path
+        d="M 495 126.67 L 495 219.88"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="stroke"
+      />
+      <path
+        d="M 495 228.88 L 490.5 219.88 L 499.5 219.88 Z"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="all"
+      />
+      <rect
+        x={425}
+        y={90}
+        width={140}
+        height="36.67"
+        rx="5.5"
+        ry="5.5"
+        fill="rgba(255, 255, 255, 1)"
+        stroke="var(--ifm-font-color-base)"
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '138px', height: '1px', paddingTop: '108px', marginLeft: '426px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>Buy a shipping label</div>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "138px",
+                height: "1px",
+                paddingTop: "108px",
+                marginLeft: "426px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "12px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "normal",
+                    overflowWrap: "normal",
+                  }}
+                >
+                  Buy a shipping label
+                </div>
               </div>
             </div>
           </foreignObject>
-          <text x={495} y={112} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Buy a shipping label</text>
+          <text
+            x={495}
+            y={112}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="12px"
+            textAnchor="middle"
+          >
+            Buy a shipping label
+          </text>
         </switch>
       </g>
-      <path d="M 495 350 L 495 449.88" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
-      <path d="M 495 458.88 L 490.5 449.88 L 499.5 449.88 Z" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="all" />
+      <path
+        d="M 495 350 L 495 449.88"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="stroke"
+      />
+      <path
+        d="M 495 458.88 L 490.5 449.88 L 499.5 449.88 Z"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '1px', height: '1px', paddingTop: '405px', marginLeft: '515px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '11px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'nowrap'}}>Yes</div>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "1px",
+                height: "1px",
+                paddingTop: "405px",
+                marginLeft: "515px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "11px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Yes
+                </div>
               </div>
             </div>
           </foreignObject>
-          <text x={515} y={408} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="11px" textAnchor="middle">Yes</text>
+          <text
+            x={515}
+            y={408}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="11px"
+            textAnchor="middle"
+          >
+            Yes
+          </text>
         </switch>
       </g>
-      <path d="M 495 230 L 570 290 L 495 350 L 420 290 Z" fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="all" />
+      <path
+        d="M 495 230 L 570 290 L 495 350 L 420 290 Z"
+        fill="rgba(255, 255, 255, 1)"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '140px', height: '1px', paddingTop: '288px', marginLeft: '425px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "140px",
+                height: "1px",
+                paddingTop: "288px",
+                marginLeft: "425px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "12px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "normal",
+                    overflowWrap: "normal",
+                  }}
+                >
                   <b>Require preferred shipping rate</b>
                 </div>
               </div>
             </div>
           </foreignObject>
-          <text x={495} y={292} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Require preferred shipp...</text>
+          <text
+            x={495}
+            y={292}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="12px"
+            textAnchor="middle"
+          >
+            Require preferred shipp...
+          </text>
         </switch>
       </g>
-      <rect x={420} y={460} width={150} height={40} fill="rgba(255, 255, 255, 1)" stroke="var(--ifm-font-color-base)" pointerEvents="all" />
+      <rect
+        x={420}
+        y={460}
+        width={150}
+        height={40}
+        fill="rgba(255, 255, 255, 1)"
+        stroke="var(--ifm-font-color-base)"
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '148px', height: '1px', paddingTop: '480px', marginLeft: '421px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>Receive a shipping label</div>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "148px",
+                height: "1px",
+                paddingTop: "480px",
+                marginLeft: "421px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "12px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "normal",
+                    overflowWrap: "normal",
+                  }}
+                >
+                  Receive a shipping label
+                </div>
               </div>
             </div>
           </foreignObject>
-          <text x={495} y={484} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">Receive a shipping label</text>
+          <text
+            x={495}
+            y={484}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="12px"
+            textAnchor="middle"
+          >
+            Receive a shipping label
+          </text>
         </switch>
       </g>
-      <rect x="392.5" y={10} width={205} height={30} fill="none" stroke="none" pointerEvents="all" />
+      <rect
+        x="392.5"
+        y={10}
+        width={205}
+        height={30}
+        fill="none"
+        stroke="none"
+        pointerEvents="all"
+      />
       <g transform="translate(-0.5 -0.5)">
         <switch>
-          <foreignObject pointerEvents="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style={{overflow: 'visible', textAlign: 'left'}}>
-            <div xmlns="http://www.w3.org/1999/xhtml" style={{display: 'flex', alignItems: 'unsafe center', justifyContent: 'unsafe center', width: '203px', height: '1px', paddingTop: '25px', marginLeft: '394px'}}>
-              <div data-drawio-colors="color: rgba(0, 0, 0, 1); " style={{boxSizing: 'border-box', fontSize: '0px', textAlign: 'center'}}>
-                <div style={{display: 'inline-block', fontSize: '12px', fontFamily: 'Helvetica', color: 'rgb(0, 0, 0)', lineHeight: '1.2', pointerEvents: 'all', whiteSpace: 'normal', overflowWrap: 'normal'}}>
+          <foreignObject
+            pointerEvents="none"
+            width="100%"
+            height="100%"
+            requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+            style={{ overflow: "visible", textAlign: "left" }}
+          >
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              style={{
+                display: "flex",
+                alignItems: "unsafe center",
+                justifyContent: "unsafe center",
+                width: "203px",
+                height: "1px",
+                paddingTop: "25px",
+                marginLeft: "394px",
+              }}
+            >
+              <div
+                data-drawio-colors="color: rgba(0, 0, 0, 1); "
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0px",
+                  textAlign: "center",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-block",
+                    fontSize: "12px",
+                    fontFamily: "Helvetica",
+                    color: "rgb(0, 0, 0)",
+                    lineHeight: "1.2",
+                    pointerEvents: "all",
+                    whiteSpace: "normal",
+                    overflowWrap: "normal",
+                  }}
+                >
                   <h2>
-                    <span style={{fontSize: '14px', color: "var(--ifm-font-color-base)" }}>GENERATE SHIPPING LABEL</span>
+                    <span
+                      style={{
+                        fontSize: "14px",
+                        color: "var(--ifm-font-color-base)",
+                      }}
+                    >
+                      GENERATE SHIPPING LABEL
+                    </span>
                   </h2>
                 </div>
               </div>
             </div>
           </foreignObject>
-          <text x={495} y={29} fill="rgba(0, 0, 0, 1)" fontFamily="Helvetica" fontSize="12px" textAnchor="middle">GENERATE SHIPPING LABEL</text>
+          <text
+            x={495}
+            y={29}
+            fill="rgba(0, 0, 0, 1)"
+            fontFamily="Helvetica"
+            fontSize="12px"
+            textAnchor="middle"
+          >
+            GENERATE SHIPPING LABEL
+          </text>
         </switch>
       </g>
-      <path d="M 200 480 Q 300 450 320 405 Q 340 360 320 300 Q 300 240 320 190 Q 340 140 419.03 110.56" fill="none" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="stroke" />
-      <path d="M 423.95 108.73 L 418.61 114.45 L 419.03 110.56 L 416.17 107.89 Z" fill="rgba(0, 0, 0, 1)" stroke="var(--ifm-font-color-base)" strokeMiterlimit={10} pointerEvents="all" />
+      <path
+        d="M 200 480 Q 300 450 320 405 Q 340 360 320 300 Q 300 240 320 190 Q 340 140 419.03 110.56"
+        fill="none"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="stroke"
+      />
+      <path
+        d="M 423.95 108.73 L 418.61 114.45 L 419.03 110.56 L 416.17 107.89 Z"
+        fill="rgba(0, 0, 0, 1)"
+        stroke="var(--ifm-font-color-base)"
+        strokeMiterlimit={10}
+        pointerEvents="all"
+      />
     </g>
     <switch>
       <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" />
-      <a transform="translate(0,-5)" xlinkHref="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
-        <text textAnchor="middle" fontSize="10px" x="50%" y="100%">Viewer does not support full SVG 1.1</text>
+      <a
+        transform="translate(0,-5)"
+        xlinkHref="https://www.diagrams.net/doc/faq/svg-export-text-problems"
+        target="_blank"
+      >
+        <text textAnchor="middle" fontSize="10px" x="50%" y="100%">
+          Viewer does not support full SVG 1.1
+        </text>
       </a>
     </switch>
   </svg>
 </div>
-
 
 ## Proxy Request APIs
 
@@ -297,7 +899,6 @@ curl --request POST \
 </TabItem>
 </Tabs>
 </div>
-
 
 **Buy shipping label**
 
@@ -583,12 +1184,10 @@ curl --request POST \
 </Tabs>
 </div>
 
-
 ## Shipments Management APIs
 
 The shipments management APIs offer a set of endpoints around the karrio unified
 shipment object.
-
 
 **Create a shipment**
 
@@ -780,9 +1379,7 @@ curl --request POST \
   "customs": null,
   "reference": null,
   "label_type": "PDF",
-  "carrier_ids": [
-    "canadapost"
-  ],
+  "carrier_ids": ["canadapost"],
   "tracker_id": null,
   "created_at": "2021-08-10 13:55:57.320277+00:00",
   "test_mode": true,
@@ -794,7 +1391,6 @@ curl --request POST \
 </TabItem>
 </Tabs>
 </div>
-
 
 **Buy the shipment label**
 
@@ -992,7 +1588,6 @@ curl --request POST \
 </TabItem>
 </Tabs>
 </div>
-
 
 ## Next steps
 

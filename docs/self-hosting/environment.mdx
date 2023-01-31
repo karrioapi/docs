@@ -3,11 +3,6 @@ id: environment
 title: Environment Variables
 ---
 
-The karrio server instance is configurable using the environment variables.
-karrio server is a [Django](https://www.djangoproject.com/) based project
-and most of [deployment settings](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/)
-are relevant to configure this project with few contextual naming differences.
-
 For settings that can be managed with Instance Settings, you can either set the values via environment variables or through the Instance Settings page in your instance.
 However, it is strongly **recommended to use Instance settings.** Environment variables are only loaded when there are no values in Instance settings,
 which means that environment variables could reflect outdated values.
@@ -15,8 +10,9 @@ which means that environment variables could reflect outdated values.
 For other settings, there are various environment variables you can set to configure your instance.
 Below is a comprehensive list of all of them.
 
-Some variables here are default Django variables.
-This [Django Docs page](https://docs.djangoproject.com/en/3.2/ref/settings/) has more information about them.
+karrio server is a [Django](https://www.djangoproject.com/) based project
+and most of [deployment settings](https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/)
+are relevant to configure this project with few contextual naming differences.
 
 ## DEPLOYMENT
 
