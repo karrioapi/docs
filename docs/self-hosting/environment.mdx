@@ -148,6 +148,14 @@ The database connection' user
 
 The database connection' password
 
+### Or connection URL
+
+- **`DATABASE_URL`**
+
+```txt title="Connection string"
+postgresql://postgres:postgres@localhost:5432/karriodb?schema=public
+```
+
 ---
 
 ## EMAIL
@@ -169,10 +177,6 @@ The authentication user password
 The email server host
 
 - **`EMAIL_PORT`** | **default:** `587`
-
-The email server port
-
-- **`EMAIL_PAGE_DOMAIN`** | **default:** `https://app.karrio.io`
 
 The email server use TLS
 
