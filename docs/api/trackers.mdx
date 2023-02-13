@@ -1,0 +1,343 @@
+---
+id: trackers
+title: Trackers
+description: Create and retrieve package trackers via API.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Karrio exposes API endpoints that forwards tracking requests to the carrier's API.
+
+## Proxy Request API
+
+The proxy APIs allow you to send tracking requests to carriers without creating any
+objects in karrio.
+
+:::info
+In that schenario, karrio is just a proxy that forward requests.
+:::
+
+**Get tracking details**
+
+> `GET` /v1/proxy/tracking/{carrier_name}/{tracking_number}
+
+You can use this endpoint to retrieve tracking details from the issuing carrier.
+
+<div id="tabs">
+<Tabs>
+<TabItem value="request" label="Request">
+
+```bash
+curl --request GET \
+  --url 'https://api.karrio.io/v1/proxy/tracking/fedex/774969848440' \
+  --header 'Authorization: Token [API_KEY]'
+```
+
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json
+{
+  "messages": [],
+  "tracking": {
+    "id": "trk_9063cd9d7e5347c5b99b8ae8693c6f66",
+    "carrier_name": "fedex",
+    "carrier_id": "karrio_fedex_canada_test_account",
+    "tracking_number": "774969848440",
+    "events": [
+      {
+        "date": "2021-10-26",
+        "description": "Delivered",
+        "location": "DELIVERY_LOCATION",
+        "code": "DL",
+        "time": "10:12"
+      },
+      {
+        "date": "2021-10-26",
+        "description": "On FedEx vehicle for delivery",
+        "location": "VEHICLE",
+        "code": "OD",
+        "time": "09:09"
+      },
+      {
+        "date": "2021-10-26",
+        "description": "At local FedEx facility",
+        "location": "DESTINATION_FEDEX_FACILITY",
+        "code": "AR",
+        "time": "08:14"
+      },
+      {
+        "date": "2021-10-25",
+        "description": "At destination sort facility",
+        "location": "SORT_FACILITY",
+        "code": "AR",
+        "time": "22:29"
+      },
+      {
+        "date": "2021-10-25",
+        "description": "Departed FedEx hub",
+        "location": "FEDEX_FACILITY",
+        "code": "DP",
+        "time": "01:30"
+      },
+      {
+        "date": "2021-10-24",
+        "description": "Arrived at FedEx hub",
+        "location": "FEDEX_FACILITY",
+        "code": "AR",
+        "time": "19:39"
+      },
+      {
+        "date": "2021-10-24",
+        "description": "Departed FedEx hub",
+        "location": "FEDEX_FACILITY",
+        "code": "DP",
+        "time": "11:07"
+      },
+      {
+        "date": "2021-10-23",
+        "description": "In transit",
+        "location": "FEDEX_FACILITY",
+        "code": "IT",
+        "time": "21:06"
+      },
+      {
+        "date": "2021-10-23",
+        "description": "International shipment release - Import",
+        "location": "FEDEX_FACILITY",
+        "code": "CC",
+        "time": "18:33"
+      },
+      {
+        "date": "2021-10-23",
+        "description": "At local FedEx facility",
+        "location": "FEDEX_FACILITY",
+        "code": "AF",
+        "time": "05:55"
+      },
+      {
+        "date": "2021-10-22",
+        "description": "At local FedEx facility",
+        "location": "FEDEX_FACILITY",
+        "code": "AF",
+        "time": "17:46"
+      },
+      {
+        "date": "2021-10-22",
+        "description": "Arrived at FedEx hub",
+        "location": "FEDEX_FACILITY",
+        "code": "AR",
+        "time": "14:19"
+      },
+      {
+        "date": "2021-10-22",
+        "description": "In transit",
+        "location": "FEDEX_FACILITY",
+        "code": "IT",
+        "time": "22:39"
+      },
+      {
+        "date": "2021-10-22",
+        "description": "In transit",
+        "location": "FEDEX_FACILITY",
+        "code": "IT",
+        "time": "20:26"
+      },
+      {
+        "date": "2021-10-22",
+        "description": "International shipment release - Export",
+        "location": "FEDEX_FACILITY",
+        "code": "CC",
+        "time": "20:23"
+      },
+      {
+        "date": "2021-10-21",
+        "description": "At local FedEx facility",
+        "location": "FEDEX_FACILITY",
+        "code": "AF",
+        "time": "23:00"
+      },
+      {
+        "date": "2021-10-21",
+        "description": "Operational Delay",
+        "location": "FEDEX_FACILITY",
+        "code": "DY",
+        "time": "23:00"
+      },
+      {
+        "date": "2021-10-20",
+        "description": "At local FedEx facility",
+        "location": "FEDEX_FACILITY",
+        "code": "AF",
+        "time": "23:00"
+      },
+      {
+        "date": "2021-10-20",
+        "description": "Operational Delay",
+        "location": "FEDEX_FACILITY",
+        "code": "DY",
+        "time": "23:00"
+      },
+      {
+        "date": "2021-10-20",
+        "description": "In transit",
+        "location": "FEDEX_FACILITY",
+        "code": "IT",
+        "time": "22:18"
+      },
+      {
+        "date": "2021-10-20",
+        "description": "International shipment release - Export",
+        "location": "FEDEX_FACILITY",
+        "code": "CC",
+        "time": "22:18"
+      },
+      {
+        "date": "2021-10-20",
+        "description": "Left FedEx origin facility",
+        "location": "ORIGIN_FEDEX_FACILITY",
+        "code": "DP",
+        "time": "18:48"
+      },
+      {
+        "date": "2021-10-20",
+        "description": "Picked up",
+        "location": "PICKUP_LOCATION",
+        "code": "PU",
+        "time": "18:17"
+      },
+      {
+        "date": "2021-10-20",
+        "description": "Shipment information sent to FedEx",
+        "location": "CUSTOMER",
+        "code": "OC",
+        "time": "02:35"
+      }
+    ],
+    "delivered": true,
+    "test_mode": true,
+    "status": "delivered"
+  }
+}
+```
+
+</TabItem>
+</Tabs>
+</div>
+
+## Trackers Management APIs
+
+The trackers management APIs offer a set of endpoints around the karrio unified
+tracking details object.
+
+**Create a tracker**
+
+> `POST` /v1/trackers/{carrier_name}/{tracking_number}
+
+You can use this endpoint to create a tracker object in the karrio system and
+get the latest tracking details of the shipment.
+
+:::tip
+The karrio tracker is periodically updated by the **karrio worker** staying
+up to date with the package throughout it's journey.
+:::
+
+<div id="tabs">
+<Tabs>
+<TabItem value="request" label="Request">
+
+```bash
+curl --request GET \
+  --url 'https://api.karrio.io/v1/trackers/usps/9400111108435171104555' \
+  --header 'Authorization: Token [API_KEY]'
+```
+
+</TabItem>
+<TabItem value="response" label="Response">
+
+```json
+{
+  "id": "trk_378a3ded4d674aad8ce610b461de0367",
+  "carrier_name": "usps",
+  "carrier_id": "karrio_usps_tracking_test_account",
+  "tracking_number": "9400111108435171104555",
+  "events": [
+    {
+      "date": "2021-10-29",
+      "description": "Delivered, In/At Mailbox",
+      "location": "JACKSONVILLE, FL, , 32244",
+      "code": "01",
+      "time": "11:29"
+    },
+    {
+      "date": "2021-10-29",
+      "description": "Out for Delivery",
+      "location": "JACKSONVILLE, FL, , 32244",
+      "code": "OF",
+      "time": "07:03"
+    },
+    {
+      "date": "2021-10-29",
+      "description": "Arrived at Post Office",
+      "location": "JACKSONVILLE, FL, , 32244",
+      "code": "07",
+      "time": "06:52"
+    },
+    {
+      "date": "2021-10-28",
+      "description": "Arrived at USPS Regional Facility",
+      "location": "JACKSONVILLE FL NETWORK DISTRIBUTION CENTER, , , None",
+      "code": "A1",
+      "time": "03:09"
+    },
+    {
+      "date": "2021-10-28",
+      "description": "Departed USPS Regional Facility",
+      "location": "NASHVILLE TN DISTRIBUTION CENTER ANNEX, , , None",
+      "code": "T1",
+      "time": "04:27"
+    },
+    {
+      "date": "2021-10-27",
+      "description": "In Transit to Next Facility",
+      "location": ", , , None",
+      "code": "NT",
+      "time": null
+    },
+    {
+      "date": "2021-10-26",
+      "description": "Arrived at USPS Regional Origin Facility",
+      "location": "NASHVILLE TN DISTRIBUTION CENTER ANNEX, , , None",
+      "code": "10",
+      "time": "07:57"
+    },
+    {
+      "date": "2021-10-26",
+      "description": "Accepted at USPS Origin Facility",
+      "location": "NASHVILLE, TN, , 37213",
+      "code": "OA",
+      "time": "06:42"
+    },
+    {
+      "date": "2021-10-26",
+      "description": "Shipping Label Created, USPS Awaiting Item",
+      "location": "NASHVILLE, TN, , 37213",
+      "code": "GX",
+      "time": "03:51"
+    }
+  ],
+  "delivered": true,
+  "test_mode": true,
+  "status": "delivered"
+}
+```
+
+</TabItem>
+</Tabs>
+</div>
+
+## Next steps
+
+- To start integrating, [Checkout the Tracking Reference](/reference/openapi/tracking).
+- Got a question? [Ask here](https://github.com/karrioapi/karrio/discussions).

@@ -1,0 +1,99 @@
+---
+id: connections
+title: Connections
+---
+
+# Carrier Accounts
+
+Once karrio is up and running, the first thing to do is to register your carrier accounts.
+The carrier accounts you register will be used to process all other requests such as
+shipping rates, shipping labels, and fetching of tracking statuses.
+
+## Adding a carrier account
+
+You can register your carrier account using the karrio Dashboard.
+
+:::note To add a carrier account
+
+1. Go to the `Carriers` section.
+2. Click `Connect Carrier`.
+3. Select your prefered carrier.
+4. Fill in the account and API credentials.
+5. Click `Submit`.
+
+:::
+
+![](/img/assets/register-carrier.gif)
+
+## Connection Mode
+
+karrio' first goal is to make shipping services integration and automation easy.
+Therefore, the `test mode` option here is suited for development and testing.
+By checking it during your account registration, you are instructingkarrio
+to connect to the carrier' sandbox server.
+
+:::tip
+
+The `test mode` is great to experiment and test that your carrier integration is
+fully functional.
+
+Generally carriers will ignore all label purchased or any scheduled pickups in
+that mode. So you don't have to worry about any charges from carriers.
+
+:::
+
+:::info
+
+Leave the `test mode` unchecked for carrier accounts to use in `live mode` (in production).
+
+:::
+
+From the karrio Dashboard, you can change the mode to visualize and operate
+the API in `test mode` by enabling the `View test data` toggle.
+
+<video width="99%" loop={true} muted={true} playsInline={true} controls={true}>
+  <source src="/videos/view-test-data.mp4" />
+</video>
+
+## Preconfigured carrier accounts
+
+Whe you sign up to [app.karrio.io](https://app.karrio.io) you will
+have access to preconfigured carrier accounts. This is convenient because you
+get to test and use a carrier services without having to register your own account.
+
+:::caution
+
+Note that when you deploy your own karrio instance, you will only have access
+to your own registered carrier accounts.
+
+:::
+
+You can choose to opt-in to the preconfigured carrier accounts by enabling them
+for your karrio user account.
+
+:::note To enable a preconfigured carrier account
+
+1. Go to the `Carriers` section.
+2. Click `Karrio Accounts`.
+3. Toggle on desired carrier connections.
+
+:::
+
+<video width="99%" loop={true} muted={true} playsInline={true} controls={true}>
+  <source src="/videos/enable-system-connection.mp4" />
+</video>
+
+:::info
+
+- As a karrio instance owner, you can also provide preconfigured carrier accounts
+  to other users.
+- Preconfigured carrier accounts can be setup and made available to other users from
+  the administration panel.
+- Your users will be able to use the functionalities that are activated without seing
+  the accounts details and credentials.
+
+:::
+
+## Next steps
+
+- Got a question? [Ask here](https://github.com/karrioapi/karrio/discussions).

@@ -51,6 +51,27 @@ const config = {
         },
       }),
     ],
+    // Redocusaurus config
+    [
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          {
+            spec: 'https://raw.githubusercontent.com/karrioapi/karrio/main/server/schemas/openapi.yml',
+            route: '/api/',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#1890ff',
+          options: {
+            hideHostname: true
+          }
+        },
+      },
+    ],
   ],
 
   themeConfig:
@@ -67,9 +88,9 @@ const config = {
         },
         items: [
           {
-            to: '/',
+            to: '/product',
             position: 'left',
-            label: 'Guides',
+            label: 'Product',
           },
           {
             to: '/reference',
@@ -95,20 +116,24 @@ const config = {
             title: 'Resources',
             items: [
               {
-                label: 'Guides',
+                label: 'Docs',
                 to: '/',
+              },
+              {
+                label: 'Product',
+                to: '/product',
               },
               {
                 label: 'Reference',
                 to: '/reference',
               },
               {
-                label: 'Carriers',
-                to: '/carriers',
+                label: 'OpenAPI',
+                href: '/api',
               },
               {
-                label: 'OpenAPI',
-                href: 'https://api.karrio.io/openapi',
+                label: 'Carriers',
+                to: '/carriers',
               },
             ],
           },
@@ -134,7 +159,7 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                to: 'https://karrio.io/blog',
               },
               {
                 label: 'GitHub',
@@ -151,7 +176,7 @@ const config = {
               },
               {
                 label: 'Join our beta',
-                href: 'https://karrio.io/pricing',
+                href: 'https://karrio.io/get-started',
               },
             ],
           },
