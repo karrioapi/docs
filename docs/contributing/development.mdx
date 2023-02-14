@@ -23,30 +23,22 @@ The following steps need to be performed inside a terminal window
 
 - Clone the repository:
 
-```shell
+```terminal title="Terminal"
 git clone https://github.com/[YOUR_USERNAME]/karrio.git
 cd karrio
-```
-
-### Database
-
-Setup a PostgreSQL database for the application.
-
-```shell
-docker-compose up -d db
 ```
 
 ### Installation using Python
 
 - Setup a Python environment with all dependencies:
 
-```shell
+```terminal title="Terminal"
 source ./bin/setup-server-env
 ```
 
 or
 
-```shell
+```terminal title="Terminal"
 # installation
 ./bin/setup-server-env
 
@@ -56,20 +48,60 @@ source ./bin/activate-env
 
 - Apply database migrations, collect static assets:
 
-```shell
+:::info
+
+Karrio uses SQLite by default to simplify the development setup.
+
+<details>
+<summary>If you want to use Postgres instead</summary>
+
+- Change the database config:
+
+```diff
+...
+- DATABASE_ENGINE=sqlite3
+- # DATABASE_ENGINE=postgresql_psycopg2
+- # DATABASE_USERNAME=postgres
+- # DATABASE_PASSWORD=postgres
+- # DATABASE_NAME=db
++ # DATABASE_ENGINE=sqlite3
++ DATABASE_ENGINE=postgresql_psycopg2
++ DATABASE_USERNAME=postgres
++ DATABASE_PASSWORD=postgres
++ DATABASE_NAME=db
+...
+
+```
+
+- Start the database using:
+
+```terminal title="Terminal"
+docker compose -f docker/docker-compose.yml up -d db
+```
+
+- Destroy the database using:
+
+```terminal title="Terminal"
+docker compose -f docker/docker-compose.yml down
+```
+
+</details>
+:::
+
+```terminal title="Terminal"
 karrio migrate
 karrio collectstatic --noinput
 ```
 
 - Finally, create yourself an admin account:
 
-```shell
+```terminal title="Terminal"
 karrio createsuperuser
 ```
 
 - Start the server:
 
-```shell
+```terminal title="Terminal"
 ./bin/start
 ```
 
@@ -79,26 +111,26 @@ karrio createsuperuser
 
 - Clone the repository:
 
-```shell
+```terminal title="Terminal"
 git clone https://github.com/[YOUR_USERNAME]/karrio-dashboard.git
 cd karrio-dashboard
 ```
 
 - Install node dependencies:
 
-```shell
+```terminal title="Terminal"
 npm install
 ```
 
 - Setup environment variables:
 
-```shell
+```terminal title="Terminal"
 cp .env.sample .env
 ```
 
 - Start the dashboard:
 
-```shell
+```terminal title="Terminal"
 npm run dev
 ```
 
@@ -108,14 +140,14 @@ npm run dev
 
 - Setting up Karrio SDK and all carrier extensions
 
-```shell
+```terminal title="Terminal"
 cd karrio
 . ./bin/setup-sdk-env
 ```
 
 - Running all SDK tests
 
-```shell
+```terminal title="Terminal"
 cd karrio
 ./bin/run-sdk-tests
 ```
@@ -124,7 +156,7 @@ cd karrio
 
 - Setup a Python environment with the dev dependencies
 
-```shell
+```terminal title="Terminal"
 cd karrio
 ./bin/create-new-env
 ```
@@ -133,7 +165,7 @@ _This will create and activate an isolated Python environment with the dev depen
 
 - Install an extension in dev mode
 
-```shell
+```terminal title="Terminal"
 cd karrio
 # pip install -e sdk/extensions/[carrier_extension]
 pip install -e sdk/extensions/fedex
@@ -141,7 +173,7 @@ pip install -e sdk/extensions/fedex
 
 - Running tests for a single extension
 
-```shell
+```terminal title="Terminal"
 cd karrio
 # python -m unittest discover -v -f sdk/extensions/[carrier_extension]/tests
 python -m unittest discover -v -f sdk/extensions/fedex/tests
@@ -151,21 +183,21 @@ python -m unittest discover -v -f sdk/extensions/fedex/tests
 
 - Setting up Karrio server
 
-```shell
+```terminal title="Terminal"
 cd karrio
 . ./bin/setup-server-env
 ```
 
 - Running all server tests
 
-```shell
+```terminal title="Terminal"
 cd karrio
 ./bin/run-server-tests
 ```
 
 - Running tests on a single karrio server module
 
-```shell
+```terminal title="Terminal"
 cd karrio
 # karrio test --failfast karrio.server.[module].tests
 karrio test --failfast karrio.server.manager.tests
@@ -173,18 +205,18 @@ karrio test --failfast karrio.server.manager.tests
 
 ### Reset Karrio database for a fresh reinstall
 
-```shell
+```terminal title="Terminal"
 cd karrio
 # stop and remove the database container
-docker-compose down
+docker-compose -f docker/docker-compose.yml down
 
 # start a fresh Postgres container
-docker-compose up -d db
+docker-compose -f docker/docker-compose.yml up -d db
 ```
 
 ### Backup your data
 
-```shell
+```terminal title="Terminal"
 cd karrio
 karrio dumpdata -e contenttypes -o [BACKUP_LOCATION_PATH]/data[VERSION].json
 # e.g: karrio dumpdata -e contenttypes -o ../backup/data2022.10-3.json
@@ -192,7 +224,7 @@ karrio dumpdata -e contenttypes -o [BACKUP_LOCATION_PATH]/data[VERSION].json
 
 ### Load dev data
 
-```shell
+```terminal title="Terminal"
 cd karrio
 karrio loaddata [BACKUP_LOCATION_PATH]/data[VERSION].json
 # e.g: karrio loaddata ../backup/data2022.10-1.json
