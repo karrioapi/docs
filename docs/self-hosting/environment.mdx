@@ -148,6 +148,14 @@ The database connection' user
 
 The database connection' password
 
+- **`DATABASE_ENGINE`** | [`postgresql`, `sqlite3`, `mysql`, `oracle`] | **default:** `sqlite3`
+
+The database backend to use.
+
+- **`DATABASE_CONN_MAX_AGE`** | **default:** `0`
+
+The lifetime of a database connection. Use `0` to close database connections at the end of each request
+
 ### Or connection URL
 
 - **`DATABASE_URL`**
