@@ -16,6 +16,14 @@ const sidebars = {
   product: [
     {
       type: 'category',
+      label: 'INTRODUCTION',
+      collapsed: false,
+      items: [
+        'getting-started',
+      ],
+    },
+    {
+      type: 'category',
       label: 'PRODUCT',
       collapsed: false,
       link: { type: 'doc', id: 'product' },
