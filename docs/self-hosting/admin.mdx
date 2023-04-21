@@ -11,14 +11,12 @@ Some setting configurations cannot be managed this way, and in particular,
 settings that determine how Karrio should behave at runtime must be set using Environment variables.
 Please review the Environment variables list for further details.
 
-
 ## Updating settings
 
 Settings can easily be updated from Karrio's admin console.
 When updating, settings are applied immediately and used across your entire instance.
 The settings updated here can be for advanced users and may have adverse consequences to your instance when not managed properly.
 Please review any warnings or additional information carefully that comes up when updating settings.
-
 
 ## Staff users
 
@@ -47,7 +45,6 @@ user.is_staff = True
 user.save()
 ```
 
-
 ## Configuring email
 
 Karrio's core relies on email messaging for certain functionality. For example:
@@ -64,7 +61,7 @@ that validate a myriad of factors before allowing an email through.
 Optimizing local servers for this is a bit like reinventing the wheel,
 so avoid this unless you have a very strong reason not to.
 
-### General configuration
+### Environment config
 
 To configure a remote email server, you will need to head over to Instance settings and set up the following parameters:
 
@@ -76,5 +73,11 @@ To configure a remote email server, you will need to head over to Instance setti
 - `EMAIL_FROM_ADDRESS`: Defaults to noreply@example.com. Email address that will appear as the sender in emails (From header).
 - `EMAIL_ENABLED`: Defaults to true. Whether email service is enabled or not.
 
+## Configuration data retention
 
-## Data retention
+You can setup karrio instance to automatically delete data after a certain period of time.
+
+- `ORDER_DATA_RETENTION` : Defaults to 183. Number of days to keep order data.
+- `TRACKER_DATA_RETENTION` : Defaults to 183. Number of days to keep tracker data.
+- `SHIPMENT_DATA_RETENTION` : Defaults to 183. Number of days to keep shipment data.
+- `API_LOGS_DATA_RETENTION` : Defaults to 92. Number of days to keep API logs and SDK tracing data.
