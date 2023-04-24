@@ -19,7 +19,8 @@ const sidebars = {
       label: 'INTRODUCTION',
       collapsed: false,
       items: [
-        'getting-started',
+        'quick-start',
+        'local-development',
       ],
     },
     {
