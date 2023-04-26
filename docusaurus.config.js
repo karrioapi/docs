@@ -103,6 +103,11 @@ const config = {
             label: 'Carriers',
           },
           {
+            href: 'https://karrio.io',
+            position: 'right',
+            label: 'Karrio.io',
+          },
+          {
             href: 'https://github.com/karrioapi/karrio',
             position: 'right',
             className: 'header-github-link',
