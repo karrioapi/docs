@@ -3,6 +3,8 @@ id: quick-start
 title: Quick Start
 ---
 
+import VideoWrapper from "@site/src/components/VideoWrapper";
+
 <div id="tailwind">
 
 <p className="my-3 text-slate-400 font-semibold">
@@ -27,15 +29,17 @@ title: Quick Start
 
 <br />
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/dFHZosJPaLI"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen
-></iframe>
+<VideoWrapper>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/dFHZosJPaLI"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</VideoWrapper>
 
 <br />
 <br />
