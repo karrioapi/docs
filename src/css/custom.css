@@ -15,6 +15,7 @@
   --ifm-color-primary-lighter: #6934dd;
   --ifm-color-primary-lightest: #8053e2;
   --ifm-code-font-size: 95%;
+  --ifm-footer-link-hover-color: #dee0f2;
 }
 
 html[data-theme="dark"] {
