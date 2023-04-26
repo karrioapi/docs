@@ -160,7 +160,7 @@ const config = {
             ],
           },
           {
-            title: 'Company',
+            title: 'More',
             items: [
               {
                 label: 'Blog',
@@ -176,12 +176,12 @@ const config = {
             title: 'About Us',
             items: [
               {
-                label: 'Karrio',
-                href: 'https://karrio.io',
-              },
-              {
                 label: 'Join our beta',
                 href: 'https://karrio.io/get-started',
+              },
+              {
+                label: 'FAQ',
+                href: 'https://karrio.io/get-started#FAQ',
               },
             ],
           },
