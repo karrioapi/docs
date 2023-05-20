@@ -2,3 +2,42 @@
 id: orders
 title: Orders
 ---
+
+import VideoWrapper from "@site/src/components/VideoWrapper";
+
+## Overview
+
+There are two ways of processing shipments in Karrio:
+
+- Direct label creation
+- Order fulfillment
+
+Karrio orders API is design a readonly API. Meaning that we consider your ERP, WMS or OMS as the source of truth for orders.
+You can use Karrio to process shipments for orders that are already in your system. All you need is to leverage Karrio's API
+to create orders based on your existing orders and use the webhook to get notified when the order fulfillment status changes.
+
+Here's a short demo of how to create and fulfil an order in Karrio:
+
+
+<div id="tailwind">
+
+<VideoWrapper>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/dFHZosJPaLI"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</VideoWrapper>
+
+<br />
+
+</div>
+
+## Create an order
+
+
+## Create a shipment for an order
