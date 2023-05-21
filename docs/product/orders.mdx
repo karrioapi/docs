@@ -20,14 +20,13 @@ to create orders based on your existing orders and use the webhook to get notifi
 
 Here's a short demo of how to create and fulfil an order in Karrio:
 
-
 <div id="tailwind">
 
 <VideoWrapper>
   <iframe
     width="560"
     height="315"
-    src=""
+    src="https://www.youtube.com/embed/HJ9tzaFIsF0"
     title="YouTube video player"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -434,10 +433,7 @@ Considering the following shopify order sample:
       }
     ]
   },
-  "payment_gateway_names": [
-    "authorize_net",
-    "Cash on Delivery (COD)"
-  ],
+  "payment_gateway_names": ["authorize_net", "Cash on Delivery (COD)"],
   "phone": "+557734881234",
   "presentment_currency": "CAD",
   "processed_at": "2008-01-10T11:00:00-05:00",
@@ -705,6 +701,5 @@ curl --request POST \
 </TabItem>
 </Tabs>
 </div>
-
 
 ## Create a shipment for an order
