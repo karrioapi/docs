@@ -721,6 +721,36 @@ Note that the event will only be sent when there is a data change
 </Tabs>
 </div>
 
+_Learn more about the supported tracking [statuses](/api#tag/Trackers/operation/$$$$$$retrieves)_
+
+```
+`pending` - pending
+`unknown` - unknown
+`delivered` - delivered
+`on_hold` - on_hold
+`in_transit` - in_transit
+`delivery_delayed` - delivery_delayed
+`out_for_delivery` - out_for_delivery
+`ready_for_pickup` - ready_for_pickup
+`delivery_failed` - delivery_failed
+```
+
+:::tip
+For more advanced use cases, you can access the carrier's events details and raw event code.
+
+```json
+...
+{
+  "code": "OD",
+  "date": "2023-05-25",
+  "description": "On FedEx vehicle for delivery",
+  "location": "LOUISVILLE, CO, 80027, US",
+  "time": "07:53"
+},
+...
+```
+:::
+
 
 ## Next steps
 
