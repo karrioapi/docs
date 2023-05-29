@@ -105,6 +105,7 @@ const sidebars = {
         'api/error-codes',
         'api/pagination',
         'api/metadata',
+        'api/connections',
         'api/shipments',
         'api/trackers',
         'api/addresses',
