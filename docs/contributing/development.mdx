@@ -28,7 +28,7 @@ git clone https://github.com/[YOUR_USERNAME]/karrio.git
 cd karrio
 ```
 
-### Installation using Python
+### Installation
 
 - Setup a Python environment with all dependencies:
 
@@ -45,6 +45,19 @@ or
 # activate environment
 source ./bin/activate-env
 ```
+
+- Install system dependencies:
+
+```terminal title="Terminal"
+./bin/install-binaries
+```
+
+:::info
+The `install-binaries` script will install the following binaries: `gcc`, `pango`, `libffi`, `ghostscript`
+
+They are required for the following Python packages: `weasyprint and treepoem` use by the document generation module
+for HTML to PDF document conversion and barcode generation.
+:::
 
 - Apply database migrations, collect static assets:
 
