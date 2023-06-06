@@ -33,31 +33,18 @@ cd karrio
 - Setup a Python environment with all dependencies:
 
 ```terminal title="Terminal"
-source ./bin/setup-server-env
+source ./bin/setup-server-env --light
 ```
 
 or
 
 ```terminal title="Terminal"
 # installation
-./bin/setup-server-env
+./bin/setup-server-env --light
 
 # activate environment
 source ./bin/activate-env
 ```
-
-- Install system dependencies:
-
-```terminal title="Terminal"
-./bin/install-binaries
-```
-
-:::info
-The `install-binaries` script will install the following binaries: `gcc`, `pango`, `libffi`, `ghostscript`
-
-They are required for the following Python packages: `weasyprint and treepoem` use by the document generation module
-for HTML to PDF document conversion and barcode generation.
-:::
 
 - Apply database migrations, collect static assets:
 
@@ -242,6 +229,31 @@ cd karrio
 karrio loaddata [BACKUP_LOCATION_PATH]/data[VERSION].json
 # e.g: karrio loaddata ../backup/data2022.10-1.json
 ```
+
+## Advanced setup
+
+- Developing with the document module component
+
+To work with Karrio's document module component, you will need to install some addional dependencies.
+Karrio's `karrio.server.document` module and its system dependencies.
+
+```terminal title="Terminal"
+# simply rerun the setup-server-env script without the --light flag
+source ./bin/setup-server-env
+
+# and OS dependencies binaries
+./bin/install-binaries
+
+# rerun the migration to create the document module tables
+karrio migrate
+```
+
+:::info
+The `install-binaries` script will install the following binaries: `gcc`, `pango`, `libffi`, `ghostscript`
+
+They are required for the following Python packages: `weasyprint and treepoem` used by the document generation
+feature for HTML to PDF document generation and barcode image rendering.
+:::
 
 ## Troubleshooting
 
