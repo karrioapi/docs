@@ -27,7 +27,7 @@
   {
     "name": "Canada Post",
     "href": "/carriers/integrations/canadapost",
-    "status": "certified",
+    "status": "production",
     "features": [
       "Rating",
       "Shipping",
@@ -59,7 +59,7 @@
   {
     "name": "DHL Express",
     "href": "/carriers/integrations/dhl-express",
-    "status": "certified",
+    "status": "production",
     "features": [
       "Rating",
       "Shipping",
@@ -70,7 +70,7 @@
   {
     "name": "DHL Poland",
     "href": "/carriers/integrations/dhl-poland",
-    "status": "certified",
+    "status": "production",
     "features": [
       "Rating",
       "Shipping",
@@ -80,7 +80,7 @@
   {
     "name": "DHL Universal",
     "href": "/carriers/integrations/dhl-universal",
-    "status": "certified",
+    "status": "production",
     "features": [
       "Tracking"
     ]
@@ -106,7 +106,7 @@
   {
     "name": "FedEx",
     "href": "/carriers/integrations/fedex",
-    "status": "certified",
+    "status": "production",
     "features": [
       "Rating",
       "Shipping",
@@ -153,7 +153,7 @@
   {
     "name": "UPS",
     "href": "/carriers/integrations/ups",
-    "status": "certified",
+    "status": "production",
     "features": [
       "Rating",
       "Shipping",
