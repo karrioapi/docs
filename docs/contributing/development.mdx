@@ -255,6 +255,41 @@ They are required for the following Python packages: `weasyprint and treepoem` u
 feature for HTML to PDF document generation and barcode image rendering.
 :::
 
+## Developing with docker
+
+You can use a docker development environment power by docker compose that comes with all the required dependencies installed for you.
+
+- Fork [karrio](https://github.com/karrioapi/karrio.git) on Github.
+
+- Clone the repository:
+
+```terminal title="Terminal"
+git clone https://github.com/[YOUR_USERNAME]/karrio.git
+cd karrio
+```
+
+- Setup and start karrio
+
+```terminal title="Terminal"
+docker compose up -d
+```
+
+Once ready, karrio should be up and running at localhost:5002
+
+:::info
+Developing with the docker environment simplifies the installation step.
+
+Any file changes will automatically reload the server.
+
+Once the docker compose environment is up, you can still use all the scripts using `docker exec`.
+
+e.g: `docker exec bash -c './bin/run-server-test'`
+
+e.g: `docker exec bash -c 'python -m unittest discover -v -f sdk/extensions/dhl_express/tests'`
+
+:::
+
+
 ## Troubleshooting
 
 Make sure Docker and Docker Compose work before attempting to run Karrio.
