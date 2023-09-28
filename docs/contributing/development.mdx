@@ -33,14 +33,14 @@ cd karrio
 - Setup a Python environment with all dependencies:
 
 ```terminal title="Terminal"
-source ./bin/setup-server-env --light
+source ./bin/setup-server-env
 ```
 
 or
 
 ```terminal title="Terminal"
 # installation
-./bin/setup-server-env --light
+./bin/setup-server-env
 
 # activate environment
 source ./bin/activate-env
@@ -268,27 +268,60 @@ git clone https://github.com/[YOUR_USERNAME]/karrio.git
 cd karrio
 ```
 
-- Setup and start karrio
+- Setup karrio
 
 ```terminal title="Terminal"
-docker compose up -d
+./bin/docker-env create
+```
+
+- Start karrio
+
+```terminal title="Terminal"
+./bin/docker-env exec './bin/start-server'
 ```
 
 Once ready, karrio should be up and running at localhost:5002
 
 :::info
 Developing with the docker environment simplifies the installation step.
+You can run the same helper scripts on the docker dev environment container.
 
-Any file changes will automatically reload the server.
+```terminal title="Terminal"
+./bin/docker-env
+```
 
-Once the docker compose environment is up, you can still use all the scripts using `docker exec`.
+```
+Help: You can pass any the following commands to the './bin/docker-env' scripts
+-----
+create     Create and setup docker dev environment.
+           ./bin/docker-env create
 
-e.g: `docker exec bash -c './bin/run-server-test'`
+destroy    Destroy docker dev environment.
+           ./bin/docker-env destroy
 
-e.g: `docker exec bash -c 'python -m unittest discover -v -f sdk/extensions/dhl_express/tests'`
+on:        Start docker dev environment.
+           ./bin/docker-env on
+
+off:       Stop docker dev environment.
+           ./bin/docker-env off
+
+shell:     Start docker dev environment shell.
+           ./bin/docker-env shell
+
+exec:      Execute command in docker dev environment.
+           ./bin/docker-env exec '<command>'
+
+
+# examples:
+
+# to run server tests.
+./bin/docker-env exec './bin/run-server-tests'
+
+# to run a carrier integration tests.
+./bin/docker-env exec 'python -m unittest discover -v -f sdk/extensions/dhl_express/tests'
+```
 
 :::
-
 
 ## Troubleshooting
 
