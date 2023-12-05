@@ -167,16 +167,16 @@ _This will create and activate an isolated Python environment with the dev depen
 
 ```terminal title="Terminal"
 cd karrio
-# pip install -e sdk/extensions/[carrier_extension]
-pip install -e sdk/extensions/fedex
+# pip install -e modules/connectors/[carrier_extension]
+pip install -e modules/connectors/fedex
 ```
 
 - Running tests for a single extension
 
 ```terminal title="Terminal"
 cd karrio
-# python -m unittest discover -v -f sdk/extensions/[carrier_extension]/tests
-python -m unittest discover -v -f sdk/extensions/fedex/tests
+# python -m unittest discover -v -f modules/connectors/[carrier_extension]/tests
+python -m unittest discover -v -f modules/connectors/fedex/tests
 ```
 
 ### Working on karrio server
@@ -318,7 +318,7 @@ exec:      Execute command in docker dev environment.
 ./bin/docker-env exec './bin/run-server-tests'
 
 # to run a carrier integration tests.
-./bin/docker-env exec 'python -m unittest discover -v -f sdk/extensions/dhl_express/tests'
+./bin/docker-env exec 'python -m unittest discover -v -f modules/connectors/dhl_express/tests'
 ```
 
 :::

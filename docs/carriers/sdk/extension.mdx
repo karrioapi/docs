@@ -53,7 +53,7 @@ Version [2023.1]:                       # The extension initial version
 Is XML API? [y/n]:                      # Specify whether the carrier' API data format is XML. (n - for JSON APIs)
 ```
 
-This command will create a karrio compatible extension folder under `sdk/extensions/[carrier_name]`
+This command will create a karrio compatible extension folder under `modules/connectors/[carrier_name]`
 with all the boilerplate code required for your integration.
 From there, all you have to do is implement the API data mapping from and to karrio unified interface and add API contract tests
 to ensure that karrio generates the right requests for your API.
@@ -79,7 +79,7 @@ Please check the [canadapost schema package](https://github.com/karrioapi/karrio
 
 Karrio uses a fork of `quicktype` to generate Python dataclasses from the `jstruct` library to turn JSON request and response
 samples.
-Please check the [amazon_mws schema scripting](https://github.com/karrioapi/karrio/blob/main/sdk/extensions/amazon_mws/generate.sh) as an example.
+Please check the [amazon_mws schema scripting](https://github.com/karrioapi/karrio/blob/main/modules/connectors/amazon_mws/generate.sh) as an example.
 
 
 :::info
