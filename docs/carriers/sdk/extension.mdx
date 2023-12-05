@@ -38,7 +38,7 @@ The package naming convention for extensions is `karrio.[carrier_name]`
 
 #### 1. Create a karrio extension package
 
-Once you have [karrio installed for development](/development/setup) on your machine,
+Once you have [karrio installed for development](/contributing/development) on your machine,
 You can run the following command to scafold a karrio extension for you carrier.
 
 ```terminal
@@ -75,7 +75,7 @@ the datatypes available and makes maintenance easy.
 - Generate Python datatypes for an XML/SOAP API
 
 Karrio uses the `generateDS` project cli to turn XML files and XML schemas from SOAP webservices into Python classes.
-Please check the [canadapost schema package](https://github.com/karrioapi/karrio/blob/main/schemas/canadapost/generate.sh) as an example.
+Please check the [canadapost schema package](https://github.com/karrioapi/karrio/blob/main/modules/connectors/canadapost/generate) as an example.
 
 > generateDS is installed along with karrio' dev dependencies. So it should already be available.
 
@@ -83,7 +83,7 @@ Please check the [canadapost schema package](https://github.com/karrioapi/karrio
 
 Karrio uses a fork of `quicktype` to generate Python dataclasses from the `jstruct` library to turn JSON request and response
 samples.
-Please check the [amazon_mws schema scripting](https://github.com/karrioapi/karrio/blob/main/modules/connectors/amazon_mws/generate.sh) as an example.
+Please check the [amazon_mws schema scripting](https://github.com/karrioapi/karrio/blob/main/modules/connectors/amazon_shipping/generate) as an example.
 
 
 :::info
@@ -342,11 +342,6 @@ are used to generate Python data types based of the schema format definition.
 
 - For `XML` and `SOAP` services, [generateDs](https://pypi.org/project/generateDS/) is used to generate `.xsd` files
   into Python data types
-
-:::info
-Check the [generate.sh](https://github.com/karrio/karrio/blob/main/schemas/) file
-to see how genereDs is used.
-:::
 
 - For `JSON` services, [quicktype](https://github.com/karrio/quicktype) is used to generate `.json` files
   into Python data types. We then use [jstruct](https://github.com/karrio/jstruct) as a replacement
