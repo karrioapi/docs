@@ -230,8 +230,8 @@ docker-compose -f docker/docker-compose.yml up -d db
 
 ```terminal title="Terminal"
 cd karrio
-karrio dumpdata -e contenttypes -o [BACKUP_LOCATION_PATH]/data[VERSION].json
-# e.g: karrio dumpdata -e contenttypes -o ../backup/data2022.10-3.json
+karrio dumpdata --natural-foreign --natural-primary -o [BACKUP_LOCATION_PATH]/data[VERSION].json
+# e.g: karrio dumpdata --natural-foreign --natural-primary -o ../backup/data2024.1.json
 ```
 
 ### Load dev data
@@ -239,7 +239,7 @@ karrio dumpdata -e contenttypes -o [BACKUP_LOCATION_PATH]/data[VERSION].json
 ```terminal title="Terminal"
 cd karrio
 karrio loaddata [BACKUP_LOCATION_PATH]/data[VERSION].json
-# e.g: karrio loaddata ../backup/data2022.10-1.json
+# e.g: karrio loaddata ../backup/data2024.1.json
 ```
 
 ## Developing with docker
