@@ -144,16 +144,16 @@ import karrio.providers.[carrier_name].units as units
 METADATA = Metadata(
     id="[carrier_name]",  # e.g: "ddp_uk"
     label="[Carrier Name]",  # e.g: "DDP UK"
-
+    
     # Integrations
     Mapper=Mapper,
     Proxy=Proxy,
     Settings=Settings,
 
     # Data Units (Optional...)
-    options=units.OptionCode,  # Enum of Shipping options supported by the carrier
+    options=units.ShippingOption,  # Enum of Shipping options supported by the carrier
     package_presets=units.PackagePresets, # Enum of parcel presets/templates
-    services=units.ServiceType,  # Enum of Shipping services supported by the carrier
+    services=units.ShippingService,  # Enum of Shipping services supported by the carrier
 
     is_hub=False # True if the carrier is a hub like (EasyPost, Shippo, Postmen...)
 )
@@ -165,6 +165,8 @@ The carrier extension package folder structure looks like this
 
 ```text
 extensions/[carrier_name]/
+├── setup.py
+├── generate
 ├── karrio
 │   ├── mappers
 │   │   └── [carrier_name]
@@ -172,25 +174,30 @@ extensions/[carrier_name]/
 │   │       ├── mapper.py
 │   │       ├── proxy.py
 │   │       └── settings.py
-│   └── providers
+│   ├── providers
+│   │   └── [carrier_name]
+│   │       ├── __init__.py
+│   │       ├── address.py
+│   │       ├── error.py
+│   │       ├── pickup
+│   │       │   ├── __init__.py
+│   │       │   ├── cancel.py
+│   │       │   ├── create.py
+│   │       │   └── update.py
+│   │       ├── rate.py
+│   │       ├── shipment
+│   │       │   ├── __init__.py
+│   │       │   ├── cancel.py
+│   │       │   └── create.py
+│   │       ├── tracking.py
+│   |       ├── units.py
+│   |       └── utils.py
+│   └── schemas
 │       └── [carrier_name]
-│           ├── __init__.py
-│           ├── address.py
-│           ├── error.py
-│           ├── pickup
-│           │   ├── __init__.py
-│           │   ├── cancel.py
-│           │   ├── create.py
-│           │   └── update.py
-│           ├── rate.py
-│           ├── shipment
-│           │   ├── __init__.py
-│           │   ├── cancel.py
-│           │   └── create.py
-│           ├── tracking.py
-│           ├── units.py
-│           └── utils.py
-└── setup.py
+│           ├── error_response.py
+│           └── ....
+└── schemas
+    └── error_response.json
 ```
 
 :::info
