@@ -1,3 +1,6 @@
+__This repository has been archived but the karrio docs have been moved to a monorepo https://github.com/karrioapi/karrio__ 
+
+
 # Karrio docs
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c811d9e3-b88f-4124-aa21-daeb8233c412/deploy-status)](https://app.netlify.com/sites/karrio-docs/deploys)
